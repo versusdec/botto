@@ -1,0 +1,127 @@
+<div class="integration_popup" data-id="{{id}}" handler="controllers/settings/edit/integrations/handler">
+    <header>
+        <h2>{{#i18n}}settings.type.integrations{{/i18n}}</h2>
+        <ul class="tabs">
+            <li class="active">
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'common', btn: this})">{{#i18n}}edit.common{{/i18n}}</a>
+            </li>
+            <li>
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'headers', btn: this})">Headers</a>
+            </li>
+            <li class="params_tab {{#if integration.settings.type 'raw'}}hide{{/if}}">
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'params', btn: this})">Params</a>
+            </li>
+            <li class="body_tab {{#unless integration.settings.type 'raw'}}hide{{/unless}}">
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'body', btn: this})">Body</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="block" id="common">
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name"
+               onchange="___mc.events.push('settings.integrations.name.change', this.value)"
+               required value="{{integration.name}}" class="col-1-1">
+
+        <label>{{#i18n}}table.type{{/i18n}}</label>
+        {{#select classlist='col-1-1' value=integration.type options=integration_options onchange='settings.integrations.type.change'}}{{/select}}
+
+        <label>{{#i18n}}settings.integrations.method{{/i18n}}</label>
+        {{#select classlist='col-1-1' value=integration.settings.method options=method_options onchange='settings.integrations.settings.method.change'}}{{/select}}
+
+        <div id="method" class="{{#unless integration.settings.method 'POST'}}hide{{/unless}}">
+            <label>{{#i18n}}settings.integrations.type{{/i18n}}</label>
+            {{#select classlist='col-1-1' value=integration.settings.type options=type_options onchange='settings.integrations.settings.type.change'}}{{/select}}
+        </div>
+
+        <label>URL</label>
+        <input type="text" name="url"
+               onchange="___mc.events.push('settings.integrations.settings.url.change', this.value)"
+               value="{{integration.settings.url}}" class="col-1-1">
+
+        <label style="display:flex;align-items: center;gap:10px">
+            <input type="checkbox" id="records" class="default" {{#if integration.settings.auth_basic}}checked{{/if}}
+                   name="records"
+                   onchange="___mc.events.push('settings.integrations.settings.auth_basic.change', this.checked)">
+            Auth basic
+        </label>
+
+        <div id="auth" class="{{#unless integration.settings.auth_basic}}hide{{/unless}}">
+            <label>{{#i18n}}auth.login{{/i18n}}</label>
+            <input type="text" name="login"
+                   onchange="___mc.events.push('settings.integrations.settings.login.change', this.value)"
+                   value="{{integration.settings.login}}" class="col-1-1">
+
+            <label>{{#i18n}}auth.password{{/i18n}}</label>
+            <input type="text" name="password"
+                   onchange="___mc.events.push('settings.integrations.settings.password.change', this.value)"
+                   value="{{integration.settings.password}}" class="col-1-1">
+        </div>
+    </div>
+
+    <div id="headers" class="block hide">
+        <div style="display:flex;align-items: center;justify-content: space-between;">
+            <h3>Headers</h3>
+            <a class="btn" title="{{#i18n}}button.add{{/i18n}}"
+               onclick="___mc.events.push('settings.integrations.settings.params.add', 'headers')"
+               style="margin-left: 20px;">{{#i18n}}button.add{{/i18n}}</a>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}settings.integrations.value{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#if integration.settings.headers}}
+                    {{#each integration.settings.headers}}
+                        {{> settings/edit/params}}
+                    {{/each}}
+                {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="params" class="block hide">
+        <div style="display:flex;align-items: center;justify-content: space-between;">
+            <h3>Params</h3>
+            <a class="btn" title="{{#i18n}}button.add{{/i18n}}"
+               onclick="___mc.events.push('settings.integrations.settings.params.add', 'params')"
+               style="margin-left: 20px;">{{#i18n}}button.add{{/i18n}}</a>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}settings.integrations.value{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#if integration.settings.params}}
+                    {{#each integration.settings.params}}
+                        {{> settings/edit/params}}
+                    {{/each}}
+                {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="body" class="block hide">
+<!--        <h3>Body</h3>-->
+        <label for="body_text">Body</label>
+        <textarea name="body" id="body_text" onchange="___mc.events.push('settings.integrations.settings.body.change', this.value)">{{integration.settings.body}}</textarea>
+    </div>
+
+    <footer>
+        <button onclick="___mc.events.push('settings.integrations.save',
+          {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                title="{{#i18n}}button.save{{/i18n}}">{{#i18n}}button.save{{/i18n}}</button>
+    </footer>
+</div>

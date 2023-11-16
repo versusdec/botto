@@ -1,0 +1,14 @@
+<tr data-id="{{#if id}}{{id}}{{/if}}{{#if tempID}}{{tempID}}{{/if}}">
+  <td>{{id}}</td>
+  <td>{{email}}</td>
+  <td>
+    <a onclick="___mc.events.push('projects.users.edit',
+      {btn: this{{#if id}}, id: {{id}}{{/if}}{{#if tempID}}, tempID: '{{tempID}}' {{/if}} }
+      )" class="mdi mdi-file-edit-outline"
+       title="{{#i18n}}button.change{{/i18n}}"></a>
+    <a class="mdi mdi-close" title="{{#i18n}}button.delete{{/i18n}}"
+       onclick="___mc.events.push('projects.users.remove',
+         {btn: this{{#if id}}, id: {{id}}{{/if}}{{#if tempID}}, tempID: '{{tempID}}' {{/if}} }
+       )"></a>
+  </td>
+</tr>

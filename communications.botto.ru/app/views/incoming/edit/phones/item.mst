@@ -1,0 +1,8 @@
+<tr>
+    <td
+      title="{{#i18n}}mailings.common.phone{{/i18n}}">{{#if phone}}{{phone|phone}}{{/if}}{{#unless phone}}{{.|phone}}{{/unless}}</td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="link mdi mdi-trash-can-outline"
+           onclick="___mc.events.push('mailings.phone.remove', {btn: this, phone: '{{#if phone}}{{phone}}{{/if}}{{#unless phone}}{{.}}{{/unless}}' })"></a>
+    </td>
+</tr>

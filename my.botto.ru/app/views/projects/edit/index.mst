@@ -1,0 +1,78 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/projects/list"></a>{{title}}</h1>
+<ul class="tabs">
+    <li class="active">
+        <a href="#tab=about">
+            {{#i18n}}projects.edit.tabs.about.title{{/i18n}}
+        </a>
+    </li>
+    <li{{#if id 'new'}} class="disabled"{{/if}}>
+        <a href="#tab=applications">
+            {{#i18n}}projects.edit.tabs.apps.title{{/i18n}}
+        </a>
+    </li>
+</ul>
+<hr>
+<div class="block" id="about" data-project_id="{{id}}">
+    <header>
+        <h2>{{#i18n}}projects.edit.tabs.about.title{{/i18n}}</h2>
+    </header>
+    <label>{{#i18n}}table.name{{/i18n}}</label>
+    <input type="text" name="name" value="{{project.name}}" onchange="___mc.events.push('project.name.change', this.value)">
+
+    <label>{{#i18n}}table.description{{/i18n}}</label>
+    <textarea name="description" onchange="___mc.events.push('project.desc.change', this.value)">{{project.description}}</textarea>
+
+    <footer class="buttons-wrapper">
+        {{#if shared}}shared{{/if}}
+        <a href="/projects/list" class="btn secondary">{{#i18n}}button.cancel{{/i18n}}</a>
+        {{#unless id 'new'}}
+            <button type="button" onclick="___mc.events.push('projects.update', this)">{{#i18n}}button.save{{/i18n}}</button>
+        {{/unless}}
+        {{#if id 'new'}}
+            <button type="button" data-next>{{#i18n}}button.next{{/i18n}}</button>
+        {{/if}}
+    </footer>
+</div>
+
+<div class="block hide" id="applications">
+    <header>
+        <h2>{{#i18n}}projects.edit.tabs.apps.title{{/i18n}}</h2>
+    </header>
+    <p>{{#i18n}}projects.edit.tabs.apps.description{{/i18n}}</p>
+
+    <div class="row">
+        {{#each apps}}
+            <div class="platform">
+                <img src="/img/logo-sm-dark.svg" alt="" class="">
+                <h4>{{name}}</h4>
+                <p>{{description}}</p>
+                {{#if available}}
+                    {{#if connected}}
+                        <button data-application="{{name}}" class="secondary" data-status="{{connected}}">{{#i18n}}button.disconnect{{/i18n}}</button>
+                    {{/if}}
+                    {{#unless connected}}
+                        <button data-application="{{name}}" data-status="connect">{{#i18n}}button.connect{{/i18n}}</button>
+                    {{/unless}}
+                {{/if}}
+
+                {{#unless available}}
+                    <button data-application="{{name}}" disabled>{{#i18n}}system.soon{{/i18n}}</button>
+                {{/unless}}
+            </div>
+        {{/each}}
+    </div>
+
+    <footer class="buttons-wrapper">
+        <a onclick="___mc.events.push('projects.settings.popup')" class="btn secondary">{{#i18n}}button.additional{{/i18n}}</a>
+        <a href="/projects/list" class="btn secondary">{{#i18n}}button.cancel{{/i18n}}</a>
+
+        {{#unless id 'new'}}
+            <button type="button" onclick="___mc.events.push('projects.update', this)">{{#i18n}}button.save{{/i18n}}</button>
+        {{/unless}}
+        {{#if id 'new'}}
+            <button type="button" onclick="___mc.events.push('projects.create', this)">{{#i18n}}button.save{{/i18n}}</button>
+        {{/if}}
+    </footer>
+</div>
+
+

@@ -1,0 +1,11 @@
+*[data-sortable-item] {
+    cursor: move;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+*[data-sortable-item].dragging {
+    opacity: .5;
+}

@@ -1,0 +1,16 @@
+<header>
+  <h2>Заказать выплату</h2>
+</header>
+<div>
+  <h2>Ваш баланс</h2>
+  <div class="wallet">
+    <div class="balance">{{user.balance}} ₽</div>
+  </div>
+  <div class="withdraw-form">
+    <input type="text" name="amount" placeholder="Введите сумму">
+
+    {{#select options=data.options value=data.type onchange=data.type_change}}{{/select}}
+
+    <button onclick="___mc.events.push('partners.payments.withdraw')">Снять</button>
+  </div>
+</div>

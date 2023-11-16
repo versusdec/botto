@@ -1,0 +1,5 @@
+<main id="login" class="">
+    <article data-content-holder>
+        {{{content}}}
+    </article>
+</main>

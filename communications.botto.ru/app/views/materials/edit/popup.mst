@@ -1,0 +1,20 @@
+<div style="display:flex;flex-direction: column; height: 100%;">
+    <header>
+        <h2>{{#i18n}}materials.create{{/i18n}}</h2>
+    </header>
+    <div style="flex-grow: 1;display:flex;flex-direction: column;align-items: center;justify-content: center;">
+        <div>
+            <h3 class="text-center">{{#i18n}}materials.type.choose{{/i18n}}</h3>
+            <div class="row">
+                <a href="/{{"project_id"|global}}/materials/edit/audio/new/" class="btn">{{#i18n}}materials.type.audio{{/i18n}}</a>
+                <a href="/{{"project_id"|global}}/materials/edit/text/new/" class="btn">{{#i18n}}materials.type.text{{/i18n}}</a>
+                <a href="/{{"project_id"|global}}/materials/edit/link/new/" class="btn">{{#i18n}}materials.type.link{{/i18n}}</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <button type="button" onclick="$(this).closest('.popup-wrapper').remove()">
+            {{#i18n}}button.close{{/i18n}}
+        </button>
+    </footer>
+</div>

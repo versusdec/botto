@@ -1,0 +1,30 @@
+{{#lang}}{{/lang}}
+<img src onerror="$('#login').addClass('not_auth')">
+<header>
+    <h1>{{#i18n}}auth.title{{/i18n}}</h1>
+    <div class="error invisible"> {{#i18n}}auth.error{{/i18n}} </div>
+</header>
+<label>{{#i18n}}auth.login{{/i18n}}:</label>
+<span class="mdi mdi-email-outline">
+    <input type="text" name="login">
+</span>
+
+<label>{{#i18n}}auth.password{{/i18n}}:</label>
+<span class="mdi mdi-lock-outline password">
+    <input type="password" name="password" onkeyup="">
+    <a class="mdi mdi-eye link toggle" onclick="___mc.events.push('password.preview.toggle', this)"></a>
+</span>
+
+<a href="/recover">{{#i18n}}forgot.title{{/i18n}}?</a>
+<br>
+<button class="login" onclick="___mc.events.push('login', this)">{{#i18n}}button.login{{/i18n}}</button>
+<p>{{#i18n}}auth.login_with{{/i18n}}:
+    <button class="social vk" onclick="___mc.events.push('login.vk')">{{#i18n}}auth.login_via{{/i18n}} <img
+      src="/img/icons/vk-white.svg" alt=""></button>
+</p>
+
+<p>{{#i18n}}auth.no_account{{/i18n}}? <a href="/registration">{{#i18n}}auth.registration{{/i18n}}</a></p>
+
+<p>{{#i18n}}auth.problems{{/i18n}}? <a href="mailto:support@botto.ru">{{#i18n}}support.title{{/i18n}}</a></p>
+
+<div class="copy">© 2021 Botto Platform. {{#i18n}}footer.copyrights{{/i18n}}</div>

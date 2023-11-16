@@ -1,0 +1,34 @@
+<div class="block " handler="controllers/billing/transactions/handler">
+  <header class="head flex wrap">
+    <h2>{{#i18n}}billing.transactions.title{{/i18n}}</h2>
+  </header>
+  {{#pagination}}{{/pagination}}
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>{{#i18n}}table.date{{/i18n}}</th>
+        <th>{{#i18n}}table.total{{/i18n}}</th>
+        <th>{{#i18n}}table.comment{{/i18n}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="4">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {{#pagination}}{{/pagination}}
+</div>
+
+
+

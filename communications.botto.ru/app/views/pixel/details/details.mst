@@ -1,0 +1,99 @@
+<div class="block">
+    <header>
+        <h2>{{#i18n}}detailing.calls.details.title{{/i18n}}</h2>
+    </header>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{#i18n}}table.date{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.phone{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.lead{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.bl{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.amd{{/i18n}}</th>
+                <th style="text-align: left">{{#i18n}}table.status{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td title="ID">{{id}}</td>
+                <td title="{{#i18n}}table.date{{/i18n}}">{{created}}</td>
+                <td title="{{#i18n}}mailings.analytics.calls.phone{{/i18n}}">
+                    {{phone|phone}}
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.lead{{/i18n}}">
+                    <input type="checkbox" class="default" {{#if lead}}checked{{/if}} disabled style="opacity: 1">
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.bl{{/i18n}}">
+                    <input type="checkbox" class="default" {{#if blacklisted}}checked{{/if}} disabled style="opacity: 1">
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.amd{{/i18n}}">
+                    <input type="checkbox" class="default" {{#if amd}}checked{{/if}} disabled style="opacity: 1">
+                </td>
+                <td style="text-align: left">
+                    {{status|status}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}mailings.analytics.calls.direction{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.answered_time{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.ended{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.duration{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.cost{{/i18n}}</th>
+                <th style="text-align: left">{{#i18n}}mailings.analytics.calls.record{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    {{#i18n}}mailings.analytics.calls.{{direction}}{{/i18n}}
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.answered_time{{/i18n}}">
+                    {{#if status 'success'}}
+                                {{answered}}
+                            {{/if}}
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.ended{{/i18n}}">
+                    {{ended}}
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.duration{{/i18n}}">
+                    {{billsec}} {{#i18n}}mailings.analytics.calls.time_measure{{/i18n}}
+                </td>
+                <td title="{{#i18n}}mailings.analytics.calls.cost{{/i18n}}">{{amount}}
+                            {{#i18n}}mailings.analytics.calls.currency{{/i18n}}</td>
+                <td title="{{#i18n}}mailings.analytics.calls.record{{/i18n}}">
+                    {{#if record}}
+                               {{#player file=file}}{{/player}}
+                            {{/if}}
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{{#if ivr}}
+<div class="block">
+    <header>
+        <h2>{{#i18n}}ivr.nodes.actions.title{{/i18n}}</h2>
+    </header>
+    <div class="columns" id="ivr_wrapper">
+        <div class="" id="ivr_scheme">
+            <ul class="nodes ivr_history" style="flex-flow: row;margin-top: 0;">
+                {{#if ivr}}
+                    {{#each ivr}}
+                        {{> detailing/calls/node}}
+                    {{/each}}
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</div>
+{{/if}}

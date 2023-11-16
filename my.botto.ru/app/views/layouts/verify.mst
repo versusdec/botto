@@ -1,0 +1,10 @@
+<main>
+  <div class="super-center">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</main>

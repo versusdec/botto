@@ -1,0 +1,847 @@
+<div class="block hide" id="notifications">
+  <header>
+    <h2>
+      {{#i18n}}profile.notifications.title{{/i18n}}
+    </h2>
+  </header>
+  <div class="table align-center">
+    <table>
+      <tr>
+        <th>{{#i18n}}profile.notifications.event{{/i18n}}</th>
+        <th><a title="{{#i18n}}button.check_all{{/i18n}}"
+               onclick="___mc.events.push('notifications.check.all', {btn: this, type: 'push'})"
+               class="link">Push </a></th>
+        <th><a title="{{#i18n}}button.check_all{{/i18n}}"
+               onclick="___mc.events.push('notifications.check.all', {btn: this, type: 'email'})"
+               class="link">E-mail </a></th>
+        {{#if user.telegram}}
+          <th>
+            <span><a title="{{#i18n}}button.check_all{{/i18n}}"
+                     onclick="___mc.events.push('notifications.check.all', {btn: this, type:'telegram'})" class="link">Telegram</a></span>
+          </th>
+        {{/if}}
+        {{#if user.phone}}
+          <th><a title="{{#i18n}}button.check_all{{/i18n}}"
+                 onclick="___mc.events.push('notifications.check.all', {btn: this, type: 'sms'})" class="link">SMS</a>
+          </th>
+        {{/if}}
+      </tr>
+      <tr data-event="project_create">
+        <td>
+          {{#i18n}}profile.notifications.events.project_created{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'project_create'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'project_create'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'project_create'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'project_create'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="project_update">
+        <td>
+          {{#i18n}}profile.notifications.events.project_edited{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'project_update'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'project_update'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'project_update'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'project_update'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="mailing_create">
+        <td>
+          {{#i18n}}profile.notifications.events.mailing_created{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_create'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_create'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_create'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'meiling_create'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="mailing_decline">
+        <td>
+          {{#i18n}}profile.notifications.events.mailing_declined{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_decline'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_decline'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_decline'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_decline'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="mailing_accept">
+        <td>
+          {{#i18n}}profile.notifications.events.mailing_accepted{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_accept'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_accept'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_accept'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_accept'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="mailing_start">
+        <td>
+          {{#i18n}}profile.notifications.events.mailing_start{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_start'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_start'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_start'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_start'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="mailing_pause">
+        <td>
+          {{#i18n}}profile.notifications.events.mailing_pause{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_pause'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_pause'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_pause'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_pause'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="mailing_archive">
+        <td>
+          {{#i18n}}profile.notifications.events.mailing_archived{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_archive'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'mailing_archive'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_archive'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'mailing_archive'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="base_create">
+        <td>
+          {{#i18n}}profile.notifications.events.base_created{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'base_create'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'base_create'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'base_create'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'base_create'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="base_update">
+        <td>
+          {{#i18n}}profile.notifications.events.base_edited{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'base_update'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'base_update'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'base_update'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'base_update'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="base_export">
+        <td>
+          {{#i18n}}profile.notifications.events.base_export{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'base_export'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'base_export'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'base_export'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'base_export'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="transaction_new">
+        <td>
+          {{#i18n}}profile.notifications.events.transactions{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'transaction_new'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'transaction_new'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'transaction_new'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'transaction_new'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+      <tr data-event="ticket_answer">
+        <td>
+          {{#i18n}}profile.notifications.events.ticket_answer{{/i18n}}
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'ticket_answer'}}
+                {{#each destinations}}
+                  {{#if . 'push'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="push" class="btn">
+        </td>
+        <td>
+          <input type="checkbox"
+            {{#each user.notifications}}
+              {{#if event 'ticket_answer'}}
+                {{#each destinations}}
+                  {{#if . 'email'}}
+                 checked
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each}}
+                 data-destination="email" class="btn">
+        </td>
+        {{#if user.telegram}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'ticket_answer'}}
+                  {{#each destinations}}
+                    {{#if . 'telegram'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="telegram" class="btn">
+          </td>
+        {{/if}}
+        {{#if user.phone}}
+          <td>
+            <input type="checkbox"
+              {{#each user.notifications}}
+                {{#if event 'ticket_answer'}}
+                  {{#each destinations}}
+                    {{#if . 'sms'}}
+                   checked
+                    {{/if}}
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+                   data-destination="sms" class="btn">
+          </td>
+        {{/if}}
+      </tr>
+
+    </table>
+  </div>
+  <h3>{{#i18n}}profile.notifications.connect{{/i18n}}</h3>
+  <div class="row">
+    <div class="notify-item">
+      <h4>telegram</h4>
+      <div class="btn secondary" onclick="___mc.events.push('notifications.connect', 'telegram')">
+        {{#i18n}}button.connect{{/i18n}}
+      </div>
+    </div>
+    <div class="notify-item">
+      <h4>PUSH</h4>
+      <div class="btn {{#unless pushAvailable}}disabled{{/unless}}"
+        {{#if pushAvailable }}
+           onclick="___mc.events.push('notifications.connect', 'push')"
+        {{/if}}>
+        {{#if pushEnabled }}{{#i18n}}button.disconnect{{/i18n}}{{/if}}
+        {{#unless pushEnabled }}{{#i18n}}button.connect{{/i18n}}{{/unless}}
+      </div>
+    </div>
+  </div>
+  <footer>
+    <button type="submit">{{#i18n}}button.save{{/i18n}}</button>
+  </footer>
+</div>

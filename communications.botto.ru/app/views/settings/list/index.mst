@@ -1,0 +1,79 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline"
+       href="/{{"project_id"|global}}/"></a>{{#i18n}}settings.title{{/i18n}}</h1>
+<ul class="tabs {{#unless type 'integrations'}}hide{{/unless}}">
+    <li class="{{#if tab 'active'}}active{{/if}}">
+        <a href="/{{"project_id"|global}}/settings/active/{{type}}/">{{#i18n}}settings.tabs.available{{/i18n}}</a>
+    </li>
+    <li{{#if tab 'archived'}} class="active"{{/if}}>
+        <a href="/{{"project_id"|global}}/settings/archived/{{type}}/">{{#i18n}}settings.tabs.archived{{/i18n}}</a>
+    </li>
+</ul>
+<hr>
+<div class="block" handler="controllers/settings/list/handler" data-tab="{{tab}}" data-type="{{type}}">
+    <header>
+        {{#if tab 'active'}}
+            <h2>{{#i18n}}settings.tabs.available{{/i18n}}</h2>
+        {{/if}}
+        {{#if tab 'archived'}}
+            <h2>{{#i18n}}settings.tabs.archived{{/i18n}}</h2>
+        {{/if}}
+        <ul class="tabs">
+            <li class="{{#if type 'fields'}}active{{/if}}">
+                <a href="/{{"project_id"|global}}/settings/active/fields/">{{#i18n}}settings.type.fields{{/i18n}}</a>
+            </li>
+            <li class="{{#if type 'tags'}}active{{/if}}">
+                <a href="/{{"project_id"|global}}/settings/active/tags/">{{#i18n}}settings.type.tags{{/i18n}}</a>
+            </li>
+            <li class="{{#if type 'integrations'}}active{{/if}} ">
+                <a href="/{{"project_id"|global}}/settings/{{tab}}/integrations/">{{#i18n}}
+                    settings.type.integrations{{/i18n}}</a>
+            </li>
+        </ul>
+        {{#unless type 'IN' 'integrations' 'tags'}}
+            <a onclick="___mc.events.push('settings.fields.edit', {type: '{{type}}', id: 'new'})" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+        {{/unless}}
+        {{#if type 'integrations'}}
+            <a onclick="___mc.events.push('settings.fields.edit', {type: '{{type}}', id: 'new'})" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+        {{/if}}
+    </header>
+    {{#pagination}}{{/pagination}}
+    {{#unless type 'tags'}}
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}table.type{{/i18n}}</th>
+                    <th>{{#i18n}}table.status{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="6">
+                        <div class="loader">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    {{/unless}}
+    {{#if type 'tags'}}
+        <div id="tags" handler="controllers/settings/edit/tags/handler" data-tab="{{tab}}" data-type="{{type}}">
+            <div class="columns">
+                <input type="text" name="tag">
+                <button class="secondary" onclick="___mc.events.push('settings.tags.create', this)">
+                    {{#i18n}}button.add{{/i18n}}
+                </button>
+            </div>
+            <br>
+            <div id="list" class="tags row">
+                <div class="loader" style="width: 100%;"><span></span><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    {{/if}}
+    {{#pagination}}{{/pagination}}
+</div>

@@ -1,0 +1,20 @@
+<tr>
+  <td title="ID" style="width: 100px;">{{id}}</td>
+  <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+  <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+  <td>
+    <a class="link mdi mdi-file-edit-outline" href="/{{"project_id"|global}}/scenarios/edit/{{id}}/"
+       title="{{#i18n}}actions.edit{{/i18n}}"></a>
+    {{#unless status 'archive'}}
+      <a class="link mdi mdi-archive-arrow-down-outline"
+         onclick="___mc.events.push('scenarios.archive', {{id}})"
+         title="{{#i18n}}actions.archive{{/i18n}}"></a>
+    {{/unless}}
+    {{#if status 'archive'}}
+      <a class="link mdi mdi-archive-arrow-down-outline"
+         onclick="___mc.events.push('scenarios.unarchive', {{id}})"
+         title="{{#i18n}}actions.archive{{/i18n}}"></a>
+    {{/if}}
+
+  </td>
+</tr>

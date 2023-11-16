@@ -1,0 +1,37 @@
+<header >
+  <h2>{{#i18n}}projects.edit.tabs.users.description{{/i18n}}</h2>
+</header>
+
+{{#each grants}}
+  <h3 style="text-transform: capitalize">{{#each .}}{{title}}{{/each}}</h3>
+  <table data-app="{{#each .}}{{title}}{{/each}}">
+    <thead>
+    <tr>
+      <th title="{{#i18n}}projects.grants.section.title{{/i18n}}">{{#i18n}}projects.grants.section.title{{/i18n}}</th>
+      <td title="{{#i18n}}projects.grants.section.access{{/i18n}}" style="width: 150px;text-align: center">{{#i18n}}projects.grants.section.access{{/i18n}}</td>
+      <td title="{{#i18n}}projects.grants.section.create{{/i18n}}" style="width: 150px;text-align: center">{{#i18n}}projects.grants.section.create{{/i18n}}</td>
+      <td title="{{#i18n}}projects.grants.section.edit{{/i18n}}" style="width: 150px;text-align: center">{{#i18n}}projects.grants.section.edit{{/i18n}}</td>
+      <td title="{{#i18n}}projects.grants.section.archive{{/i18n}}" style="width: 150px;text-align: center">{{#i18n}}projects.grants.section.archive{{/i18n}}</td>
+      <td title="{{#i18n}}projects.grants.section.start_stop{{/i18n}}" style="width: 150px;text-align: center">{{#i18n}}projects.grants.section.control{{/i18n}}</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each .}}
+      {{#if section}}
+        <tr data-section="{{section}}">
+          <td>{{#i18n}}projects.grants.{{section}}{{/i18n}}</td>
+          {{#each grants}}
+            <td title="{{#i18n}}projects.grants.section.{{.}}{{/i18n}}" style="text-align: center">
+              <input type="checkbox" value="{{.}}" checked>
+            </td>
+          {{/each}}
+          <td></td>
+        </tr>
+      {{/if}}
+    {{/each}}
+    </tbody>
+  </table>
+{{/each}}
+<footer>
+  <button>{{#i18n}}button.save{{/i18n}}</button>
+</footer>

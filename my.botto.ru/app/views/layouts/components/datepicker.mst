@@ -1,0 +1,9 @@
+<div class="datepicker" id="{{id}}">
+    <label>{{label}}</label>
+    <span class="mdi mdi-calendar">
+        <input type="text" value="{{date}}" autocomplete="off">
+        <div class="hide">
+            {{#calendar date=date onchange=onselect}}{{/calendar}}
+        </div>
+    </span>
+</div>

@@ -1,0 +1,74 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline"
+       href="/{{"project_id"|global}}/"></a>{{#i18n}}contacts.title{{/i18n}}</h1>
+<hr>
+
+<div class="block">
+    <header>
+        <h2>{{#i18n}}filter.title{{/i18n}}</h2>
+    </header>
+    <div class="columns">
+        <div class="col col-1-3">
+            <label>{{#i18n}}user.phone{{/i18n}}</label>
+            <input type="tel" name="phone" class="col-1-1">
+            <label>{{#i18n}}tags{{/i18n}}</label>
+            <input type="text" name="tags" class="col-1-1">
+        </div>
+
+        <div class="col col-1-3">
+
+            <label>{{#i18n}}contacts.region{{/i18n}}</label>
+            {{#select value='select' classlist='col-1-1' options=region_options onchange='contacts.filters.region.change'}}{{/select}}
+
+            <label>{{#i18n}}contacts.operator{{/i18n}}</label>
+            {{#select value='select' classlist='col-1-1' options=operator_options onchange='contacts.filters.operator.change'}}{{/select}}
+
+        </div>
+
+        <div class="col col-1-3">
+
+            <label>{{#i18n}}contacts.is_lead{{/i18n}}</label>
+            {{#select value='select' classlist='col-1-1' options=lead_options onchange='contacts.filters.lead.change'}}{{/select}}
+
+            <label>{{#i18n}}contacts.in_blacklist{{/i18n}}</label>
+            {{#select value='select' classlist='col-1-1' options=blacklist_options onchange='contacts.filters.blacklist.change'}}{{/select}}
+
+        </div>
+    </div>
+    <footer>
+        <button type="button" onclick="___mc.events.push('contacts.filters.accept')">{{#i18n}}button.apply{{/i18n}}</button>
+    </footer>
+</div>
+
+<div class="block" handler="controllers/contacts/list/handler" data-tab="{{tab}}">
+    <header>
+        <h2>{{#i18n}}contacts.subtitle{{/i18n}}</h2>
+        <a href="/{{"project_id"|global}}/contacts/create/" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+    </header>
+    {{#pagination}}{{/pagination}}
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}user.phone{{/i18n}}</th>
+                <th>{{#i18n}}contacts.is_lead{{/i18n}}</th>
+                <th>{{#i18n}}contacts.in_blacklist{{/i18n}}</th>
+                <th>{{#i18n}}tags{{/i18n}}</th>
+                <th>{{#i18n}}table.actions{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="5">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#pagination}}{{/pagination}}
+</div>

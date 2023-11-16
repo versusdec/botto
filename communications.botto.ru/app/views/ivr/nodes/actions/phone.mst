@@ -1,0 +1,10 @@
+<tr data-phone="{{phone}}">
+    <td title="{{#i18n}}contacts.number{{/i18n}}">{{phone|phone}}</td>
+    <td title="{{#i18n}}ivr.nodes.actions.types.timeout{{/i18n}}">
+        <input type="number" name="timeout" value="{{timeout}}" placeholder="{{#i18n}}mailings.materials.sec{{/i18n}}">
+    </td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="mdi mdi-trash-can-outline" title="{{#i18n}}button.delete{{/i18n}}"
+           onclick="___mc.events.push('ivr.node.settings.actions.remove', {btn: this, type: '{{type}}', id: {{phone}} })"></a>
+    </td>
+</tr>

@@ -1,0 +1,34 @@
+<header>
+    <h2>{{#i18n}}materials.title{{/i18n}}</h2>
+</header>
+
+<div class="table materials ">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>{{#i18n}}table.name{{/i18n}}</th>
+            <th>{{#i18n}}materials.type.audio{{/i18n}}</th>
+            <th>{{#i18n}}mailings.materials.start{{/i18n}}</th>
+            <th>{{#i18n}}table.actions{{/i18n}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each materials}}
+            {{> mailings/edit/materials/item}}
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<label>{{#i18n}}mailings.materials.audio{{/i18n}}*</label>
+<div class="columns" id="materials">
+    {{#seload classlist='col-1-1' onchange=onselect method=method params=params selected=selected multiple=1 required=1}}{{/seload}}
+
+    <button class="secondary" onclick="___mc.events.push('mailings.materials.create')">{{#i18n}}button.create{{/i18n}}</button>
+    <!--  <button onclick="___mc.events.push('mailings.materials.add.selected',this)">{{#i18n}}button.add{{/i18n}}</button>-->
+</div>
+
+<footer>
+    {{> mailings/edit/footer}}
+</footer>

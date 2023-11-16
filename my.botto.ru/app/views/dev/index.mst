@@ -1,0 +1,74 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>dev page</h1>
+<hr>
+<div class="block">
+    <header><h2>Tests</h2></header>
+    <div class="btn" onclick="___mc.events.push('popup.test')">Проверка попапа в пополнениях</div>
+    <br style="margin-bottom: 100px;">
+    <div>
+        <button onclick="___mc.events.push('dev.vibrate')">vibrate</button>
+        <a class="btn secondary" onclick="___mc.events.push('dev.test')">test</a>
+        <button onclick="___mc.events.push('dev.send')">send email</button>
+    </div>
+    <br>
+    <br>
+    {{#player file='https://api.botto.ai/upload/15/13/15/c691d55e.mp3'}}{{/player}}
+    <br>
+    {{#player file='https://api.botto.ai/upload/0/14/13/4377a2c2.webm'}}{{/player}}
+    <br>
+    {{#player file='https://api.botto.ai/upload/0/14/13/4377a2c2.webm'}}{{/player}}
+    <br>
+    {{#player file='https://api.botto.ai/upload/0/14/13/4377a2c2.webm'}}{{/player}}
+    <br>
+
+    {{#player record='1'}}{{/player}}
+    <br>
+    {{#datetimepicker type='date'}}{{/datetimepicker}}
+    <br>
+    {{#datetimepicker type='period'}}{{/datetimepicker}}
+    <br>
+    <div class="loader"><span></span><span></span><span></span><span></span></div>
+    <br>
+    <span id="test">loading</span>
+    <style>
+        #test {
+            font-size: 12px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.1);
+            /*background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));*/
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), var(--color__blue), rgba(255, 255, 255, 0.1));
+            background-size: 50px 100%;
+            -moz-background-clip: text;
+            -webkit-background-clip: text;
+            animation-name: shimmer;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-color: var(--color__blue_bg);
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -50px 0;
+            }
+            100% {
+                background-position: calc(100% + 50px) 0;
+            }
+        }
+
+    </style>
+    <br><br>
+    <hr>
+    <br><br>
+    <label for="name">Input label</label>
+    <div class="columns">
+        <input type="text" name="name" id="name">
+        <button>button</button>
+    </div>
+    <label>Input label</label>
+
+
+    <label>Input label</label>
+    {{#select options=options value='value'}}{{/select}}
+    <button onclick="___mc.events.push('dev.submit')">submit</button>
+</div>

@@ -1,0 +1,62 @@
+<nav handler="controllers/nav">
+    <div class="mobile">
+        <div class="mdi mdi-close"></div>
+        <a href="/billing" class="mdi mdi-credit-card-multiple"></a>
+    </div>
+    <img src="/img/logo.svg" class="logo">
+    <div class="mobile">
+        <hr>
+    </div>
+    <ul>
+        <li>
+            <a href="/" class="">
+                <span class="mdi mdi-layers"></span>{{#i18n}}dashboard.title{{/i18n}}
+            </a>
+        </li>
+        <li>
+            <a href="/projects/list" class="">
+                <span class="mdi mdi-book-multiple"></span>{{#i18n}}projects.title{{/i18n}}
+            </a>
+        </li>
+        <li>
+            <a href="/phones"><span class="mdi mdi-cellphone-text"></span>{{#i18n}}phones.title{{/i18n}}</a>
+        </li>
+        <li class="submenu hide">
+            <a><span class="mdi mdi-cellphone-text"></span>TEST</a>
+            <ul>
+                <li>
+                    <a href="/dev" class="">DEV</a>
+                </li>
+                <li>
+                    <a href="/notdev" class="">not DEV</a>
+                </li>
+
+            </ul>
+        </li>
+
+    </ul>
+
+    <ul>
+        <li class="hide">
+            <a href="/tariff">
+                <span class="mdi mdi-cash-multiple"></span>{{#i18n}}tariff.title{{/i18n}}
+            </a>
+        </li>
+        <li>
+            <a href="/billing">
+                <span class="mdi mdi-credit-card-multiple"></span>{{#i18n}}billing.title{{/i18n}}
+            </a>
+        </li>
+        <li>
+            <a href="/support">
+                <span class="mdi mdi-timeline-help"></span>{{#i18n}}support.title{{/i18n}}
+            </a>
+        </li>
+        <!--<li>
+            <a href="https://partners.botto.ru" target="_blank">
+                <span class="mdi mdi-briefcase-check"></span>
+                {{#i18n}}partners.title{{/i18n}}
+            </a>
+        </li>-->
+    </ul>
+</nav>

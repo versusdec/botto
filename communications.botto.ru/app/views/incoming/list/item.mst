@@ -1,0 +1,28 @@
+<td title="ID" style="width: 100px;">{{id}}</td>
+<td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+<td title="{{#i18n}}table.status{{/i18n}}">
+    {{status|status}}
+</td>
+<td title="{{#i18n}}mailings.results{{/i18n}}">
+    {{stats.spent}} / {{stats.ppl}} / {{stats.leads}}
+</td>
+<td style="white-space: nowrap">
+    {{#unless status 'archived'}}
+        <a href="/{{"project_id"|global}}/incoming/clone/{{id}}/" title="{{#i18n}}actions.copy{{/i18n}}"
+           class="link mdi mdi-checkbox-multiple-blank-outline">
+        </a>
+    {{/unless}}
+    <a href="/{{"project_id"|global}}/incoming/edit/{{id}}/"
+       title="{{#i18n}}actions.edit{{/i18n}}" class="link mdi mdi-file-edit-outline"></a>
+    {{#if status 'active'}}
+        <a class="link mdi mdi-archive-arrow-down-outline"
+           title="{{#i18n}}actions.archive{{/i18n}}"
+           onclick="___mc.events.push('incoming.archive', {{id}})"></a>
+    {{/if}}
+    {{#if status 'archived'}}
+        <a class="link mdi mdi-archive-arrow-up-outline"
+           title="{{#i18n}}actions.unzip{{/i18n}}"
+           onclick="___mc.events.push('incoming.unzip', {{id}})"></a>
+    {{/if}}
+</td>
+

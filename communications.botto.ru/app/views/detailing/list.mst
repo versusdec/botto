@@ -1,0 +1,157 @@
+<h1>
+    <a class="back mdi mdi-arrow-left-circle-outline"
+       href="/{{"project_id"|global}}/"></a>
+    {{#i18n}}detailing.title{{/i18n}}
+</h1>
+<ul class="tabs">
+    <li class="{{#if type 'calls'}}active{{/if}}">
+        <a href="/{{"project_id"|global}}/detailing/calls/">{{#i18n}}detailing.calls.title{{/i18n}}</a>
+    </li>
+    <li{{#if type 'sms'}} class="active"{{/if}}>
+        <a href="/{{"project_id"|global}}/detailing/sms/">{{#i18n}}detailing.sms.title{{/i18n}}</a>
+    </li>
+</ul>
+<hr>
+{{#if type 'calls'}}
+    <div class="block filters">
+        <header>
+            <h2>{{#i18n}}filter.title{{/i18n}}</h2>
+        </header>
+        <div class="columns">
+            <div class="col-1-3">
+                {{#datepicker type='date' name='period_start' label='filter.period_start' onchange='calls.filter.range.change' date=filter.period_start}}{{/datepicker}}
+                <label>{{#i18n}}table.type{{/i18n}}</label>
+                {{#select value=value classlist='calls-type' options=options onchange='calls.filter.type.change'}}{{/select}}
+            </div>
+            <div class="col-1-3">
+                {{#datepicker type='date' name='period_end' label='filter.period_end' onchange='calls.filter.range.change' date=filter.period_end}}{{/datepicker}}
+            </div>
+            <div class="col-1-3" id="calls-stats">
+                <label>{{#i18n}}filter.found{{/i18n}}:</label>
+                <label>
+                    <b>{{#i18n}}filter.total{{/i18n}}:</b>
+                    <span data-total>0</span>
+                </label>
+            </div>
+        </div>
+        <footer class="buttons-wrapper">
+            <button type="button" class="secondary"
+                    onclick="___mc.events.push('calls.filter.reset')">{{#i18n}}button.reset{{/i18n}}</button>
+            <button type="button" onclick="___mc.events.push('calls.filter')">{{#i18n}}button.apply{{/i18n}}</button>
+        </footer>
+    </div>
+{{/if}}
+{{#if type 'sms'}}
+    <div class="block filters">
+        <header>
+            <h2>{{#i18n}}filter.title{{/i18n}}</h2>
+        </header>
+        <div class="columns">
+            <div class="col-1-3">
+                {{#datepicker type='date' name='period_start' label='filter.period_start' onchange='calls.filter.range.change' date=filter.period_start}}{{/datepicker}}
+                <label>{{#i18n}}materials.type.text{{/i18n}}</label>
+                <textarea onchange="___mc.events.push('sms.filter.value.change', {value: this.value, type: 'text'})">{{filter.text}}</textarea>
+            </div>
+            <div class="col-1-3">
+                {{#datepicker type='date' name='period_end' label='filter.period_end' onchange='calls.filter.range.change' date=filter.period_end}}{{/datepicker}}
+                <label>{{#i18n}}table.phone{{/i18n}}</label>
+                <textarea value="{{filter.phone}}" onchange="___mc.events.push('sms.filter.value.change', {value: this.value, type: 'phone'})">{{filter.phone}}</textarea>
+            </div>
+            <div class="col-1-3" id="calls-stats">
+                <label>{{#i18n}}table.type{{/i18n}}</label>
+                {{#select value=value classlist='calls-type' options=options onchange='calls.filter.type.change'}}{{/select}}
+                <label>ID</label>
+                <textarea onchange="___mc.events.push('sms.filter.value.change', {value: this.value, type: 'id'})">{{filter.id}}</textarea>
+            </div>
+        </div>
+        <footer class="buttons-wrapper">
+            <button type="button" class="secondary"
+                    onclick="___mc.events.push('calls.filter.reset')">{{#i18n}}button.reset{{/i18n}}</button>
+            <button type="button" onclick="___mc.events.push('calls.filter')">{{#i18n}}button.apply{{/i18n}}</button>
+        </footer>
+    </div>
+{{/if}}
+
+<div class="block" handler="controllers/detailing/handler" data-tab="{{tab}}" data-type="{{type}}">
+    <header>
+        {{#if type 'calls'}}
+            <h2>{{#i18n}}detailing.calls.title{{/i18n}}</h2>
+        {{/if}}
+        {{#if type 'sms'}}
+            <h2>{{#i18n}}detailing.sms.title{{/i18n}}</h2>
+        {{/if}}
+        {{#if type 'calls'}}
+            <ul class="tabs">
+                <li class="{{#if tab 'outbound'}}active{{/if}}">
+                    <a href="/{{"project_id"|global}}/detailing/calls/outbound/">{{#i18n}}detailing.calls.outbound.title{{/i18n}}</a>
+                </li>
+                <li{{#if tab 'inbound'}} class="active"{{/if}}>
+                    <a href="/{{"project_id"|global}}/detailing/calls/inbound/">{{#i18n}}detailing.calls.inbound.title{{/i18n}}</a>
+                </li>
+            </ul>
+        {{/if}}
+    </header>
+    <div id="list">
+        {{#pagination}}{{/pagination}}
+        <div class="table">
+            {{#if type 'calls'}}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>{{#i18n}}table.date{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.calls.phone{{/i18n}}</th>
+                        <!--          <th>Лид/ЧС</th>-->
+                        <th>{{#i18n}}mailings.analytics.calls.duration{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.calls.lead{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.calls.bl{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.calls.amd{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.calls.cost{{/i18n}}</th>
+                        <!--                <th>Запись звонка</th>-->
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="9">
+                            <div class="loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {{/if}}
+            {{#if type 'sms'}}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>{{#i18n}}table.date{{/i18n}}</th>
+                        <th>{{#i18n}}table.type{{/i18n}}</th>
+                        <th>{{#i18n}}materials.type.text{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.sms.recipient{{/i18n}}</th>
+                        <th>{{#i18n}}mailings.analytics.calls.cost{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="6">
+                            <div class="loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+        {{#pagination}}{{/pagination}}
+    </div>
+</div>

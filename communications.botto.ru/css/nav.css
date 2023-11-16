@@ -1,0 +1,15 @@
+nav .logo {
+    margin-bottom: 24px;
+}
+
+nav > ul:not(:last-child) > li:first-child {
+    margin-bottom: 16px;
+}
+
+nav ul > li:first-child a span {
+    color: white;
+}
+
+body.nav_minimized nav .logo {
+    margin-bottom: 52px;
+}

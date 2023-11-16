@@ -1,0 +1,17 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/" target="_self"></a>Error 404</h1>
+<hr>
+<div class="block" id="e404">
+    <header>
+        <h2>{{#i18n}}system.e404.title{{/i18n}}</h2>
+    </header>
+    <div>
+        <div>
+            <img src="/img/404.svg" alt="">
+            <h3>{{#i18n}}system.e404.subtitle{{/i18n}}</h3>
+            <p>{{#i18n}}system.e404.oops{{/i18n}}</p>
+            <p>
+                {{#i18n}}system.e404.description{{/i18n}}
+            </p>
+        </div>
+    </div>
+</div>

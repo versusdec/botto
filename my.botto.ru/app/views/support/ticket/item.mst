@@ -1,0 +1,40 @@
+
+<div class="message {{#if user.is_me}}out{{/if}} {{#unless user.is_me}}in{{/unless}}">
+  <div class="columns">
+    <div class="message-text">
+      <p>
+        {{text}}
+      </p>
+      {{#if attachments}}
+        <ul>
+          <li>{{#i18n}}support.ticket.attachments{{/i18n}}</li>
+        </ul>
+        <br>
+        <div class="row">
+          {{#each attachments}}
+            <a href="{{../domain}}{{data.path}}" target="_blank" class="attachment">
+              <img src="{{../domain}}{{data.path}}" alt="{{data.name}}">
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+    <aside class="message-info">
+      <div class="columns">
+        <div class="">
+          <div class="name">
+            {{user.name}} {{user.surname}}
+          </div>
+          <time class="time">
+            {{created|datetime}}
+          </time>
+          <hr class="margin">
+        </div>
+        <img class="avatar"
+             src="{{#if user.avatar}}{{domain}}{{user.avatar}}{{/if}}
+               {{#unless user.avatar}}/img/ava.png{{/unless}}" alt="">
+      </div>
+    </aside>
+  </div>
+</div>
+

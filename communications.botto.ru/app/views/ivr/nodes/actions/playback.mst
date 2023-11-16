@@ -1,0 +1,16 @@
+<tr data-id="{{id}}">
+    <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+    <td title="{{#i18n}}mailings.materials.start{{/i18n}}">
+        <input type="number" value="{{start}}" style="width: 68px;padding: 5px 9px;"
+               placeholder="{{#i18n}}mailings.materials.sec{{/i18n}}">
+    </td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="mdi mdi-trash-can-outline" title="{{#i18n}}button.delete{{/i18n}}"
+           onclick="___mc.events.push('ivr.node.settings.actions.remove', {btn: this, type: '{{action_type}}', id: {{id}} })"></a>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" style="padding: 0;">
+        {{#player file=file}}{{/player}}
+    </td>
+</tr>

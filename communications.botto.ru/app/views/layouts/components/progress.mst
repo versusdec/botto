@@ -1,0 +1,6 @@
+<div>
+    <div>{{progress}}%</div>
+    <div id="{{id}}" class="progress" title="{{current}}/{{total}}">
+        <span></span>
+    </div>
+</div>

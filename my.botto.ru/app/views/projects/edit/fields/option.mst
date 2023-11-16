@@ -1,0 +1,18 @@
+<tr class="field-option" data-sortable-item>
+  <td title="{{#i18n}}handle{{/i18n}}" class="desktop device" style="width: 50px;">
+    <a class="mdi mdi-apps handle hover"></a>
+  </td>
+  <td title="ID">
+    <input type="number" name="option_id" value="{{id}}">
+  </td>
+  <td title="{{#i18n}}table.name{{/i18n}}">
+    <input type="text" value="{{name}}" name="option">
+  </td>
+  <td title="{{#i18n}}projects.fields.var{{/i18n}}">
+    <input type="text" value="{{name}}" name="option_var">
+  </td>
+  <td title="{{#i18n}}table.actions{{/i18n}}">
+    <a class="mdi mdi-close hover" title="{{#i18n}}button.delete{{/i18n}}"
+       onclick="___mc.events.push('fields.options.remove', this)"></a>
+  </td>
+</tr>

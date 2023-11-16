@@ -1,0 +1,83 @@
+{{#unless status 'archived'}}
+    <td style="width: 80px;" class="desktop device"><input onchange="___mc.events.push('mailings.checkbox.change')"
+                                                           type="checkbox" class="default" name="mailing"
+                                                           value="{{id}}"></td>
+{{/unless}}
+<td title="ID">{{id}}</td>
+<td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+<td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+<td title="{{#i18n}}mailings.progress{{/i18n}}">
+    {{#progress current=position total=total}}{{/progress}}
+</td>
+<td title="{{#i18n}}mailings.speed{{/i18n}}">
+    {{#range text="mailings.settings.calls_per_hour" min=0 max=36000 value=speed step=100 name="speed" mailing=id onchange='mailings.speed.change'}}{{/range}}
+</td>
+<td>
+    <div class="status">
+        <span title="{{#i18n}}table.status{{/i18n}}">{{state|status}}</span>
+        {{#if state 'stopped'}}
+            {{#if reason}}
+                <div class="status__comment">
+                    <span class="icon mdi mdi-help-circle-outline"></span>
+                    <div class="text">
+                        {{reason|reason}}
+                    </div>
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+</td>
+<td title="{{#i18n}}mailings.results{{/i18n}}">
+    {{stats.spent}} / {{stats.ppl}} / {{stats.leads}}
+</td>
+<td style="white-space: nowrap">
+    {{#unless status 'archived'}}
+
+        {{#unless state 'IN' 'paused' 'stopped' 'ended'}}
+            <a onclick="___mc.events.push('mailings.pause', {{id}})"
+               title="{{#i18n}}mailings.confirm_pause{{/i18n}}" class="link mdi mdi-pause-circle-outline"></a>
+        {{/unless}}
+        {{#if state 'paused'}}
+            <a onclick="___mc.events.push('mailings.start', {{id}})"
+               title="{{#i18n}}mailings.confirm_start{{/i18n}}" class="link mdi mdi-play-circle-outline"></a>
+        {{/if}}
+        {{#if state 'IN' 'ended' 'stopped'}}
+            <a onclick="___mc.events.push('mailings.restart', {{id}})"
+               title="{{#i18n}}mailings.confirm_restart{{/i18n}}" class="link mdi mdi-restart">
+            </a>
+        {{/if}}
+        {{#unless state 'IN' 'stopped' 'ended'}}
+            <a onclick="___mc.events.push('mailings.stop', {{id}})"
+               title="{{#i18n}}mailings.confirm_stop{{/i18n}}" class="link mdi mdi-stop-circle-outline">
+            </a>
+        {{/unless}}
+        {{#if state 'paused'}}
+            <a href="/{{"project_id"|global}}/mailings/edit/voice/{{id}}/"
+               title="{{#i18n}}actions.edit{{/i18n}}" class="link mdi mdi-file-edit-outline"></a>
+        {{/if}}
+        {{#if state 'IN' 'ended' 'stopped'}}
+            {{#if status 'active'}}
+                <a href="/{{"project_id"|global}}/mailings/edit/voice/{{id}}/"
+                   title="{{#i18n}}actions.edit{{/i18n}}" class="link mdi mdi-file-edit-outline"></a>
+                <a class="link mdi mdi-archive-arrow-down-outline"
+                   title="{{#i18n}}actions.archive{{/i18n}}"
+                   onclick="___mc.events.push('mailings.archive', {{id}})"></a>
+            {{/if}}
+        {{/if}}
+        <a href="/{{"project_id"|global}}/mailings/clone/voice/{{id}}/" title="{{#i18n}}actions.copy{{/i18n}}"
+           class="link mdi mdi-checkbox-multiple-blank-outline">
+        </a>
+    {{/unless}}
+    {{#if status 'archived'}}
+        <a href="/{{"project_id"|global}}/mailings/clone/voice/{{id}}/" title="{{#i18n}}actions.copy{{/i18n}}"
+           class="link mdi mdi-checkbox-multiple-blank-outline">
+        </a>
+        <a class="link mdi mdi-archive-arrow-up-outline"
+           title="{{#i18n}}actions.unzip{{/i18n}}"
+           onclick="___mc.events.push('mailings.unzip', {{id}})"></a>
+    {{/if}}
+    <a href="/{{"project_id"|global}}/mailings/stats/voice/{{id}}/analytics/"
+       title="{{#i18n}}mailings.analytics.title{{/i18n}}" class="link mdi mdi-chart-bar"></a>
+
+</td>
+

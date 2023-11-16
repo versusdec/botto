@@ -1,0 +1,6 @@
+<div class="tag" data-id="{{id}}">
+  <div class="remove" onclick="$(this).closest('.tag').remove()">
+    <a class="mdi mdi-close hover"></a>
+  </div>
+  {{tag}}
+</div>

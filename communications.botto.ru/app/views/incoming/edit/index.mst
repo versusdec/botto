@@ -1,0 +1,12 @@
+<div class="block" id="common" handler="controllers/incoming/edit/common" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="ivr" handler="controllers/incoming/edit/ivr" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="materials" handler="controllers/incoming/edit/materials" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="blacklists" handler="controllers/incoming/edit/bases" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>

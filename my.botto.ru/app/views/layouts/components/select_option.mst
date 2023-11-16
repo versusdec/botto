@@ -1,0 +1,1 @@
+<li data-value="{{value}}" class="{{#if disabled}}disabled{{/if}} {{#if selected}}selected{{/if}}">{{option}}</li>

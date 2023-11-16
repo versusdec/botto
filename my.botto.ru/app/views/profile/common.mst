@@ -1,0 +1,78 @@
+<div class="columns" id="common">
+    <div>
+        <div class="block">
+            <header>
+                <h2>{{#i18n}}profile.common{{/i18n}}</h2>
+            </header>
+
+            <label>{{#i18n}}user.last_name{{/i18n}}</label>
+            <input type="text" name="surname" value="{{user.surname}}">
+            <label>{{#i18n}}user.name{{/i18n}}</label>
+            <input type="text" name="name" value="{{user.name}}">
+            <label>{{#i18n}}user.second_name{{/i18n}}</label>
+            <input type="text" name="second_name" value="{{user.second_name}}">
+            <label>{{#i18n}}user.gender.title{{/i18n}}</label>
+            {{#select options=genders value=user.gender onchange=gender_change}}{{/select}}
+            <label>{{#i18n}}user.email{{/i18n}}</label>
+            <input type="email" name="email" value="{{user.email}}"
+                   class="{{#unless user.settings.email_verified}}_danger{{/unless}}">
+            {{#unless user.settings.email_verified}}
+                <div class="hide">
+                    <p>
+                        {{#i18n}}user.verify_email{{/i18n}}
+                    </p>
+                    <button type="button" class="btn" id="v_email"
+                            onclick="___mc.events.push('verify','email')">{{#i18n}}button.confirm{{/i18n}}</button>
+                </div>
+            {{/unless}}
+            <label> {{#i18n}}user.phone{{/i18n}}</label>
+            <input type="tel" onkeyup="___mc.events.push('phone.change', this)"
+                   class="{{#if user.phone}}{{#unless user.settings.phone_verified}}_danger{{/unless}}{{/if}}" name="phone"
+                   value="{{user.phone|phone}}">
+
+            <div class="phone-verify {{#if user.settings.phone_verified}}hide{{/if}}{{#unless user.phone}}hide{{/unless}} hide">
+                <p>
+                    {{#i18n}}user.verify_phone{{/i18n}}
+                </p>
+                <button type="button" class="btn phone-ver" id="v_phone"
+                        onclick="___mc.events.push('verify','phone')">{{#i18n}}button.confirm{{/i18n}}</button>
+            </div>
+            <div class="hide">
+                <p>
+                    {{#i18n}}profile.verify.phone{{/i18n}}
+                </p>
+                <input type="text" name="code">
+                <br>
+                <button type="button" onclick="___mc.events.push('verify.phone')" class="btn">{{#i18n}}button.confirm{{/i18n}}</button>
+            </div>
+
+            <footer>
+                <button type="submit">{{#i18n}}button.save{{/i18n}}</button>
+            </footer>
+        </div>
+    </div>
+    <aside>
+        <div class="block">
+            <div class="avatar">
+                <a class="mdi mdi-close" onclick="___mc.events.push('avatar.remove')"></a>
+                <img src="/img/ava.png" alt="" class="">
+            </div>
+            <div>
+                <label for="fileinput" class="avatar__fileinput">
+                    {{#i18n}}button.change{{/i18n}}
+                    <input type="file" id="fileinput" style="display: none;"
+                           accept="image/png, image/jpeg, image/jpg"
+                           onchange="___mc.events.push('avatar.update', this)"/>
+                </label>
+                <!--        <a class="btn secondary" onclick="___mc.events.push('avatar.select')">{{#i18n}}button.change{{/i18n}}</a>-->
+            </div>
+            <div>
+                <p><b>{{user.email}}</b></p>
+
+                <p>{{user.name}} {{user.surname}}</p>
+
+            </div>
+        </div>
+    </aside>
+
+</div>

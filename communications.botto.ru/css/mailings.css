@@ -1,0 +1,38 @@
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.status__comment {
+    position: relative;
+    height: 16px;
+    margin-left: 4px;
+    /* cursor: pointer; */
+}
+
+.status__comment .icon {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--color__blue);
+}
+
+.status__comment:hover .icon {
+    color: var(--color__red);
+}
+
+.status__comment .text {
+    position: absolute;
+    left: -99999px;
+    width: max-content;
+    background: #fff;
+    border: 1px solid var( --color__border);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.status__comment:hover .text {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

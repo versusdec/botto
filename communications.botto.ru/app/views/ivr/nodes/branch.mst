@@ -1,0 +1,4 @@
+<ul>
+    {{> ivr/nodes/node}}
+    <li><a class="btn mdi mdi-plus-circle-outline" onclick="___mc.events.push('ivr.node.add', this)">{{#i18n}}ivr.nodes.add{{/i18n}}</a></li>
+</ul>

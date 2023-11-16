@@ -1,0 +1,45 @@
+<header>
+    <h2>{{#i18n}}bases.title{{/i18n}}</h2>
+</header>
+
+<div class="table {{type}}">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>{{#i18n}}table.name{{/i18n}}</th>
+            <th>{{#i18n}}table.actions{{/i18n}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#if type 'bases'}}
+            {{#each bases}}
+                {{> mailings/edit/bases/item}}
+            {{/each}}
+        {{/if}}
+        {{#if type 'blacklists'}}
+            {{#each blacklists}}
+                {{> mailings/edit/bases/item}}
+            {{/each}}
+        {{/if}}
+
+        </tbody>
+    </table>
+</div>
+
+<label>{{#i18n}}bases.subtitle{{/i18n}} {{#if type 'bases'}}*{{/if}}</label>
+<div class="columns" id="{{type}}">
+    {{#if type 'bases'}}
+        {{#seload classlist='col-1-1' name='bases' onchange=onselect method=method params=params selected=selected multiple=1 required=1}}{{/seload}}
+    {{/if}}
+    {{#if type 'blacklists'}}
+        {{#seload classlist='col-1-1' name='blacklists' onchange=onselect method=method params=params selected=selected multiple=1 required=1}}{{/seload}}
+    {{/if}}
+
+    <button class="secondary" onclick="___mc.events.push('mailings.bases.create', this)">{{#i18n}}button.create{{/i18n}}</button>
+<!--    <button onclick="___mc.events.push('mailings.bases.add.selected',this)">{{#i18n}}button.add{{/i18n}}</button>-->
+</div>
+
+<footer>
+    {{> mailings/edit/footer}}
+</footer>

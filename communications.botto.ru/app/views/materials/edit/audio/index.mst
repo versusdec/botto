@@ -1,0 +1,142 @@
+<div handler="controllers/materials/edit/audio" data-id="{{id}}" data-type="{{type}}">
+    {{#if popup}}
+        <header>
+            <h2>{{#i18n}}materials.create{{/i18n}}</h2>
+        </header>
+    {{/if}}
+    <div class="block">
+        <header>
+            <h2>
+                {{#unless id 'new'}}
+                    {{#i18n}}materials.edit.edit{{/i18n}}
+                {{/unless}}
+                {{#if id 'new'}}
+                    {{#i18n}}materials.edit.create.{{type}}{{/i18n}}
+                {{/if}}
+            </h2>
+        </header>
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name" onchange="___mc.events.push('material.name.change', this.value)"
+               value="{{material.name}}">
+
+        <label>{{#i18n}}materials.edit.source.select{{/i18n}}</label>
+        {{#select value=source onchange='materials.source.change'}}
+            [{"option": "{{#i18n}}materials.edit.source.file{{/i18n}}", "value": "file"},{"option": "{{#i18n}}materials.edit.source.tts{{/i18n}}",
+            "value": "tts"},{"option": "{{#i18n}}materials.edit.source.mic{{/i18n}}",
+            "value": "mic"}]
+        {{/select}}
+        <div id="file" class="{{#unless source 'file'}}hide{{/unless}} type-block">
+            <label class="checkbox">
+                <input type="checkbox" class="default"
+                    {{#if material.normalize}}checked{{/if}} onchange="___mc.events.push('materials.normalize.change', this.checked)">
+                <span class="">{{#i18n}}materials.edit.normalize{{/i18n}}</span>
+            </label>
+            <label>{{#i18n}}materials.edit.create.upload{{/i18n}}</label>
+            {{#dropzone onupload='materials.file.upload' accept='.m4a,.ogg,.wav,.mp3'}}{{/dropzone}}
+            <div id="preview" class="">
+                {{#if file}}
+                    <label></label>
+                    {{#player file=file}}{{/player}}
+                {{/if}}
+            </div>
+
+        </div>
+        <div id="tts" class="type-block {{#unless source 'tts'}}hide{{/unless}}">
+            <!--<label class="w100">Выберите язык
+              <span class="custom-select">
+                    <select name="lang">
+                      <option value="ru">Русский</option>
+                  </select>
+                  </span>
+            </label>-->
+            <label class="">
+                {{#i18n}}materials.edit.tts.text{{/i18n}}
+            </label>
+            <textarea name="tts-text" class="">{{material.data.data.text}}</textarea>
+            <label class="">
+                {{#i18n}}materials.edit.tts.voice{{/i18n}}
+            </label>
+            <div class="row">
+                <label class="">
+                    <input type="radio" name="tts_voice" value="oksana" class="default"
+                        {{#unless material.data.data.voice}}checked{{/unless}}
+                        {{#if material.data.data.voice 'oksana'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.oksana{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="omazh" class="default"
+                           {{#if material.data.data.voice 'omazh'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.omazh{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="jane" class="default"
+                           {{#if material.data.data.voice 'jane'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.jane{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="zahar" class="default"
+                           {{#if material.data.data.voice 'zahar'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.zahar{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="ermil" class="default"
+                           {{#if material.data.data.voice 'ermil'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.ermil{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="silaerkan" class="default"
+                           {{#if material.data.data.voice 'silaerkan'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.silaerkan{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="erkanyavas" class="default"
+                           {{#if material.data.data.voice 'erkanyavas'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.erkanyavas{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="alyss" class="default"
+                           {{#if material.data.data.voice 'alyss'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.alyss{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_voice" value="nick" class="default"
+                           {{#if material.data.data.voice 'nick'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.nick{{/i18n}}</span>
+                </label>
+            </div>
+            <br>
+            <button type="button" onclick="___mc.events.push('tts.preview', this)">{{#i18n}}button.generate{{/i18n}}</button>
+            <br>
+            <div id="tts-audio" class="">
+                {{#if material.data.data.text}}
+                    {{> materials/edit/audio/preview}}
+                {{/if}}
+            </div>
+        </div>
+        <div id="mic" class="type-block {{#unless source 'mic'}}hide{{/unless}}">
+            <label></label>
+            {{#if source 'mic'}}
+                {{#if file}}
+                    {{#player record='1' file=file}}{{/player}}
+                {{/if}}
+                {{#unless file}}
+                    {{#player record='1'}}{{/player}}
+                {{/unless}}
+            {{/if}}
+            {{#unless source 'mic'}}
+                {{#player record='1'}}{{/player}}
+            {{/unless}}
+        </div>
+        <footer>
+            <button type="button" onclick="___mc.events.push('materials.save', {btn: this})">
+                {{#if id 'new'}}
+                    {{#i18n}}button.create{{/i18n}}
+                {{/if}}
+                {{#unless id 'new'}}
+                    {{#i18n}}button.save{{/i18n}}
+                {{/unless}}
+            </button>
+        </footer>
+    </div>
+
+</div>

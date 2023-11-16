@@ -1,0 +1,12 @@
+<tr>
+    <td title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{timestamp|datetime}}</td>
+    <td title="{{#i18n}}common.phone{{/i18n}}">{{phone|phone}}</td>
+    <td title="IP">{{ip}}</td>
+    <td title="{{#i18n}}tracker.platform{{/i18n}}">{{platform}}</td>
+    <td title="{{#i18n}}tracker.location{{/i18n}}">{{location.city_name}}, {{location.country_name}}</td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="link mdi mdi-open-in-new" onclick="___mc.events.push('tracker.details', {{id}})"
+           title="{{#i18n}}actions.open{{/i18n}}"></a>
+    </td>
+</tr>

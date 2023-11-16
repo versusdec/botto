@@ -1,0 +1,42 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>{{title}}</h1>
+<ul class="tabs">
+  <li{{#unless tab}} class="active"{{/unless}}><a href="/projects/list">{{#i18n}}projects.tabs.my{{/i18n}}</a></li>
+  <li{{#if tab 'shared'}} class="active"{{/if}}><a href="/projects/list/shared">{{#i18n}}
+    projects.tabs.shared{{/i18n}}</a></li>
+  <li{{#if tab 'archived'}} class="active"{{/if}}><a href="/projects/list/archived">{{#i18n}}
+    projects.tabs.archived{{/i18n}}</a></li>
+</ul>
+<hr>
+<div class="block" handler="controllers/projects/list/handler" data-tab="{{tab}}">
+  <header>
+    <h2>{{#i18n}}projects.title{{/i18n}}</h2>
+    <a href="/projects/edit/new" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+  </header>
+  {{#pagination}}{{/pagination}}
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th style="width: 100px;">ID</th>
+        <th style="width: 150px;">{{#i18n}}table.date{{/i18n}}</th>
+        <th>{{#i18n}}table.name{{/i18n}}</th>
+        <th>{{#i18n}}projects.apps.available{{/i18n}}</th>
+        <th>{{#i18n}}table.actions{{/i18n}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="5">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {{#pagination}}{{/pagination}}
+</div>

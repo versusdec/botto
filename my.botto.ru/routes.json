@@ -1,0 +1,192 @@
+{
+    "/": {
+        "controller": "dashboard/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/login": {
+        "controller": "login/index",
+        "role": [
+            "public"
+        ],
+        "layout": "login"
+    },
+    "/registration": {
+        "controller": "login/register",
+        "role": [
+            "public"
+        ],
+        "layout": "login"
+    },
+    "/registration/:code": {
+        "controller": "login/register",
+        "role": [
+            "public"
+        ],
+        "layout": "login"
+    },
+    "/recover": {
+        "controller": "login/forgot",
+        "role": [
+            "public"
+        ],
+        "layout": "login"
+    },
+    "/recover/:code": {
+        "controller": "login/recover",
+        "role": [
+            "public"
+        ],
+        "layout": "login"
+    },
+    "/verify/:code": {
+        "controller": "verify",
+        "role": [
+            "client",
+            "admin"
+        ],
+        "layout": "verify"
+    },
+    "/404": {
+        "controller": "404",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/profile": {
+        "controller": "profile/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/profile/:type": {
+        "controller": "profile/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/phones": {
+        "controller": "phones/my/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/phones/stock": {
+        "controller": "phones/rent/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/tariff": {
+        "controller": "tariff/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/billing": {
+        "controller": "billing/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/billing/:page": {
+        "controller": "billing/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/support": {
+        "controller": "support/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/support/:tab": {
+        "controller": "support/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/support/add/": {
+        "controller": "support/add",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/support/ticket/:id": {
+        "controller": "support/ticket/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/projects/list": {
+        "controller": "projects/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/projects/list/:tab": {
+        "controller": "projects/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/projects/edit/:id": {
+        "controller": "projects/edit/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/projects/archive/:id": {
+        "controller": "projects/edit/archive",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/notifications": {
+        "controller": "notifications/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/news": {
+        "controller": "news/list",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/news/:id": {
+        "controller": "news/item",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/dev": {
+        "controller": "dev/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    }
+}

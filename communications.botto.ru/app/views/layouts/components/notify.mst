@@ -1,0 +1,8 @@
+<div class="notify" id="{{id}}">
+    <div class="block notify-block">
+        <header>
+            <h2>{{title}}</h2>
+        </header>
+        {{#if text}}<p>{{text}}</p>{{/if}}
+    </div>
+</div>

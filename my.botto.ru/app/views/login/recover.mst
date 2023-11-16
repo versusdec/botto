@@ -1,0 +1,27 @@
+{{#lang}}{{/lang}}
+<img src onerror="$('#login').addClass('not_auth')">
+
+<header>
+    <h1>{{#i18n}}auth.change_password{{/i18n}}</h1>
+    <div class="error invisible"> {{#i18n}}auth.diff_password{{/i18n}} </div>
+</header>
+
+<label>{{#i18n}}auth.new_password{{/i18n}}: </label>
+<span class="mdi mdi-lock-outline password">
+    <input type="password" name="password">
+    <a class="mdi mdi-eye link toggle" onclick="___mc.events.push('password.preview.toggle', this)"></a>
+</span>
+
+<label>{{#i18n}}auth.repeat_password{{/i18n}}:</label>
+<span class="mdi mdi-lock-outline password">
+    <input type="password" name="confirm">
+    <a class="mdi mdi-eye link toggle" onclick="___mc.events.push('password.preview.toggle', this)"></a>
+</span>
+
+<br>
+
+<button class="register" onclick="___mc.events.push('recover')">{{#i18n}}button.confirm{{/i18n}}</button>
+
+<p>{{#i18n}}auth.problems{{/i18n}}? <a href="mailto:support@botto.ru">{{#i18n}}support.title{{/i18n}}</a></p>
+
+<div class="copy">© 2021 Botto Platform. {{#i18n}}footer.copyrights{{/i18n}}</div>

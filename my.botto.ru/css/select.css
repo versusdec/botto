@@ -1,0 +1,136 @@
+.select {
+    display: block;
+    position: relative;
+    border: 1px solid var(--color__border_d);
+    border-radius: var(--border-radius);
+    min-width: 195px;
+    background: #fff;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    -ms-flex-item-align: baseline;
+    align-self: baseline;
+    height: 32px;
+}
+
+.filters .select {
+    max-width: 320px;
+}
+
+.select.sm {
+    width: 125px;
+}
+
+.select.open {
+    /*margin-bottom: -100%;*/
+    z-index: 1;
+}
+
+.select .option {
+    padding: 0 30px 0 27px;
+    line-height: 32px;
+    min-height: 32px;
+}
+
+.select .option span {
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.select .option:after, .select.open .option:after {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    font: normal normal normal 16px/1 "Material Design Icons";
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--color__border_d);
+    cursor: pointer;
+    content: '\F0140';
+}
+
+.select.open .option:after {
+    content: '\F0143';
+}
+
+.select.open .options {
+    margin-right: 0;
+    margin-left: -1px;
+    border: 1px solid var(--color__border_d);
+    border-radius: var(--border-radius);
+    width: calc(100% + 2px);
+    left: 0;
+    padding: 10px;
+    border-top: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    top: calc(100% - 3px);
+    position: absolute;
+    background: #fff;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.select.open .options .selected, .select.open .options .selected:before,
+.select.open .options .disabled, .select.open .options .disabled:before {
+    color: var(--color__light_blue);
+}
+
+.select .options {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    margin-bottom: 10px;
+}
+
+.select.open .options {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.select .options li {
+    position: relative;
+    width: auto;
+    padding: 5px 0 5px 15px;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px dashed var(--color__border);
+    list-style: none;
+    cursor: pointer;
+    min-height: 32px;
+    line-height: normal;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.select .options li:last-child {
+    border-bottom: none;
+}
+
+.select .options li:before {
+    position: absolute;
+    top: 0;
+    content: '•';
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--color__blue);
+    left: 0;
+}
+
+.select .options li:hover {
+    color: var(--color__blue);
+}
+
+@media only screen and (min-width: 767px) {
+    .select.open {
+        /*margin-bottom: -100%;*/
+        z-index: 2;
+    }
+}

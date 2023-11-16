@@ -1,0 +1,81 @@
+<div handler="controllers/bases/edit/handler" data-type="{{type}}">
+    {{#if popup}}
+        <header>
+            <h2>{{#i18n}}{{type}}.create{{/i18n}}</h2>
+        </header>
+    {{/if}}
+    <div class="block">
+        <header>
+            <h2>{{#i18n}}bases.subtitle{{/i18n}}</h2>
+            {{#unless id 'new'}}
+                <button onclick="___mc.events.push('bases.contacts.export', {type: '{{type}}', id: {{id}}, btn: this })">{{#i18n}}actions.download{{/i18n}}</button>
+            {{/unless}}
+        </header>
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name" value="{{base.name}}"
+               onchange="___mc.events.push('base.name.change', this.value)">
+        {{#unless id 'new'}}
+            <br>
+            <div class="columns">
+                <h3>{{#i18n}}contacts.contacts{{/i18n}}</h3>
+
+                <div class="buttons-wrapper">
+                    <button type="button" onclick="___mc.events.push('bases.contacts.add')">{{#i18n}}
+                        button.add{{/i18n}}</button>
+                    <button type="button" class="danger" onclick="___mc.events.push('bases.contacts.remove')">
+                        {{#i18n}}contacts.exclude.button{{/i18n}}</button>
+                </div>
+            </div>
+        {{/unless}}
+        {{#unless id 'new'}}
+            {{#pagination}}{{/pagination}}
+            <div class="table" handler="controllers/bases/edit/contacts" data-id="{{base.id}}" data-type="{{type}}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>{{#i18n}}contacts.number{{/i18n}}</th>
+                        <th>{{#i18n}}table.date{{/i18n}}</th>
+                        <th>{{#i18n}}contacts.operator{{/i18n}}</th>
+                        <th>{{#i18n}}contacts.region{{/i18n}}</th>
+                        <th>{{#i18n}}contacts.country{{/i18n}}</th>
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="6">
+                            <div class="loader"><span></span><span></span><span></span><span></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            {{#pagination}}{{/pagination}}
+        {{/unless}}
+        {{#if id 'new'}}
+            <label>{{#i18n}}bases.add.title{{/i18n}}</label>
+            {{#select classlist='input_type' value='file' onchange='bases.add.type.change'}}
+                [{"option":"{{#i18n}}bases.add.file{{/i18n}}","value":"file"},{"option":"{{#i18n}}bases.add.list{{/i18n}}","value":"list"}]
+            {{/select}}
+            <div id="file" class="add_type ">
+                {{#dropzone onupload="bases.file.upload" accept='.csv,.txt,.xls,.xlsx'}}{{/dropzone}}
+                <p>{{#i18n}}bases.add.comment{{/i18n}}</p>
+                <div id="preview" class="hide">
+                    <div class="loader"><span></span><span></span><span></span><span></span></div>
+                </div>
+            </div>
+
+            <div id="list" class="hide add_type">
+                <br>
+                <textarea name="include_list" onchange="___mc.events.push('base.contacts.change', this.value)"
+                          class="col-1-1"></textarea>
+            </div>
+        {{/if}}
+        <footer>
+            <button type="button" onclick="___mc.events.push('bases.save', {btn: this})">
+                {{#if id 'new'}}{{#i18n}}button.create{{/i18n}}{{/if}}
+                {{#unless id 'new'}}{{#i18n}}button.save{{/i18n}}{{/unless}}
+            </button>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "communications": [
+    {
+      "title": "communications"
+    },
+    {
+      "section": "bases",
+      "grants":  ["access", "create", "edit", "archive"]
+    },
+    {
+      "section": "blacklists",
+      "grants": ["access", "create", "edit", "archive"]
+    },
+    {
+      "section": "materials",
+      "grants":["access", "create", "edit", "archive"]
+    },
+    {
+      "section": "mailings",
+      "grants": ["access", "create", "edit", "archive", "start_stop"]
+    }
+  ]
+}

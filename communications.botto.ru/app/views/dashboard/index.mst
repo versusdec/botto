@@ -1,0 +1,173 @@
+<div style="display:flex;">
+    <h1>{{title}}</h1>
+    <div style="flex-grow: 1;display:flex;align-items: center;">
+        <a style="margin-left:auto;" href="/{{'project_id'|global}}/mailings/edit/voice/new/" class="btn">
+            {{#i18n}}dashboard.create_mailing{{/i18n}}
+        </a>
+    </div>
+</div>
+<hr>
+
+<div class="block hide">
+    <header>
+        <h2>{{#i18n}}filter.title{{/i18n}}</h2>
+        <div>
+            <a href="/{{'project_id'|global}}/mailings/edit/new/" class="btn">{{#i18n}}dashboard.create_mailing{{/i18n}}</a>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col">
+            {{#datepicker label=filter.period_start onchange='dashboard.filter.range.start'}}{{/datepicker}}
+        </div>
+        <div class="col">
+            {{#datepicker label=filter.period_end onchange='dashboard.filter.range.end'}}{{/datepicker}}
+        </div>
+        <div class="col">
+            <label>{{#i18n}}filter.found{{/i18n}}: </label>
+            <br><br>
+            <b style="min-width: 100px;display:inline-block;">{{#i18n}}filter.total{{/i18n}}: </b>
+            <span data-total></span>
+            <br><br>
+        </div>
+
+    </div>
+    <footer>
+        <button onclick="___mc.events.push('dashboard.filter', $('div.list[handler]')[0])">
+            {{#i18n}}button.apply{{/i18n}}
+        </button>
+    </footer>
+</div>
+
+<div class="columns stats ">
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}dashboard.stats.calls{{/i18n}}</h2> <!--<span class="up"></span>--> </header>
+            <div class="val" title="{{stats.calls}}"> {{stats.calls|short}}</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}dashboard.stats.sms{{/i18n}}</h2> <!--<span class="down"></span>--> </header>
+            <div class="val" title="{{stats.sms}}"> {{stats.sms|short}}</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}dashboard.stats.clicks{{/i18n}}</h2> <!--<span class="up"></span>--> </header>
+            <div class="val" title="{{stats.tracked}}">{{stats.tracked|short}}</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}dashboard.stats.leads{{/i18n}}</h2> <!--<span class="up"></span>--> </header>
+            <div class="val" title="{{stats.leads}}"> {{stats.leads|short}}</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}dashboard.stats.spent{{/i18n}}</h2></header>
+            <div class="val" title="{{stats.spent}}"> {{stats.spent|short}} {{#i18n}}currency{{/i18n}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="block">
+    <header>
+        <h2> {{#i18n}}dashboard.funnel.title{{/i18n}} </h2>
+    </header>
+    <div class="table" id="funnel">
+        <table>
+            <tbody>
+            <tr>
+                <td style="font-size: 18px;" class="desktop">
+                    {{#i18n}}dashboard.funnel.traffic{{/i18n}}
+                </td>
+                <td class="desktop">
+                    <div class="diagram">
+                        <div class="d3"></div>
+                    </div>
+                </td>
+                <td class="stat" title="{{#i18n}}dashboard.funnel.traffic{{/i18n}}">
+                    <span title="{{stats.calls}}">{{stats.calls|short}}</span>
+                </td>
+                <td class="desktop" style="font-size: 13px;">
+                    {{#i18n}}dashboard.stats.spent{{/i18n}}
+                </td>
+                <td class="desktop" style="font-size: 35px;white-space: nowrap;"
+                    title="{{#i18n}}dashboard.stats.spent{{/i18n}}">
+                    <span title="{{stats.spent}}">{{stats.spent|short}} {{#i18n}}currency{{/i18n}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px;" class="desktop">
+                    {{#i18n}}dashboard.funnel.delivered{{/i18n}}
+                </td>
+                <td class="desktop">
+                    <div class="diagram ">
+                        <div class="d4"></div>
+                    </div>
+                </td>
+                <td class="stat" title=" {{#i18n}}dashboard.funnel.delivered{{/i18n}}">
+                    <span title="{{stats.answered}}">{{stats.answered|short}}</span>
+                </td>
+                <td class="desktop" style="font-size: 13px;">
+                    {{#i18n}}dashboard.funnel.deliverability{{/i18n}}
+                </td>
+                <td class="desktop" style="font-size: 35px;white-space: nowrap;"
+                    title="{{#i18n}}dashboard.funnel.deliverability{{/i18n}}">
+                    <span title="{{stats.deliverability}}">{{stats.deliverability}} %</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px;" class="desktop">
+                    <div class="title"> {{#i18n}}dashboard.stats.leads{{/i18n}}</div>
+                </td>
+                <td class="desktop">
+                    <div class="diagram ">
+                        <div class="d5"></div>
+                    </div>
+                </td>
+                <td class="stat" title="{{#i18n}}dashboard.stats.leads{{/i18n}}">
+                    <span title="{{stats.leads}}">{{stats.leads|short}}</span> <!-- <div class="data-changes up"></div>-->
+                </td>
+                <td class="desktop" style="font-size: 13px;">
+                    {{#i18n}}dashboard.funnel.conversion{{/i18n}}
+                </td>
+                <td class="desktop" style="font-size: 35px;">
+                    <span title="{{stats.conversion}}">{{stats.conversion}} %</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="intensive" class="block">
+    <header>
+        <h2>{{#i18n}}dashboard.intensive.title{{/i18n}}</h2>
+        <div style="display:flex;align-items: center;gap:10px;">
+            <input type="checkbox" class="default" name="charts_type" id="charts_type"
+                   onchange="___mc.events.push('charts.change')">
+            <label for="charts_type" style="margin: 0;">{{#i18n}}dashboard.intensive.show_all{{/i18n}}</label>
+        </div>
+    </header>
+    <div class="charts">
+        <h3>{{#i18n}}dashboard.intensive.spent{{/i18n}}</h3>
+        <div style="position: relative;height: 200px;">
+            <canvas id="spent" style="width: 100%;height: 100%;"></canvas>
+        </div>
+        <h3 style="margin-top: 30px;">{{#i18n}}dashboard.intensive.price{{/i18n}}</h3>
+        <div style="position: relative;height: 200px;">
+            <canvas id="price" style="width: 100%;height: 100%;"></canvas>
+        </div>
+        <h3 style="margin-top: 30px;">{{#i18n}}dashboard.intensive.leads{{/i18n}}</h3>
+        <div style="position: relative;height: 200px;">
+            <canvas id="leads" style="width: 100%;height: 100%;"></canvas>
+        </div>
+    </div>
+    <div class="charts hide">
+        <div style="position: relative;height: 200px;">
+            <canvas id="all" style="width: 100%;height: 100%;"></canvas>
+        </div>
+    </div>
+</div>

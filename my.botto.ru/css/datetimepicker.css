@@ -1,0 +1,199 @@
+.datetimepicker {
+    position: relative;
+    max-width: 320px;
+}
+
+.datetimepicker-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 0 30px 0;
+    width: 320px !important;
+    max-width: 320px !important;
+    -webkit-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+}
+
+.datetimepicker, .datetimepicker input {
+    width: 100%;
+}
+
+.datetimepicker > label + span > div {
+    position: absolute;
+    z-index: 2;
+}
+
+.datetimepicker-inner label {
+    margin-top: 0;
+}
+
+.datetimepicker .dateplugin, .datetimepicker .timeplugin {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    max-width: 320px;
+    min-width: 320px;
+    padding: 10px !important;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    background: #fff;
+}
+
+.datetimepicker .timeplugin div {
+    margin: 0 5px;
+}
+
+.datetimepicker .timeplugin {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.datetimepicker .datetimepicker-selector {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.datetimepicker .dateplugin ul {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.datetimepicker .dateplugin ul li {
+    display: block;
+    text-align: center;
+}
+
+.datetimepicker .dateplugin .years li,
+.datetimepicker .dateplugin .months li {
+    position: relative;
+    min-width: 90px;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    line-height: 24px;
+}
+
+.datetimepicker .dateplugin .years li:first-child,
+.datetimepicker .dateplugin .months li:first-child {
+    background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+    background: -o-linear-gradient(right, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.datetimepicker .dateplugin .years li:last-child,
+.datetimepicker .dateplugin .months li:last-child {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+    background: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.datetimepicker .dateplugin .years li.selected,
+.datetimepicker .dateplugin .months li.selected {
+    font-size: 24px;
+    color: var(--color__blue);
+    cursor: default;
+}
+
+.datetimepicker .dateplugin .months li.selected {
+    font-size: 18px;
+}
+
+.datetimepicker .dateplugin .days {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.datetimepicker .dateplugin .weekdays li,
+.datetimepicker .dateplugin .days li {
+    width: 40px;
+    height: 40px;
+    line-height: 14px;
+    padding: 13px 0;
+    margin-bottom: 0;
+    -ms-flex-preferred-size: 40px;
+    flex-basis: 40px;
+    cursor: pointer;
+}
+
+.datetimepicker .dateplugin .weekdays li:nth-child(7n),
+.datetimepicker .dateplugin .days li:nth-child(7n),
+.datetimepicker .dateplugin .weekdays li:nth-child(7n-1),
+.datetimepicker .dateplugin .days li:nth-child(7n-1) {
+    color: var(--color__light_blue);
+}
+
+.datetimepicker .dateplugin .days li.selected {
+    color: #fff;
+    background: var(--color__blue);
+}
+
+.datetimepicker .clear {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    display: block;
+    cursor: pointer;
+    color: var(--color__blue);
+}
+
+.datetimepicker .controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 5px;
+}
+
+.datetimepicker .dateplugin.selecting .days li.selected {
+    opacity: 0.9;
+}
+
+.datetimepicker .controls span {
+    width: auto;
+    margin-bottom: 10px;
+}

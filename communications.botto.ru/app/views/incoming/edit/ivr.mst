@@ -1,0 +1,13 @@
+<header>
+    <h2>{{#i18n}}mailings.settings.ivr{{/i18n}}</h2>
+</header>
+
+<label>{{#i18n}}mailings.settings.ivr{{/i18n}}</label>
+<div class="columns" id="ivr">
+    {{#seload classlist='col-1-1' option=ivr.name value=ivr.id onchange=onselect method=method params=params selected=selected}}{{/seload}}
+    <button class="secondary" onclick="___mc.events.push('incoming.ivr.create')">{{#i18n}}button.create{{/i18n}}</button>
+</div>
+
+<footer>
+    {{> incoming/edit/footer}}
+</footer>

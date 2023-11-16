@@ -1,0 +1,103 @@
+<div handler="controllers/materials/edit/tts" data-id="{{id}}" data-type="{{type}}">
+    {{#if popup}}
+    <header>
+        <h2>{{#i18n}}materials.create{{/i18n}}</h2>
+    </header>
+    {{/if}}
+    <div class="block">
+        <header>
+            <h2>
+                {{#unless id 'new'}}
+                    {{#i18n}}materials.edit.edit{{/i18n}}
+                {{/unless}}
+                {{#if id 'new'}}
+                    {{#i18n}}materials.edit.create.audio{{/i18n}}
+                {{/if}}
+            </h2>
+        </header>
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name" onchange="___mc.events.push('material.name.change', this.value)"
+               value="{{material.name}}">
+        <div id="tts_template" class="">
+            <!--<label class="w100">Выберите язык
+              <span class="custom-select">
+                    <select name="lang">
+                      <option value="ru">Русский</option>
+                  </select>
+                  </span>
+            </label>-->
+            <label class="">
+                {{#i18n}}materials.edit.tts.text{{/i18n}}
+            </label>
+            <textarea name="tts_template-text" class=""
+                      onchange="___mc.events.push('material.tts_template-text.change', this.value)"
+                      placeholder="{{#i18n}}materials.edit.tts.placeholder{{/i18n}}">{{material.data.data.text}}</textarea>
+            <label class="">
+                {{#i18n}}materials.edit.tts.voice{{/i18n}}
+            </label>
+            <div class="row">
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="oksana" class="default"
+                           {{#unless material.data.data.voice}}checked{{/unless}}
+            {{#if material.data.data.voice 'oksana'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.oksana{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="omazh" class="default"
+                           {{#if material.data.data.voice 'omazh'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.omazh{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="jane" class="default"
+                           {{#if material.data.data.voice 'jane'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.jane{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="zahar" class="default"
+                           {{#if material.data.data.voice 'zahar'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.zahar{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="ermil" class="default"
+                           {{#if material.data.data.voice 'ermil'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.ermil{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="silaerkan" class="default"
+                           {{#if material.data.data.voice 'silaerkan'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.silaerkan{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="erkanyavas" class="default"
+                           {{#if material.data.data.voice 'erkanyavas'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.erkanyavas{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="alyss" class="default"
+                           {{#if material.data.data.voice 'alyss'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.alyss{{/i18n}}</span>
+                </label>
+                <label class="">
+                    <input type="radio" name="tts_template-voice" value="nick" class="default"
+                           {{#if material.data.data.voice 'nick'}}checked{{/if}}>
+                    <span class="">{{#i18n}}materials.edit.tts.nick{{/i18n}}</span>
+                </label>
+            </div>
+            <br>
+            <button type="button"
+                    onclick="___mc.events.push('tts_template.preview', this)">{{#i18n}}materials.edit.tts.listen{{/i18n}}</button>
+            <br>
+        </div>
+        <footer>
+            <button type="button" onclick="___mc.events.push('materials.save', {btn: this})">
+                {{#if id 'new'}}
+	                {{#i18n}}button.create{{/i18n}}
+                {{/if}}
+                {{#unless id 'new'}}
+	                {{#i18n}}button.save{{/i18n}}
+                {{/unless}}
+            </button>
+        </footer>
+    </div>
+
+</div>

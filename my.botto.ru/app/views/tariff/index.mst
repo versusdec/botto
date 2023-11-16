@@ -1,0 +1,31 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>{{#i18n}}tariff.title{{/i18n}}: {{tariff.name}}</h1>
+<hr>
+<div class="block">
+    <header>
+        <h2>{{#i18n}}profile.common{{/i18n}}</h2>
+    </header>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}tariff.income{{/i18n}} </th>
+                <th>{{#i18n}}tariff.outcome{{/i18n}}</th>
+                <th>{{#i18n}}tariff.rent{{/i18n}}   </th>
+                <th>{{#i18n}}tariff.sms{{/i18n}}    </th>
+                <th>{{#i18n}}tariff.stt{{/i18n}}    </th>
+                <th>{{#i18n}}tariff.tts{{/i18n}}    </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td title="{{#i18n}}tariff.income{{/i18n}} ">{{tariff.prices.income_calls}} {{#i18n}}currency{{/i18n}}</td>
+                <td title="{{#i18n}}tariff.outcome{{/i18n}}">{{tariff.prices.outcome_calls}} {{#i18n}}currency{{/i18n}}</td>
+                <td title="{{#i18n}}tariff.rent{{/i18n}}   ">{{tariff.prices.phone_rent}} {{#i18n}}currency{{/i18n}}</td>
+                <td title="{{#i18n}}tariff.sms{{/i18n}}    ">{{tariff.prices.sms}} {{#i18n}}currency{{/i18n}}</td>
+                <td title="{{#i18n}}tariff.stt{{/i18n}}    ">{{tariff.prices.stt}} {{#i18n}}currency{{/i18n}}</td>
+                <td title="{{#i18n}}tariff.tts{{/i18n}}    ">{{tariff.prices.tts}} {{#i18n}}currency{{/i18n}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

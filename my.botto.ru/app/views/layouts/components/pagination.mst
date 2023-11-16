@@ -1,0 +1,33 @@
+<div class="pagination">
+
+    <div>
+        {{#if total_pages '>' 1}}
+            {{#i18n}}filter.pagination.page{{/i18n}}: &nbsp;
+        {{/if}}
+      <ul>
+        {{#if prev}}
+          <li><a href="{{prev}}" class="mdi mdi-chevron-left"></a></li>
+        {{/if}}
+
+        {{#each pages}}
+          <li{{#if page ../current}} class="current"{{/if}}>
+            {{#if uri}}
+            <a href="{{uri}}">
+            {{/if}}
+            {{page}}
+            {{#if uri}}
+            </a>
+            {{/if}}
+          </li>
+        {{/each}}
+        {{#if next}}
+          <li><a href="{{next}}" class="mdi mdi-chevron-right"></a></li>
+        {{/if}}
+      </ul>
+    </div>
+    <div style="display:flex;margin-left:auto;">
+      {{#i18n}}filter.pagination.limit{{/i18n}}&nbsp;
+      {{#select options=limits value=limit onchange=limit_change}}{{/select}}
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+{{#lang}}{{/lang}}
+<img src onerror="$('#login').addClass('not_auth')">
+
+<header>
+    <h1>{{#i18n}}auth.registration{{/i18n}}</h1>
+    <div class="error invisible"> {{#i18n}}auth.email_using{{/i18n}} </div>
+</header>
+
+<label>{{#i18n}}auth.email{{/i18n}}:</label>
+<span class="mdi mdi-email-outline">
+    <input type="text" name="email">
+</span>
+
+<div class="hide">
+    <label>{{#i18n}}auth.phone{{/i18n}}: </label>
+    <span class="mdi mdi-phone-outline">
+    <input type="tel" name="phone">
+</span>
+</div>
+<label>{{#i18n}}auth.password{{/i18n}}:</label>
+<span class="mdi mdi-lock-outline password">
+    <input type="password" name="password">
+    <a class="mdi mdi-eye link toggle" onclick="___mc.events.push('password.preview.toggle', this)"></a>
+</span>
+<label>{{#i18n}}auth.promo{{/i18n}}:</label>
+<input type="text" name="promo" value="{{code}}">
+
+<br>
+
+<button class="register" onclick="___mc.events.push('register',this)">{{#i18n}}button.register{{/i18n}}</button>
+<sup>
+    {{#i18n}}auth.policy{{/i18n}}
+</sup>
+
+<p>{{#i18n}}auth.register_with{{/i18n}}:
+    <button class="social vk" onclick="___mc.events.push('register.vk')">{{#i18n}}auth.login_via{{/i18n}} <img
+      src="/img/icons/vk-white.svg" alt=""></button>
+</p>
+
+<p>{{#i18n}}auth.have_account{{/i18n}}? <a href="/login">{{#i18n}}button.login{{/i18n}}</a></p>
+
+<p>{{#i18n}}auth.problems{{/i18n}}? <a href="mailto:support@botto.ru">{{#i18n}}support.title{{/i18n}}</a></p>
+
+<div class="copy">© 2021 Botto Platform. {{#i18n}}footer.copyrights{{/i18n}}</div>

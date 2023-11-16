@@ -1,0 +1,42 @@
+<li>
+    <div id="ivr_node_{{id}}" data-id="{{id}}" class="node{{#if collapsed}} collapsed{{/if}}">
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="hidden" name="pid" value="{{pid}}">
+        <div class="header">
+            <span class="mdi mdi-apps"></span>
+            <input type="text" name="name" placeholder="{{#i18n}}ivr.nodes.placeholder{{/i18n}}" value="{{name}}" onblur="___mc.events.push('ivr.node.update', {id: {{id}},name: $(this).val()})">
+            <a class="mdi mdi-trash-can-outline" onclick="___mc.events.push('ivr.node.remove', {{id}})"></a>
+            <a class="mdi mdi-chevron-up" onclick="$(this).closest('.node').toggleClass('collapsed')"></a>
+            <a class="mdi mdi-chevron-down" onclick="$(this).closest('.node').toggleClass('collapsed')"></a>
+        </div>
+        <div handler="modules/sortable" data-sortable-onchange="ivr.node.settings.position" data-sortable-container>
+            <span>{{#i18n}}ivr.nodes.filters.title{{/i18n}}</span>
+            {{#each filters}}
+                {{> ivr/nodes/setting setting_type='filter'}}
+            {{/each}}
+            <div class="filter">
+                <a onclick="___mc.events.push('ivr.node.filters.add', {{id}})">{{#i18n}}ivr.nodes.filters.add{{/i18n}}</a>
+            </div>
+        </div>
+        <div handler="modules/sortable" data-sortable-onchange="ivr.node.settings.position" data-sortable-container>
+            <span>{{#i18n}}ivr.nodes.actions.title{{/i18n}}</span>
+            {{#each actions}}
+                {{> ivr/nodes/setting setting_type='action'}}
+            {{/each}}
+            <div class="action">
+                <a onclick="___mc.events.push('ivr.node.actions.add', {{id}})">{{#i18n}}ivr.nodes.actions.add{{/i18n}}</a>
+            </div>
+        </div>
+        <div class="options">
+            <a class="btn mdi mdi-plus-circle-outline" onclick="___mc.events.push('ivr.node.add.branch', {{id}})"></a>
+        </div>
+    </div>
+    {{#if childs}}
+        <ul>
+            {{#each childs}}
+                {{> ivr/nodes/node}}
+            {{/each}}
+            <li><a class="btn mdi mdi-plus-circle-outline" onclick="___mc.events.push('ivr.node.add', this)">{{#i18n}}ivr.nodes.add{{/i18n}}</a></li>
+        </ul>
+    {{/if}}
+</li>

@@ -1,0 +1,4 @@
+<div>
+  <label></label>
+  {{#player file=file}}{{/player}}
+</div>

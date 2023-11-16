@@ -1,0 +1,72 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline"
+       href="/{{"project_id"|global}}/"></a>{{#i18n}}materials.title{{/i18n}}</h1>
+<ul class="tabs">
+    <li class="{{#if tab 'active'}}active{{/if}}">
+        <a href="/{{"project_id"|global}}/materials/active/{{type}}/">{{#i18n}}materials.tabs.available{{/i18n}}</a>
+    </li>
+    <li{{#if tab 'archive'}} class="active"{{/if}}>
+        <a href="/{{"project_id"|global}}/materials/archive/{{type}}/">{{#i18n}}materials.tabs.archived{{/i18n}}</a>
+    </li>
+</ul>
+<hr>
+<div class="block" handler="controllers/materials/list/handler" data-tab="{{tab}}" data-type="{{type}}">
+    <header>
+        {{#if tab 'active'}}
+            <h2>{{#i18n}}materials.tabs.available{{/i18n}}</h2>
+        {{/if}}
+        {{#if tab 'archive'}}
+            <h2>{{#i18n}}materials.tabs.archived{{/i18n}}</h2>
+        {{/if}}
+        <ul class="tabs">
+            <li class="{{#if type 'audio'}}active{{/if}}">
+                <a href="/{{"project_id"|global}}/materials/{{tab}}/audio/">{{#i18n}}materials.type.audio{{/i18n}}</a>
+            </li>
+            <li class="{{#if type 'tts'}}active{{/if}}">
+                <a href="/{{"project_id"|global}}/materials/{{tab}}/tts/">{{#i18n}}materials.type.tts{{/i18n}}</a>
+            </li>
+            <li class="{{#if type 'text'}}active{{/if}}">
+                <a href="/{{"project_id"|global}}/materials/{{tab}}/text/">{{#i18n}}materials.type.text{{/i18n}}</a>
+            </li>
+            <li class="{{#if type 'link'}}active{{/if}}">
+                <a href="/{{"project_id"|global}}/materials/{{tab}}/link/">{{#i18n}}materials.type.link{{/i18n}}</a>
+            </li>
+        </ul>
+        <a href="/{{"project_id"|global}}/materials/edit/{{type}}/new/" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+    </header>
+    <div id="list">
+        {{#pagination}}{{/pagination}}
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>{{#i18n}}table.date{{/i18n}}</th>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    {{#if type 'audio'}}
+                        <th>{{#i18n}}mailings.materials.audio{{/i18n}}</th>
+                    {{/if}}
+                    {{#if type 'text'}}
+                        <th>{{#i18n}}notification.text{{/i18n}}</th>
+                    {{/if}}
+                    <th data-visible>{{#i18n}}table.status{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="{{#if type 'IN' 'audio' 'text'}}6{{/if}}
+                        {{#unless type 'IN' 'text' 'audio'}}5{{/unless}}">
+                        <div class="loader">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {{#pagination}}{{/pagination}}
+    </div>
+</div>

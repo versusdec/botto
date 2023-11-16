@@ -1,0 +1,29 @@
+<div class="block">
+    <header>
+        <h2>
+            {{#i18n}}mailings.analytics.materials.title{{/i18n}}
+        </h2>
+    </header>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}table.name{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.materials.item{{/i18n}}</th>
+                <th>{{#i18n}}dashboard.conversion{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{stats.name}}</td>
+                    <td>{{#player file=stats.file}}{{/player}}</td>
+                    <td>{{stats.conversion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,36 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>{{#i18n}}system.notifications{{/i18n}}</h1>
+<hr>
+<div class="block " handler="controllers/notifications/handler">
+  <header class="head flex wrap">
+    <h2>{{#i18n}}system.notifications{{/i18n}}</h2>
+    {{#select value='not_read' onchange='status_change' options=options}}{{/select}}
+  </header>
+
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>{{#i18n}}notification.text{{/i18n}}</th>
+        <th>{{#i18n}}table.actions{{/i18n}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="3">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+

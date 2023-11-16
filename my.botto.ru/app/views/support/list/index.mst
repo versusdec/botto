@@ -1,0 +1,48 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>{{#i18n}}support.title{{/i18n}}</h1>
+<ul class="tabs">
+  <li {{#unless tab}} class="active" {{/unless}}>
+    <a href="/support">{{#i18n}}support.tabs.tech{{/i18n}}</a>
+  </li>
+  <li {{#if tab 'finance'}} class="active" {{/if}}>
+    <a href="/support/finance" >{{#i18n}}support.tabs.finance{{/i18n}}</a>
+  </li>
+  <li {{#if tab 'archived'}} class="active" {{/if}}>
+    <a href="/support/archived">{{#i18n}}support.tabs.archive{{/i18n}}</a>
+  </li>
+</ul>
+<hr>
+
+<div class="block" id="support_list" handler="controllers/support/list/handler" data-tab="{{tab}}">
+  <header>
+    <h2>{{#i18n}}support.tickets{{/i18n}}</h2>
+    <a href="/support/add/" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+  </header>
+  {{#pagination}}{{/pagination}}
+  <div class="table ">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>{{#i18n}}table.date{{/i18n}}</th>
+        <th>{{#i18n}}table.name{{/i18n}}</th>
+        <th>{{#i18n}}table.status{{/i18n}}</th>
+        <th style="width: 100px;">{{#i18n}}support.ticket.messages{{/i18n}}</th>
+        <th>{{#i18n}}table.actions{{/i18n}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="6">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {{#pagination}}{{/pagination}}
+</div>

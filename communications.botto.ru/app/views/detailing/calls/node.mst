@@ -1,0 +1,28 @@
+<li>
+    <div class="node">
+        <div class="">
+            {{name}}
+        </div>
+        <div>
+            <span>{{#i18n}}table.actions{{/i18n}}</span>
+            <div class="filter">
+                {{#if data.digit}}
+                    <div class="name">{{#i18n}}detailing.calls.details.digit{{/i18n}}: {{data.digit}}</div>
+                {{/if}}
+                {{#if data.recognize}}
+                    <div class="name">{{#i18n}}detailing.calls.details.recognize{{/i18n}}: {{data.recognize}}</div>
+                {{/if}}
+            </div>
+            <p> {{timestamp}}</p>
+            {{#if amount}}
+                <sub>{{#i18n}}mailings.analytics.calls.cost{{/i18n}}: {{amount}}</sub>
+            {{/if}}
+            {{#if material}}
+                {{#if material.type 'audio'}}
+                    {{#player file=material.item}}{{/player}}
+                {{/if}}
+            {{/if}}
+            <br>
+        </div>
+    </div>
+</li>

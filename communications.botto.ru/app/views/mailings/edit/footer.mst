@@ -1,0 +1,18 @@
+{{#unless last}}
+    {{#if id 'new'}}
+<button class="next" onclick="___mc.events.push('next')">{{#i18n}}button.next{{/i18n}}</button>
+{{/if}}
+    {{#unless id 'new'}}
+<button onclick="___mc.events.push('mailings.save', this)">{{#i18n}}button.save{{/i18n}}</button>
+  {{/unless}}
+{{/unless}}
+{{#if last}}
+<button class="" onclick="___mc.events.push('mailings.save', this)">
+    {{#if id 'new'}}
+            {{#i18n}}button.create{{/i18n}}
+        {{/if}}
+        {{#unless id 'new'}}
+            {{#i18n}}button.save{{/i18n}}
+        {{/unless}}
+</button>
+{{/if}}

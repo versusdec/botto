@@ -1,0 +1,36 @@
+<div class="player" id="{{id}}">
+    <button class="mdi mdi-record {{#if file}}hide{{/if}}"></button>
+    <button class="mdi mdi-play {{#unless file}}hide{{/unless}}"></button>
+    <button class="mdi mdi-pause hide"></button>
+    <button class="mdi mdi-stop "></button>
+    <div class="audio">
+        <audio src="{{file}}"></audio>
+    </div>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" height="20"
+         aria-labelledby="title" role="img"
+         class="timeline">
+    </svg>
+    <div class="loading hide">{{#i18n}}loading{{/i18n}}</div>
+
+    <div class="progress ">
+        <span class="position"></span>
+    </div>
+
+    <div class="timer {{#unless file}}hide{{/unless}}">
+        <span class="current">00:00</span> /
+        <span class="total">{{duration|time}}</span>
+    </div>
+    {{#if record}}
+        <div class="record_time {{#if file}}hide{{/if}}">
+            <span class="total">00:00</span>
+        </div>
+    {{/if}}
+
+    {{#if record}}
+        <a {{#unless file}}disabled{{/unless}} class="mdi mdi-close link" title="{{#i18n}}actions.delete{{/i18n}}"></a>
+    {{/if}}
+    {{#unless record}}
+        <a class="mdi mdi-download link" title="{{#i18n}}actions.download{{/i18n}}"></a>
+    {{/unless}}
+</div>

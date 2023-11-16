@@ -1,0 +1,11 @@
+<div class="block wallet">
+  <header>
+    <h2>Ваш баланс</h2>
+    <sub><a href="/payments" class="link">Смотреть историю выплат</a></sub>
+  </header>
+  <div class="balance">
+    {{balance}} ₽
+  </div>
+  <hr class="">
+  <a onclick="___mc.events.push('partners.payments.popup')" class="btn">Заказать выплату</a>
+</div>

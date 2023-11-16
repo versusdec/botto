@@ -1,0 +1,25 @@
+{{#lang}}{{/lang}}
+<img src onerror="$('#login').addClass('not_auth')">
+
+<header>
+  <h1>{{#i18n}}forgot.title{{/i18n}}?</h1>
+</header>
+<div class="error invisible"> {{#i18n}}auth.error{{/i18n}}</div>
+
+
+<p>
+  {{#i18n}}forgot.text{{/i18n}}
+</p>
+<label>{{#i18n}}auth.email{{/i18n}}:</label>
+  <span class="mdi mdi-email-outline">
+    <input type="email" name="email">
+  </span>
+<p></p>
+<button style="min-width: 130px;" onclick="___mc.events.push('restore')" type="button">{{#i18n}}button.restore{{/i18n}}</button>
+
+<p>{{#i18n}}auth.no_account{{/i18n}}? <a href="/registration">{{#i18n}}auth.registration{{/i18n}}</a></p>
+
+<p>{{#i18n}}auth.problems{{/i18n}}? <a href="mailto:support@botto.ru">{{#i18n}}support.title{{/i18n}}</a></p>
+
+<div class="copy">© 2021 Botto Platform. {{#i18n}}footer.copyrights{{/i18n}}</div>
+

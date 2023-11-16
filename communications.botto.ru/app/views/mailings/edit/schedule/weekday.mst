@@ -1,0 +1,6 @@
+<tr data-day="{{weekday}}">
+    <td>{{title}}</td>
+    {{#each hours}}
+        {{> mailings/edit/schedule/hour}}
+    {{/each}}
+</tr>

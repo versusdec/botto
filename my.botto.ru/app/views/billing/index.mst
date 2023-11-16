@@ -1,0 +1,16 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>{{#i18n}}billing.title{{/i18n}}</h1>
+<ul class="tabs">
+  <li {{#unless page}}class="active"{{/unless}} ><a href="/billing">{{#i18n}}billing.transactions.title{{/i18n}}</a></li>
+    <li {{#if page 'topup'}}class="active"{{/if}}><a href="/billing/topup">{{#i18n}}billing.topup.title{{/i18n}}</a></li>
+</ul>
+<hr>
+
+{{#unless page}}
+  {{> billing/transactions/index}}
+{{/unless}}
+
+{{#if page 'topup'}}
+  {{> billing/topup/index}}
+{{/if}}
+
+

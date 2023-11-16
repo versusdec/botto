@@ -1,0 +1,6 @@
+<div class="tag">
+  <div class="remove" onclick="___mc.events.push('projects.tags.remove', {btn: this {{#if id}}, id: {{id}}{{/if}}{{#if tempID}}, tempID: '{{tempID}}'{{/if}} })">
+    <a class="mdi mdi-close hover"></a>
+  </div>
+  {{tag}}
+</div>

@@ -1,0 +1,90 @@
+.stats .val{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.stats{
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+#funnel td{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.diagram {
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 374px;
+}
+
+.diagram > * {
+    margin: 0 auto;
+    position: relative;
+}
+
+.diagram .d1 {
+    width: 100%;
+    opacity: 0.2;
+}
+
+.diagram .d2 {
+    width: 80%;
+    opacity: 0.4;
+}
+
+.diagram .d3 {
+    width: 60%;
+    opacity: 0.6;
+}
+
+.diagram .d4 {
+    width: 40%;
+    opacity: 0.8;
+}
+
+.diagram .d5 {
+    width: 19%;
+    opacity: 1;
+}
+
+.diagram > *::before, .diagram > *::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.diagram > *::before {
+    border-width: 0 35px 60px 0;
+    border-color: transparent var(--color__blue) transparent transparent;
+    left: 0;
+}
+
+.diagram > *::after {
+    border-width: 60px 35px 0 0;
+    border-color: var(--color__blue) transparent transparent transparent;
+    right: 0px;
+    width: calc(100% - 70px);
+}
+#funnel .stat{
+    font-size: 35px;
+}
+
+.ivr_history.nodes li .node::before{
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    #funnel .stat{
+        font-size: initial;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}

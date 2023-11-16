@@ -1,0 +1,13 @@
+<div class="select {{classlist}}" id="{{id}}">
+    <div class="option" data-value="{{value}}">
+        <span>{{option}}</span>
+        <ul class="options">
+            {{#each options}}
+                <li data-value="{{value}}" class="{{#if value ../value}}selected{{/if}} {{#if disabled}}disabled{{/if}}">{{option}}</li>
+            {{/each}}
+          {{#unless options}}
+            {{{content}}}
+          {{/unless}}
+        </ul>
+    </div>
+</div>

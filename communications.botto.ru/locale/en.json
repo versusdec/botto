@@ -1,0 +1,802 @@
+{
+    "auth": {
+        "logout": "Logout",
+        "login": "Login",
+        "password": "Password"
+    },
+    "button": {
+        "restore": "Restore",
+        "login": "Login",
+        "register": "Register",
+        "confirm": "Confirm",
+        "connect": "Connect",
+        "connected": "Connected",
+        "disconnect": "Disconnect",
+        "save": "Save",
+        "change": "Change",
+        "check_all": "Check all",
+        "apply": "Apply",
+        "buy": "Buy",
+        "pay": "Pay",
+        "cancel": "Cancel",
+        "pick": "Choose",
+        "create": "Create",
+        "update": "Update",
+        "answer": "Answer",
+        "close": "Close",
+        "unzip": "Unzip",
+        "call": "Call",
+        "next": "Next",
+        "delete": "Delete",
+        "add": "Add",
+        "more": "Show more",
+        "go": "Open",
+        "reset": "Reset",
+        "generate": "Generate"
+    },
+    "support": {
+        "title": "Support"
+    },
+    "footer": {
+        "copyrights": "All rights reserved."
+    },
+    "system": {
+        "notifications": "Notifications",
+        "error": "Error has occurred",
+        "confirm": "Confirm action",
+        "success": "Success",
+        "soon": "Soon",
+        "e404": {
+            "title": "Error",
+            "subtitle": "Error 404",
+            "not_found": "Page not found",
+            "oops": "Looks like something went wrong!",
+            "description": "Page you looking for not exist. <br> It may be outdated or deleted or an incorrect address was entered in the address bar."
+        },
+        "wrong_format": "File not supported",
+        "required": "This field is required",
+        "errors": {
+            "blacklist": "Select blacklist",
+            "message": "Select message",
+            "manager": "Phone number is incorrect",
+            "playback": "Select audio",
+            "webhook": "Select webhook",
+            "name": "Enter title"
+        }
+    },
+    "profile": {
+        "profile_settings": "Profile settings"
+    },
+    "user": {
+        "last_name": "Last name",
+        "name": "Name",
+        "second_name": "Second name",
+        "gender": {
+            "title": "Gender",
+            "male": "Male",
+            "female": "Female"
+        },
+        "email": "E-mail",
+        "verify_email": "Confirm your email address to get access to all platform features",
+        "phone": "Phone number",
+        "verify_phone": "Confirm your phone number to get access to all platform features"
+    },
+    "billing": {
+        "title": "Finance",
+        "payments": {
+            "title": "Payments",
+            "order": "Order payment"
+        },
+        "transactions": {
+            "title": "Transactions"
+        },
+        "topup": {
+            "title": "Top up"
+        }
+    },
+    "table": {
+        "date": "Date",
+        "total": "Total",
+        "comment": "Comment",
+        "actions": "Action",
+        "empty": "list is empty",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "status": "Status",
+        "not_selected": "Not selected",
+        "phone": "Phone number"
+    },
+    "select": {
+        "default": "Select"
+    },
+    "edit": {
+        "common": "Common",
+        "settings": "Settings"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "statistics": "Statistics",
+        "create_mailing": "Create mailing",
+        "funnel": {
+            "title": "Sales",
+            "traffic": "Traffic",
+            "delivered": "Delivered",
+            "deliverability": "Deliverability",
+            "conversion": "Conversion"
+        },
+        "stats": {
+            "calls": "Calls",
+            "sms": "SMS",
+            "clicks": "Clicks",
+            "leads": "Leads",
+            "spent": "Spent"
+        },
+        "intensive": {
+            "title": "Intensive",
+            "show_all": "Show in one",
+            "spent": "Spent",
+            "price": "Price",
+            "leads": "Leads"
+        }
+    },
+    "projects": {
+        "title": "Projects"
+    },
+    "partners": {
+        "title": "Partners"
+    },
+    "currency": "₽",
+    "total": "Total",
+    "notify": {
+        "email_sent": "An email has been sent"
+    },
+    "filter": {
+        "title": "Filters",
+        "period_start": "Period from",
+        "period_end": "Period to",
+        "found": "Found",
+        "total": "Total",
+        "pagination": {
+            "page": "Page",
+            "limit": "Show by:"
+        }
+    },
+    "status": {
+        "title": "Status",
+        "new": "Moderation",
+        "pending": "Pending",
+        "success": "Success",
+        "failed": "Failed",
+        "declined": "Declined",
+        "all": "All",
+        "active": "Active",
+        "archived": "Archived",
+        "paused": "Paused",
+        "stopped": "Stopped",
+        "running": "Running",
+        "ended": "Ended",
+        "landline": "LandLine",
+        "cellphone": "Cellphone"
+    },
+    "reason": {
+        "low_balance": "Low balance",
+        "balance": "Insufficient funds",
+        "material": "Unavailable materials",
+        "ivr": "Unavailable IVR",
+        "max_spent": "Spent limit exceeded",
+        "max_leads": "Lead limit exceeded"
+    },
+    "calendar": {
+        "weekdays": {
+            "sun": "Sun",
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat"
+        },
+        "weekdays_full": {
+            "sun": "Sunday",
+            "mon": "Monday",
+            "tue": "Tuesday",
+            "wed": "Wednesday",
+            "thu": "Thursday",
+            "fri": "Friday",
+            "sat": "Saturday"
+        },
+        "months": {
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "November",
+            "december": "December"
+        },
+        "time": {
+            "hours": "Hour",
+            "minutes": "Minute",
+            "seconds": "Second"
+        },
+        "period": {
+            "label": "Period"
+        },
+        "controls": {
+            "today": "Today",
+            "yesterday": "YDA",
+            "sevendays": "7 days",
+            "currentmonth": "This month",
+            "currentyear": "This year"
+        }
+    },
+    "numdecl": {
+        "minutes": {
+            "n1": "minute",
+            "n2": "minutes",
+            "n5": "minutes"
+        }
+    },
+    "dropzone": {
+        "button": "Choose file",
+        "text": "or drag and drop file here"
+    },
+    "wallet": {
+        "button": "Top up",
+        "balance": "Your balance"
+    },
+    "manager": {
+        "title": "Your manager",
+        "phone": "phone number"
+    },
+    "actions": {
+        "edit": "Edit",
+        "archive": "Archive",
+        "unzip": "Unzip",
+        "go": "Open",
+        "close": "Close",
+        "open": "Open",
+        "download": "Download",
+        "copy": "Copy",
+        "stop": "Stop"
+    },
+    "notification": {
+        "title": "Notification",
+        "text": "Text",
+        "read": "Read",
+        "not_read": "Not read"
+    },
+    "news": {
+        "title": "News",
+        "error": "An error occurred while loading news. Try to&nbsp;<a class=\"link hover\" onclick=\"location.reload()\">reload page</a>"
+    },
+    "handle": "Переместить",
+    "tags": "Теги",
+    "mailings": {
+        "title": "Mailings",
+        "tabs": {
+            "available": "Active",
+            "archived": "Archived",
+            "ended": "Ended"
+        },
+        "ended": "Mailing ended",
+        "confirm_archive": "Archive mailing?",
+        "confirm_unzip": "Unzip mailing?",
+        "archived": "Mailing archived",
+        "unzipped": "Mailing unzipped",
+        "mailing": "Mailing",
+        "text": "Text",
+        "text_title": "Text mailing",
+        "voice": "Voice",
+        "voice_title": "All voice mailings",
+        "create": "Create mailing",
+        "created": "Mailing created",
+        "updated": "Mailing updated",
+        "edit": "Edit mailing",
+        "confirm_pause": "Pause mailing",
+        "paused": "Mailing paused",
+        "confirm_stop": "Pause mailing?",
+        "stopped": "Mailing stopped",
+        "progress": "Progress",
+        "speed": "Speed",
+        "speed_changed": "Speed has been changed",
+        "results": "Results",
+        "confirm_start": "Start mailing",
+        "started": "Mailing started",
+        "confirm_restart": "Restart mailing",
+        "restarted": "Mailing restarted",
+        "spent": "Spent",
+        "price": "Price",
+        "leads": "Leads",
+        "state": "State",
+        "common": {
+            "ivr": "IVR",
+            "select_ivr": "Select ivr menu",
+            "phone": "Phone number",
+            "select_phone": "Select phone number",
+            "max_spent": "Expenses",
+            "max_leads": "Leads",
+            "speed": "Speed",
+            "records": "Conversation recording"
+        },
+        "ivr": {
+            "title": "IVR",
+            "select": "Select ivr"
+        },
+        "materials": {
+            "start": "Recognition start",
+            "sec": "Second",
+            "audio": "Audio",
+            "select_audio": "Choose audio",
+            "select_text": "Select message"
+        },
+        "bases": {
+            "select_bases": "Select bases"
+        },
+        "blacklists": {
+            "select_blacklists": "Select blacklists"
+        },
+        "schedule": {
+            "title": "Schedule"
+        },
+        "settings": {
+            "title": "Settings",
+            "max_spent": "Expenses",
+            "max_leads": "Leads",
+            "speed": "Speed",
+            "calls_per_hour": "calls/hour",
+            "records": "Conversation recording",
+            "ivr": "IVR",
+            "select_ivr": "Not selected",
+            "amd": "Define autoresponders",
+            "response_timeout": "Response timeout (sec.)",
+            "action_timeout": "Action timeout (sec.)"
+        },
+        "webhooks": {
+            "select_webhook": "Select Webhook"
+        },
+        "analytics": {
+            "title": "Analytics",
+            "info": {
+                "title": "Info",
+                "subtitle": "Statistics",
+                "summary": "Information",
+                "recalled": "Recalled",
+                "blacklisted": "Blacklisted",
+                "answered": "Answered",
+                "not_answered": "Not answered",
+                "amd": "Autoresponders defined",
+                "records": {
+                    "enabled": "Enabled",
+                    "disabled": "Disabled"
+                },
+                "state": "State",
+                "ppl": "Average lead price",
+                "spent": "Total spent"
+            },
+            "calls": {
+                "title": "Calls",
+                "inbound": "Incoming",
+                "outbound": "Outgoing",
+                "total": "Total",
+                "answered": "Answered",
+                "not_answered": "Not answered",
+                "answered_time": "Answer time",
+                "ended": "Call ended",
+                "amd": "Autoresponder",
+                "leads": "Leads",
+                "blacklisted": "Blacklisted",
+                "duration": "Duration",
+                "direction": "Direction",
+                "cost": "Cost",
+                "record": "Recording",
+                "phone": "Phone number",
+                "time_measure": "sec.",
+                "currency": "rub.",
+                "lead": "Lead",
+                "bl": "BL"
+            },
+            "sms": {
+                "recipient": "Recipient"
+            },
+            "materials": {
+                "title": "Materials",
+                "item": "Material"
+            },
+            "export": {
+                "leads": "Export leads",
+                "dropped": "Dropped",
+                "not_called": "Not called",
+                "report": "Report"
+            }
+        }
+    },
+    "incoming": {
+        "title": "Inbox",
+        "incoming": "Incoming line",
+        "any": "Any",
+        "create": "Create incoming line",
+        "edit": "Edit incoming line",
+        "confirm_archive": "Archive incoming line?",
+        "confirm_unzip": "Unzip incoming line?"
+    },
+    "phones": {
+        "rent": "Rent phone numbers",
+        "number": "Phone number",
+        "numbers": "Phone numbers",
+        "fee": "Fee",
+        "price": "₽ per day",
+        "button": "Rent",
+        "country": "Country",
+        "region": "Region",
+        "operator": "Operator"
+    },
+    "bases": {
+        "title": "Bases",
+        "subtitle": "Contacts",
+        "tabs": {
+            "available": "Active bases",
+            "archived": "Bases archive"
+        },
+        "base": "Base",
+        "processed": "Active",
+        "pending": "Pending",
+        "create": "Create base",
+        "edit": "Edit base",
+        "created": "Base created",
+        "updated": "Base updated",
+        "error": "En error has occured",
+        "amount": "Contacts",
+        "unique": "Unique contacts",
+        "archive": "Archive base?",
+        "archived": "Base archived",
+        "unzip": "Unzip base?",
+        "unzipped": "Base unzipped",
+        "add": {
+            "title": "Add contacts",
+            "list": "Add list",
+            "file": "Upload file",
+            "comment": "In case of loading a file with headers, the first line of headers will be skipped"
+        }
+    },
+    "blacklists": {
+        "title": "Blacklists",
+        "subtitle": "Contacts base",
+        "tabs": {
+            "available": "Active blacklists",
+            "archived": "Archived blacklists"
+        },
+        "create": "Create blacklist",
+        "edit": "Edit blacklist",
+        "created": "Blacklist created",
+        "updated": "Blacklist updated",
+        "archive": "Archive blacklist?",
+        "archived": "Blacklist archived",
+        "unzip": "Unzip blacklist?",
+        "unzipped": "Blacklist unzipped"
+    },
+    "materials": {
+        "title": "Materials",
+        "tabs": {
+            "available": "Active materials",
+            "archived": "Archived materials"
+        },
+        "type": {
+            "choose": "Select material type",
+            "audio": "Audio",
+            "tts": "TTS",
+            "text": "Text",
+            "link": "Link"
+        },
+        "create": "Create new material",
+        "created": "Material created",
+        "updated": "Material updated",
+        "confirm_archive": "Archive material?",
+        "confirm_unzip": "Unzip material?",
+        "archived": "Material archived",
+        "unzipped": "Material unzipped",
+        "edit": {
+            "edit": "Edit material",
+            "create": {
+                "text": "Create text message",
+                "audio": "Create audio clip",
+                "upload": "Upload audio",
+                "link": "Create link"
+            },
+            "source": {
+                "select": "Select audio source",
+                "file": "Upload file",
+                "tts": "Create from text",
+                "tts_template": "TTS",
+                "mic": "Microphone"
+            },
+            "tts": {
+                "text": "Clip text",
+                "voice": "Clip voice",
+                "listen": "Preview",
+                "placeholder": "Hello, {{name}} {{surname}}.",
+                "oksana": "Olivia",
+                "omazh": "Olga",
+                "jane": "Jane",
+                "zahar": "Ahmet",
+                "ermil": "Zachary",
+                "silaerkan": "Anna",
+                "erkanyavas": "Phil",
+                "alyss": "Alyss",
+                "nick": "Nick"
+            },
+            "normalize": "Normalize volume"
+        },
+        "links": {
+            "redirect_type": "Redirect type",
+            "utm_source": "utm_source (Campaign source )",
+            "utm_medium": "utm_medium (Campaign channel)",
+            "utm_campaign": "utm_campaign (Campaign name)",
+            "utm_term": "utm_term (Keyword)",
+            "utm_content": "utm_content (Campaign content)"
+        },
+        "text": {
+            "messages": "Messages",
+            "remaining": "Characters left"
+        }
+    },
+    "contacts": {
+        "title": "My contacts",
+        "subtitle": "All tacos",
+        "is_lead": "Is lead",
+        "in_blacklist": "Blacklisted",
+        "region": "Region",
+        "operator": "Operator",
+        "country": "Country",
+        "number": "Phone number",
+        "contacts": "Contacts",
+        "exclude": {
+            "title": "Exclude contacts",
+            "button": "Exclude",
+            "confirm": "Exclude contact?",
+            "excluded": "Contact excluded",
+            "excludeds": "Contacts excluded"
+        },
+        "include": {
+            "included": "Contact uncluded"
+        },
+        "reminder": "Fuck the duck until exploded"
+    },
+    "tracker": {
+        "title": "Tracker",
+        "select": "Select link",
+        "stats": {
+            "links": "Total",
+            "clicks": "Clicks",
+            "mobile": "Mobile",
+            "desktop": "Desktop"
+        },
+        "platform": "Platform",
+        "os": "Operation system",
+        "orientation": {
+            "title": "Orientation",
+            "portrait": "Portrait",
+            "landscape": "Landscape"
+        },
+        "width": "Width",
+        "height": "Height",
+        "soft": {
+            "title": "Software",
+            "browser": "Browser",
+            "application": "Application",
+            "bot": "Bot"
+        },
+        "hard": {
+            "title": "Hardware",
+            "mobile": "Mobile",
+            "server": "Server",
+            "computer": "PC",
+            "large_screen": "TV",
+            "vehicle": "Car",
+            "pda": "PDA",
+            "desktop": "Desktop"
+        },
+        "useragent": "Useragent",
+        "vendor": "Vendor",
+        "location": "Location",
+        "timezone": "Time zone",
+        "referrer": "Referrer",
+        "language": "Language",
+        "details": {
+            "title": "Details"
+        }
+    },
+    "ivr": {
+        "title": "IVR Menu",
+        "create": "Create new IVR Menu",
+        "edit": "Edit IVR Menu",
+        "created": "IVR Menu created",
+        "updated": "IVR Menu updated",
+        "scheme": "Scheme",
+        "archive": "Archive menu?",
+        "archived": "Menu archived",
+        "unzip": "Unzip menu?",
+        "unzipped": "Menu unzipped",
+        "tabs": {
+            "available": "Available IVR",
+            "archived": "Archived IVR"
+        },
+        "nodes": {
+            "placeholder": "Block name",
+            "settings": "Settings",
+            "filters": {
+                "title": "Filters",
+                "add": "Add filter",
+                "type": "Filter type",
+                "types": {
+                    "dtmf": "DTMF",
+                    "recognize": "Voice"
+                },
+                "recognize": {
+                    "include": "Include words",
+                    "exclude": "Exclude words"
+                },
+                "dtmf": "Digits"
+            },
+            "actions": {
+                "title": "Actions",
+                "add": "Add new action",
+                "type": "Action type",
+                "types": {
+                    "playback": "Play audio",
+                    "lead": "Lead",
+                    "blacklist": "Blacklist",
+                    "message": "Send Message",
+                    "manager": "Transfer",
+                    "add_manager": "Enter phone numbers in priority order",
+                    "timeout": "Call timeout",
+                    "tag": "Add tag",
+                    "create_tag": "Create tag?",
+                    "webhook": "Send Webhook"
+                },
+                "playback": "Audio materials",
+                "send_via": "Send via"
+            },
+            "add": "Add block",
+            "expand": "Expand",
+            "collapse": "Collapse"
+        }
+    },
+    "scenarios": {
+        "title": "Scenarios",
+        "tabs": {
+            "available": "Available scenarios",
+            "archived": "Archived scenarios"
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "tabs": {
+            "available": "Settings",
+            "archived": "Archived settings"
+        },
+        "type": {
+            "fields": "Fields",
+            "tags": "Tags",
+            "integrations": "Integrations"
+        },
+        "tags": {
+            "title": "Tags",
+            "confirm": "Remove tag?",
+            "created": "Tag created",
+            "deleted": "Tag removed"
+        },
+        "fields": {
+            "title": "Fields",
+            "var": "Variable",
+            "delete": "Remove field?",
+            "archive": "Archive field?",
+            "archived": "Field archived",
+            "unzip": "Unzip field?",
+            "created": "Field created",
+            "updated": "Field updated",
+            "options": {
+                "title": "Options",
+                "option": "Option",
+                "empty": "Add options",
+                "string": "String",
+                "int": "Integer",
+                "select": "Select",
+                "phone": "Phone number",
+                "email": "Email",
+                "time": "Time",
+                "date": "Date",
+                "datetime": "Date and time",
+                "checkbox": "Checkbox"
+            },
+            "match": {
+                "title": "Fields matching"
+            }
+        },
+        "integrations": {
+            "title": "Integrations",
+            "method": "Method",
+            "type": "Type",
+            "value": "Value",
+            "created": "Integration created",
+            "updated": "Integration updated",
+            "archive": "Archive integration?",
+            "archived": "Integration archived",
+            "unzip": "Unzip integration?",
+            "unzipped": "Integration unzipped",
+            "hook": "Webhook",
+            "domain": "AmoCRM subdomain",
+            "key": "Secret key",
+            "id": "ID",
+            "code": "Auth code",
+            "scenario": "Scenario",
+            "step": "Step",
+            "responsible": "Responsible",
+            "tag": "tag",
+            "contacts": "Contact title",
+            "deal": "Deal title"
+        }
+    },
+    "detailing": {
+        "title": "Detailing",
+        "calls": {
+            "title": "Calls",
+            "inbound": {
+                "title": "Inbound"
+            },
+            "outbound": {
+                "title": "Outbound"
+            },
+            "filters": {
+                "all": "All",
+                "mailings": "Mailings",
+                "transactions": "Transactional",
+                "scenario": "Scenario",
+                "manager": "Manager",
+                "hook": "Webhook",
+                "leads": "Leads",
+                "lead": "Leads",
+                "bl": "BL",
+                "blacklisted": "BL",
+                "api": "API"
+            },
+            "details": {
+                "title": "Call detail",
+                "digit": "Digit",
+                "recognize": "Voice"
+            }
+        },
+        "sms": {
+            "title": "SMS"
+        }
+    },
+    "pixel": {
+        "title": "Pixel",
+        "visitors": "Visitors",
+        "def": "Definitions",
+        "conversion": "Conversion",
+        "cost": "Cost",
+        "report": "Download report",
+        "details": "Details",
+        "domain": "Domain",
+        "info": "Info",
+        "edit": {
+            "title": "Edit pixel",
+            "new": "Create pixel",
+            "timer": "Timer",
+            "visitors": "Unique visitors"
+        },
+        "disclaimer": {
+            "checkbox": "Show disclaimer",
+            "example": "Disclaimer example"
+        }
+    },
+    "not_found": "nothing found",
+    "loading": "Loading"
+}

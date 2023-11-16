@@ -1,0 +1,8 @@
+<tr data-id="{{id}}">
+    <td title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="mdi mdi-trash-can-outline" title="{{#i18n}}button.delete{{/i18n}}"
+           onclick="___mc.events.push('ivr.node.settings.actions.remove', {btn: this, type: '{{type}}', id: {{id}} })"></a>
+    </td>
+</tr>

@@ -1,0 +1,261 @@
+{
+    "/:project_id/": {
+        "controller": "dashboard/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/404": {
+        "controller": "404",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/": {
+        "controller": "mailings/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/:tab/": {
+        "controller": "mailings/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/:tab/:type/": {
+        "controller": "mailings/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/:mode/:type/:id/": {
+        "controller": "mailings/edit/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/stats/:type/:id/analytics/": {
+        "controller": "mailings/analytics/info",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/stats/:type/:id/analytics/calls/": {
+        "controller": "mailings/analytics/calls/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/mailings/stats/:type/:id/analytics/materials/": {
+        "controller": "mailings/analytics/materials/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/incoming/": {
+        "controller": "incoming/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/incoming/:tab/": {
+        "controller": "incoming/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/incoming/:mode/:id/": {
+        "controller": "incoming/edit/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/database/:type/": {
+        "controller": "bases/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/database/:type/:tab/": {
+        "controller": "bases/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/database/:type/edit/:id/": {
+        "controller": "bases/edit/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/detailing/": {
+        "controller": "detailing/list",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/detailing/:type/": {
+        "controller": "detailing/list",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/detailing/:type/:tab/": {
+        "controller": "detailing/list",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/detailing/calls/:direction/:id/": {
+        "controller": "detailing/item",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/materials/": {
+        "controller": "materials/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/materials/:tab/": {
+        "controller": "materials/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/materials/:tab/:type/": {
+        "controller": "materials/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/materials/:mode/:type/:id/": {
+        "controller": "materials/edit/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/contacts/": {
+        "controller": "contacts/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/tracker/": {
+        "controller": "tracker/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/ivr/": {
+        "controller": "ivr/list",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/ivr/:mode/:id/": {
+        "controller": "ivr/edit",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/ivr/:tab/": {
+        "controller": "ivr/list",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/scenarios/": {
+        "controller": "scenarios/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/scenarios/:tab/": {
+        "controller": "scenarios/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/scenarios/edit/:id/": {
+        "controller": "scenarios/edit/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/settings/": {
+        "controller": "settings/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/settings/:tab/": {
+        "controller": "settings/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/settings/:tab/:type/": {
+        "controller": "settings/list/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/settings/:mode/integrations/:id/": {
+        "controller": "settings/edit/integrations/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/settings/edit/fields/:id/": {
+        "controller": "settings/edit/fields/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    },
+    "/:project_id/settings/edit/tags/:id/": {
+        "controller": "settings/edit/tags/index",
+        "role": [
+            "client",
+            "admin"
+        ]
+    }
+}

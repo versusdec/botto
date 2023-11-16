@@ -1,0 +1,43 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/"></a>{{#i18n}}phones.my{{/i18n}}</h1>
+<ul class="tabs">
+    <li class=""><a href="/phones">{{#i18n}}phones.my{{/i18n}}</a></li>
+    <li class="active"><a>{{#i18n}}phones.rent{{/i18n}}</a></li>
+</ul>
+<hr>
+
+<div id="rent" class="block" handler="controllers/phones/rent/handler">
+    <header>
+        <h2>{{#i18n}}phones.phones{{/i18n}}</h2>
+        <button type="button" class="rent desktop device" onclick="___mc.events.push('phones.rent.multiple')">{{#i18n}}phones.button{{/i18n}}</button>
+    </header>
+    {{#pagination}}{{/pagination}}
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 80px;"><input type="checkbox" class="default" onclick="___mc.events.push('phones.check.all', this)"></th>
+                <th>{{#i18n}}phones.number{{/i18n}}</th>
+                <th>{{#i18n}}phones.country{{/i18n}}</th>
+                <th>{{#i18n}}phones.region{{/i18n}}</th>
+                <th>{{#i18n}}phones.operator{{/i18n}}</th>
+                <th>{{#i18n}}table.type{{/i18n}}</th>
+                <th>{{#i18n}}phones.fee{{/i18n}}</th>
+                <th style="width: 100px;">{{#i18n}}table.actions{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="8">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#pagination}}{{/pagination}}
+</div>

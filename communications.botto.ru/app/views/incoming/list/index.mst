@@ -1,0 +1,40 @@
+<div class="block" handler="controllers/incoming/list/handler" data-tab="{{tab}}">
+    <header>
+        <h2>{{#i18n}}incoming.title{{/i18n}}</h2>
+        <a href="/{{"project_id"|global}}/incoming/edit/new/" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+    </header>
+    {{#pagination}}{{/pagination}}
+    <div class="table" id="incoming-list">
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 100px;">ID</th>
+                <th>{{#i18n}}table.name{{/i18n}}</th>
+                <th>{{#i18n}}table.status{{/i18n}}</th>
+                <th>
+                    {{#i18n}}mailings.results{{/i18n}}
+                    <div style="font-size: 13px;font-weight:normal;">
+                        {{#i18n}}mailings.spent{{/i18n}} /
+                        {{#i18n}}mailings.price{{/i18n}} /
+                        {{#i18n}}mailings.leads{{/i18n}}
+                    </div>
+                </th>
+                <th>{{#i18n}}table.actions{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody style="position: relative;">
+            <tr>
+                <td colspan="5">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#pagination}}{{/pagination}}
+</div>

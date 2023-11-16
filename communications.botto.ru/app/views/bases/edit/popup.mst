@@ -1,0 +1,34 @@
+<div style="display:flex;flex-direction: column;height: 100%">
+    <header>
+        <h2>
+            {{#if ct 'add'}}
+                {{#i18n}}bases.add.title{{/i18n}}
+            {{/if}}
+            {{#if ct 'exclude'}}
+                {{#i18n}}contacts.exclude.title{{/i18n}}
+            {{/if}}
+        </h2>
+    </header>
+
+    <div style="display:flex;flex-grow: 1;flex-direction: column;">
+        {{#select classlist='col-1-1' options=options value='file' onchange='bases.add.type.change'}}{{/select}}
+        <div id="file" class="add_type">
+            {{#dropzone onupload="bases.file.upload" accept=".csv,.txt,.xls,.xlsx"}}{{/dropzone}}
+            <p>{{#i18n}}bases.add.comment{{/i18n}}</p>
+            <div id="preview" class="hide">
+                <div class="loader"><span></span><span></span><span></span><span></span></div>
+            </div>
+        </div>
+
+        <div id="list" class="hide add_type">
+            <br>
+            <textarea name="include_list" onchange="___mc.events.push('base.contacts.change', this.value)"
+                      class="col-1-1"></textarea>
+        </div>
+
+    </div>
+    <footer>
+        <button type="button" onclick="___mc.events.push('bases.contacts.apply', this)">{{#i18n}}
+            button.confirm{{/i18n}}</button>
+    </footer>
+</div>

@@ -1,0 +1,37 @@
+<div handler="controllers/materials/edit/text" data-id="{{id}}" data-type="{{type}}" data-mode="{{mode}}">
+    {{#if popup}}
+    <header>
+        <h2>{{#i18n}}materials.create{{/i18n}}</h2>
+    </header>
+    {{/if}}
+    <div class="block">
+        <header>
+            <h2>
+                {{#unless id 'new'}}
+                    {{#i18n}}materials.edit.edit{{/i18n}}
+                {{/unless}}
+                {{#if id 'new'}}
+                    {{#i18n}}materials.edit.create.{{type}}{{/i18n}}
+                {{/if}}
+            </h2>
+        </header>
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name" onchange="___mc.events.push('material.name.change', this.value)"
+               value="{{material.name}}">
+        <label>{{#i18n}}materials.type.text{{/i18n}}</label>
+        <textarea name="text" onkeyup="___mc.events.push('materials.text.check', this)"
+                  onchange="___mc.events.push('material.text.change', this.value)">{{material.data.text}}</textarea>
+        <span><sub style="margin-right: 30px;">{{#i18n}}materials.text.messages{{/i18n}}: <span data-messages></span></sub><sub>{{#i18n}}materials.text.remaining{{/i18n}}: <span data-remaining></span></sub></span>
+        <footer>
+            <button type="button" onclick="___mc.events.push('materials.save', {btn: this})">
+                {{#if id}}
+                    {{#i18n}}button.save{{/i18n}}
+                {{/if}}
+                {{#unless id}}
+                    {{#i18n}}button.create{{/i18n}}
+                {{/unless}}
+            </button>
+        </footer>
+
+    </div>
+</div>

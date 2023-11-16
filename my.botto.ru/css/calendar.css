@@ -1,0 +1,135 @@
+@import "datetimepicker.css";
+
+.datepicker {
+    position: relative;
+    max-width: 320px;
+}
+
+.datepicker, .datepicker input {
+    width: 100%;
+}
+
+.datepicker > label + span > div {
+    position: absolute;
+    z-index: 2;
+}
+
+.datepicker .calendar {
+    -webkit-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+    margin-top: 0;
+}
+
+.calendar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    max-width: 320px;
+    min-width: 320px;
+    padding: 20px !important;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.calendar ul {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.calendar ul li {
+    display: block;
+    text-align: center;
+}
+
+.calendar .years li,
+.calendar .months li {
+    position: relative;
+    min-width: 90px;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    line-height: 24px;
+}
+
+.calendar .years li:first-child,
+.calendar .months li:first-child {
+    background: -webkit-gradient(linear, right top, left top, from(rgba(0,0,0,0.5)), to(transparent));
+    background: -o-linear-gradient(right, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background: linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calendar .years li:last-child,
+.calendar .months li:last-child {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,0.5)), to(transparent));
+    background: -o-linear-gradient(left, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calendar .years li.selected,
+.calendar .months li.selected {
+    font-size: 24px;
+    color: var(--color__blue);
+    cursor: default;
+}
+
+.calendar .months li.selected {
+    font-size: 18px;
+}
+
+.calendar .days {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.calendar .weekdays li,
+.calendar .days li {
+    width: 40px;
+    height: 40px;
+    line-height: 14px;
+    padding: 13px 0;
+    margin-bottom: 0;
+    -ms-flex-preferred-size: 40px;
+    flex-basis: 40px;
+    cursor: pointer;
+}
+
+.calendar .weekdays li:nth-child(7n),
+.calendar .days li:nth-child(7n),
+.calendar .weekdays li:nth-child(7n-1),
+.calendar .days li:nth-child(7n-1) {
+    color: var(--color__light_blue);
+}
+
+.calendar .days li.selected {
+    color: #fff;
+    background: var(--color__blue);
+}
+
+@media only screen and (max-width: 767px) {
+
+}

@@ -1,0 +1,23 @@
+<tr>
+    <td title="ID" style="width: 100px;">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+    <td>
+        <a href="/{{"project_id"|global}}/ivr/clone/{{id}}/" title="{{#i18n}}actions.copy{{/i18n}}"
+           class="link mdi mdi-checkbox-multiple-blank-outline">
+        </a>
+        <a class="link mdi mdi-file-edit-outline" href="/{{"project_id"|global}}/ivr/edit/{{id}}/"
+           title="{{#i18n}}actions.edit{{/i18n}}"></a>
+        {{#unless status 'archive'}}
+            <a class="link mdi mdi-archive-arrow-down-outline"
+               onclick="___mc.events.push('ivr.archive', {id: {{id}}, btn: this})"
+               title="{{#i18n}}actions.archive{{/i18n}}"></a>
+        {{/unless}}
+        {{#if status 'archive'}}
+            <a class="link mdi mdi-archive-arrow-down-outline"
+               onclick="___mc.events.push('ivr.unzip', {{id}})"
+               title="{{#i18n}}actions.archive{{/i18n}}"></a>
+        {{/if}}
+
+    </td>
+</tr>

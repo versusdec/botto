@@ -1,0 +1,166 @@
+<div class="{{#if block}}block{{/if}} integration_popup" data-id="{{id}}" handler="controllers/settings/edit/integrations/create">
+    <header>
+        <h2>{{#i18n}}settings.type.integrations{{/i18n}}</h2>
+        <ul class="tabs {{#unless integration.id}}hide{{/unless}}">
+            <li class="active">
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'common', btn: this})">{{#i18n}}edit.common{{/i18n}}</a>
+            </li>
+            <li>
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'headers', btn: this})">Headers</a>
+            </li>
+            <li class="params_tab {{#if integration.settings.type 'raw'}}hide{{/if}}">
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'params', btn: this})">Params</a>
+            </li>
+            <li class="body_tab {{#unless integration.settings.type 'raw'}}hide{{/unless}}">
+                <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'body', btn: this})">Body</a>
+            </li>
+        </ul>
+    </header>
+    <div class="tab" id="common">
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name"
+               onchange="___mc.events.push('settings.integrations.name.change', this.value)"
+               required value="{{integration.name}}" class="col-1-1">
+
+        {{#unless integration.id}}
+            <label>{{#i18n}}table.type{{/i18n}}</label>
+            <div class="row" id="apps">
+                <a class="platform">
+                    <h4 style="font-size: 20px;">{{#i18n}}settings.integrations.hook{{/i18n}}</h4>
+                    <button {{#if integration.type 'api'}}disabled{{/if}} onclick="___mc.events.push('settings.integrations.type.change', {btn: this, type: 'api'})">{{#i18n}}button.pick{{/i18n}}</button>
+                </a>
+                <!--a class="platform">
+                    <img src="https://botto.ru/img/amo2.png" alt="" class="" style="margin-bottom: 13px;">
+                 <button {{#if integration.type 'amo'}}disabled{{/if}} onclick="___mc.events.push('settings.integrations.type.change', {btn: this, type: 'amo'})">{{#i18n}}
+                        button.pick{{/i18n}}</button>
+                </a>
+                <a class="platform">
+                    <img src="https://botto.ru/img/bitrix2.png" alt="" class="" style="margin-bottom: 13px;">
+                    <button {{#if integration.type 'bitrix'}}disabled{{/if}} onclick="___mc.events.push('settings.integrations.type.change', {btn: this, type: 'bitrix'})">{{#i18n}}button.pick{{/i18n}}</button>
+                </a-->
+
+            </div>
+        {{/unless}}
+
+        <div id="api" class="type_block {{#unless integration.id}}hide{{/unless}}">
+            <label>{{#i18n}}settings.integrations.method{{/i18n}}</label>
+            {{#select classlist='col-1-1' name='method' value=integration.settings.method options=method_options onchange='integration.api.settings.change'}}{{/select}}
+
+            <div id="method" class="{{#unless integration.settings.method 'POST'}}hide{{/unless}}">
+                <label>{{#i18n}}settings.integrations.type{{/i18n}}</label>
+                {{#select classlist='col-1-1' name='type' value=integration.settings.type options=type_options onchange='integration.api.settings.change'}}{{/select}}
+            </div>
+
+            <label>URL</label>
+            <input type="text" name="url"
+                   onchange="___mc.events.push('integration.api.settings.change', this)"
+                   value="{{integration.settings.url}}" class="col-1-1">
+
+            <label style="display:flex;align-items: center;gap:10px">
+                <input type="checkbox" id="auth_basic" class="default" {{#if integration.settings.auth_basic}}checked{{/if}}
+                       name="auth_basic"
+                       onchange="___mc.events.push('integration.api.settings.change', this)">
+                Auth basic
+            </label>
+
+            <div id="auth" class="{{#unless integration.settings.auth_basic}}hide{{/unless}}">
+                <label>{{#i18n}}auth.login{{/i18n}}</label>
+                <input type="text" name="login"
+                       onchange="___mc.events.push('integration.api.settings.change', this)"
+                       value="{{integration.settings.login}}" class="col-1-1">
+
+                <label>{{#i18n}}auth.password{{/i18n}}</label>
+                <input type="text" name="password"
+                       onchange="___mc.events.push('integration.api.settings.change', this)"
+                       value="{{integration.settings.password}}" class="col-1-1">
+            </div>
+        </div>
+    </div>
+    <div id="headers" class="tab hide">
+        <div style="display:flex;align-items: center;justify-content: space-between;">
+            <h3>Headers</h3>
+            <a class="btn" title="{{#i18n}}button.add{{/i18n}}"
+               onclick="___mc.events.push('settings.integrations.settings.params.add', 'headers')"
+               style="margin-left: 20px;">{{#i18n}}button.add{{/i18n}}</a>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}settings.integrations.value{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#if integration.settings.headers}}
+                    {{#each integration.settings.headers}}
+                        {{> settings/edit/integrations/params}}
+                    {{/each}}
+                {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="params" class="tab hide">
+        <div style="display:flex;align-items: center;justify-content: space-between;">
+            <h3>Params</h3>
+            <a class="btn" title="{{#i18n}}button.add{{/i18n}}"
+               onclick="___mc.events.push('settings.integrations.settings.params.add', 'params')"
+               style="margin-left: 20px;">{{#i18n}}button.add{{/i18n}}</a>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}settings.integrations.value{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#if integration.settings.params}}
+                    {{#each integration.settings.params}}
+                        {{> settings/edit/integrations/params}}
+                    {{/each}}
+                {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="body" class="tab hide">
+        <!--        <h3>Body</h3>-->
+        <label for="body_text">Body</label>
+        <textarea name="body" id="body_text" onchange="___mc.events.push('settings.integrations.settings.body.change', this.value)">{{integration.settings.body}}</textarea>
+    </div>
+
+    <div id="amo" class="type_block {{#unless integration.type 'amo'}}hide{{/unless}}">
+        <label>{{#i18n}}settings.integrations.domain{{/i18n}}*</label>
+        <input required type="text" name="domain" onchange="___mc.events.push('integration.amo.settings.change', this)">
+        <label>{{#i18n}}settings.integrations.key{{/i18n}}*</label>
+        <input required type="text" name="key" onchange="___mc.events.push('integration.amo.settings.change', this)">
+        <label>{{#i18n}}settings.integrations.id{{/i18n}}*</label>
+        <input required type="text" name="id" onchange="___mc.events.push('integration.amo.settings.change', this)">
+        <label>{{#i18n}}settings.integrations.code{{/i18n}}*</label>
+        <input required type="text" name="code" onchange="___mc.events.push('integration.amo.settings.change', this)">
+    </div>
+
+    <div id="bitrix" class="type_block {{#unless integration.type 'bitrix'}}hide{{/unless}}">
+        <label>{{#i18n}}settings.integrations.hook{{/i18n}}</label>
+        <input required type="text" name="webhook" onchange="___mc.events.push('integration.bitrix.settings.change', this)">
+
+    </div>
+
+
+    <footer>
+        <button onclick="___mc.events.push('settings.integrations.save',
+          {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })">
+            {{#if integration.id}}
+                {{#i18n}}button.save{{/i18n}}
+            {{/if}}
+            {{#unless integration.id}}
+                {{#i18n}}button.create{{/i18n}}
+            {{/unless}}
+        </button>
+    </footer>
+</div>

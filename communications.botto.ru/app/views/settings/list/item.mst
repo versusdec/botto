@@ -1,0 +1,36 @@
+<tr>
+    <td title="ID" style="width: 100px;">{{id}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+    <td title="{{#i18n}}table.type{{/i18n}}">{{type}}</td>
+    <td title="{{#i18n}}table.status{{/i18n}}">{{status|status}}</td>
+    <td>
+        {{#if is_field}}
+            {{#unless readonly}}
+                <a class="link mdi mdi-file-edit-outline"
+                   onclick="___mc.events.push('settings.fields.edit', {type: 'fields', id: {{id}} })"
+                   title="{{#i18n}}actions.edit{{/i18n}}"></a>
+            {{/unless}}
+        {{/if}}
+        {{#unless is_field}}
+            <a href="/{{"project_id"|global}}/settings/clone/integrations/{{id}}/"
+               title="{{#i18n}}actions.copy{{/i18n}}"
+               class="link mdi mdi-checkbox-multiple-blank-outline">
+            </a>
+            <a class="link mdi mdi-file-edit-outline"
+               href="/{{"project_id"|global}}/settings/edit/integrations/{{id}}/"
+               title="{{#i18n}}actions.edit{{/i18n}}"></a>
+        {{/unless}}
+        {{#unless status 'archived'}}
+            {{#unless readonly}}
+                <a class="link mdi mdi-archive-arrow-down-outline"
+                   onclick="___mc.events.push('settings.item.archive', {btn: this, id: {{id}}, type: '{{#if is_field}}fields{{/if}}{{#unless is_field}}integrations{{/unless}}' })"
+                   title="{{#i18n}}actions.archive{{/i18n}}"></a>
+            {{/unless}}
+        {{/unless}}
+        {{#if status 'archived'}}
+            <a class="link mdi mdi-archive-arrow-up-outline"
+               onclick="___mc.events.push('settings.item.unzip', {btn: this, id: {{id}}, type: '{{#if is_field}}fields{{/if}}{{#unless is_field}}integrations{{/unless}}' })"
+               title="{{#i18n}}actions.archive{{/i18n}}"></a>
+        {{/if}}
+    </td>
+</tr>

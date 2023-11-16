@@ -1,0 +1,41 @@
+<header>
+    <h2>{{#i18n}}phones.rent{{/i18n}}</h2>
+</header>
+<div class="buttons-wrapper">
+    <button type="button" class="rent">
+        {{#i18n}}phones.button{{/i18n}}
+    </button>
+</div>
+<div class="table">
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 80px;">
+                <input type="checkbox" class="default phones_check_all">
+            </th>
+            <th>{{#i18n}}phones.number{{/i18n}}</th>
+            <th>{{#i18n}}phones.country{{/i18n}}</th>
+            <th>{{#i18n}}phones.region{{/i18n}}</th>
+            <th>{{#i18n}}phones.operator{{/i18n}}</th>
+            <th>{{#i18n}}table.type{{/i18n}}</th>
+            <th>{{#i18n}}phones.fee{{/i18n}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each phones}}
+            {{> mailings/edit/phones/rent_item}}
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+<div style="text-align: center">
+    <button data-offset="10" class="phones_more">{{#i18n}}button.more{{/i18n}}</button>
+</div>
+<div style="text-align: right">
+    <b>{{#i18n}}table.total{{/i18n}}: <span id="phones_rent_total">0</span>{{#i18n}}phones.price{{/i18n}} </b>
+</div>
+<footer>
+    <button type="button" class="rent">
+        {{#i18n}}phones.button{{/i18n}}
+    </button>
+</footer>

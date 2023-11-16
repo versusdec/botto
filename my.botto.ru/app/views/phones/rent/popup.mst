@@ -1,0 +1,25 @@
+<header>
+  <h2>{{#i18n}}phones.rent{{/i18n}}</h2>
+</header>
+<div class="table">
+  <table>
+    <thead>
+    <tr>
+      <th>{{#i18n}}phones.number{{/i18n}}</th>
+      <th>{{#i18n}}phones.fee{{/i18n}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each rows}}
+      <tr>
+        <td title="{{#i18n}}phones.number{{/i18n}}">{{phone|phone}}</td>
+        <td title="{{#i18n}}phones.fee{{/i18n}}">{{price}} {{#i18n}}phones.price{{/i18n}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>
+<div style="margin-top: auto;text-align: right;font-size: 21px;font-weight:bold;">{{#i18n}}total{{/i18n}}: {{total}}{{#i18n}}phones.price{{/i18n}}</div>
+<footer>
+  <button>{{#i18n}}button.confirm{{/i18n}}</button>
+</footer>

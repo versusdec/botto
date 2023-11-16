@@ -1,0 +1,224 @@
+<div class="integration_popup" data-id="{{id}}" handler="controllers/settings/edit/integrations/edit">
+    {{#unless block}}
+        <header>
+            <h2>{{integration.name}}</h2>
+            <ul class="tabs">
+                <li class="active">
+                    <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'common', btn: this})">{{#i18n}}edit.common{{/i18n}}</a>
+                </li>
+                <li class="">
+                    <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'settings', btn: this})">{{#i18n}}settings.title{{/i18n}}</a>
+                </li>
+                <li class="">
+                    <a onclick="___mc.events.push('settings.integrations.tab', {tab: 'fields', btn: this})">{{#i18n}}settings.fields.match.title{{/i18n}}</a>
+                </li>
+            </ul>
+        </header>
+    {{/unless}}
+    {{#if integration.type 'amo'}}
+        <div id="common" class="columns tab" style="align-items: flex-start">
+            <div class="{{#if block}}block{{/if}} col-1-2">
+                {{#if block}}
+                    <header>
+                        <h2>{{integration.name}}</h2>
+                    </header>
+                {{/if}}
+
+                <div>
+                    <label>{{#i18n}}settings.integrations.domain{{/i18n}}</label>
+                    <input type="text" name="domain" disabled value="{{integration.settings.domain}}">
+                    <label>{{#i18n}}settings.integrations.key{{/i18n}}</label>
+                    <input type="text" name="key" disabled value="{{integration.settings.key}}">
+                    <label>{{#i18n}}settings.integrations.id{{/i18n}}</label>
+                    <input type="text" name="id" disabled value="{{integration.settings.id}}">
+                    <label>{{#i18n}}settings.integrations.code{{/i18n}}</label>
+                    <input type="text" name="code" disabled value="{{integration.settings.code}}">
+                </div>
+                <footer>
+                    <button onclick="___mc.events.push('settings.integrations.edit.save',
+                      {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                            title="{{#i18n}}button.save{{/i18n}}">
+                        {{#i18n}}button.save{{/i18n}}
+                    </button>
+                </footer>
+            </div>
+            <div class="{{#if block}}block{{/if}} col-1-2" style="max-height: 515px;overflow: auto">
+                <h4>dev test</h4>
+                <br>
+                <h3>Интеграция с АМОcrm</h3>
+                <div class="columns">
+                    <img src="https://i.imgur.com/GNGPmHw.png" alt="">
+                    <p>
+                        Зайдите в свой кабинет АМОCrm в раздел “Настройки” => “Интеграции”.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="settings" class="hide tab {{#if block}}block{{/if}}">
+            {{#if block}}
+                <header>
+                    <h2>{{integration.name}}</h2>
+                </header>
+            {{/if}}
+            <label>{{#i18n}}settings.integrations.scenario{{/i18n}}</label>
+            <input type="text" name="scenario" value="{{integration.settings.scenario}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+            <label>{{#i18n}}settings.integrations.step{{/i18n}}</label>
+            <input type="text" name="step" value="{{integration.settings.step}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+            <label>{{#i18n}}settings.integrations.responsible{{/i18n}}</label>
+            <input type="text" name="responsible" value="{{integration.settings.responsible}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+            {{#autocomplete label='settings.integrations.tag' onsuggest='projects.tags.suggest' onchange='integration.edit.settings.change' name='tag' min=0}}{{/autocomplete}}
+            <label>{{#i18n}}settings.integrations.contacts{{/i18n}}</label>
+            <input type="text" name="contacts" value="{{integration.settings.contacts}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+            <label>{{#i18n}}settings.integrations.deal{{/i18n}}</label>
+            <input type="text" name="deal" value="{{integration.settings.deal}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+            <footer>
+                <button onclick="___mc.events.push('settings.integrations.edit.save',
+                  {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                        title="{{#i18n}}button.save{{/i18n}}">
+                    {{#i18n}}button.save{{/i18n}}
+                </button>
+            </footer>
+        </div>
+        <div id="fields" class="hide tab {{#if block}}block{{/if}}">
+            {{#if block}}
+                <header>
+                    <h2>{{integration.name}}</h2>
+                    <button type="button" onclick="___mc.events.push('integrations.edit.fields.create')">{{#i18n}}button.create{{/i18n}}</button>
+                </header>
+            {{/if}}
+            {{#unless block}}
+                <button type="button" onclick="___mc.events.push('integrations.edit.fields.create')">{{#i18n}}button.create{{/i18n}}</button>
+            {{/unless}}
+            <div class="columns desktop">
+                <h3 style="text-align:center;">Botto</h3>
+                <h3 style="text-align:center;">AmoCrm</h3>
+            </div>
+            <div class="columns">
+                <div>
+                    {{#seload method=fields.method params=fields.params onchange='wtf'}}{{/seload}}
+                </div>
+                <div>
+                    <input type="text" value="name" disabled>
+                </div>
+            </div>
+            <hr class="margin">
+            <div class="columns">
+                <div>
+                    {{#seload method=fields.method params=fields.params}}{{/seload}}
+                </div>
+                <div>
+                    <input type="text" value="last name" disabled>
+                </div>
+            </div>
+            <footer>
+                <button onclick="___mc.events.push('settings.integrations.edit.save',
+                  {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                        title="{{#i18n}}button.save{{/i18n}}">
+                    {{#i18n}}button.save{{/i18n}}
+                </button>
+            </footer>
+        </div>
+    {{/if}}
+    {{#if integration.type 'bitrix'}}
+        <div id="common" class="columns tab" style="align-items: flex-start">
+            <div class="{{#if block}}block{{/if}} col-1-2">
+                {{#if block}}
+                    <header>
+                        <h2>{{integration.name}}</h2>
+                    </header>
+                {{/if}}
+                <div>
+                    <label>{{#i18n}}settings.integrations.hook{{/i18n}}</label>
+                    <input type="text" disabled value="{{integration.settings.webhook}}">
+                </div>
+                <footer>
+                    <button onclick="___mc.events.push('settings.integrations.edit.save',
+                      {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                            title="{{#i18n}}button.save{{/i18n}}">
+                        {{#i18n}}button.save{{/i18n}}
+                    </button>
+                </footer>
+            </div>
+            <div class="{{#if block}}block{{/if}} col-1-2" style="max-height: 515px;overflow: auto">
+                <h4>dev test</h4>
+                <br>
+                <h3>Интеграция с АМОcrm</h3>
+                <div class="columns">
+                    <img src="https://i.imgur.com/GNGPmHw.png" alt="">
+                    <p>
+                        Зайдите в свой кабинет АМОCrm в раздел “Настройки” => “Интеграции”.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="settings" class="hide tab {{#if block}}block{{/if}}">
+            {{#if block}}
+                <header>
+                    <h2>{{integration.name}}</h2>
+                </header>
+            {{/if}}
+            <label>{{#i18n}}settings.integrations.tag{{/i18n}}</label>
+            {{#autocomplete onsuggest='projects.tags.suggest' onchange='integration.edit.settings.change' name='tag' min=0}}{{/autocomplete}}
+            <label>{{#i18n}}settings.integrations.contacts{{/i18n}}</label>
+            <input type="text" name="contacts" value="{{integration.settings.contacts}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+            <label>{{#i18n}}settings.integrations.deal{{/i18n}}</label>
+            <input type="text" name="deal" value="{{integration.settings.deal}}"
+                   onchange="___mc.events.push('integration.edit.settings.change', this)">
+
+            <footer>
+                <button onclick="___mc.events.push('settings.integrations.edit.save',
+                  {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                        title="{{#i18n}}button.save{{/i18n}}">
+                    {{#i18n}}button.save{{/i18n}}
+                </button>
+            </footer>
+        </div>
+        <div id="fields" class="hide tab {{#if block}}block{{/if}}">
+            {{#if block}}
+                <header>
+                    <h2>{{integration.name}}</h2>
+                    <button type="button" onclick="___mc.events.push('integrations.edit.fields.create')">{{#i18n}}button.create{{/i18n}}</button>
+                </header>
+            {{/if}}
+            {{#unless block}}
+                <button type="button" onclick="___mc.events.push('integrations.edit.fields.create')">{{#i18n}}button.create{{/i18n}}</button>
+            {{/unless}}
+            <div class="columns desktop">
+                <h3 style="text-align:center;">Botto</h3>
+                <h3 style="text-align:center;">Bitrix</h3>
+            </div>
+            <div class="columns">
+                <div>
+                    {{#seload method=fields.method params=fields.params onchange='wtf'}}{{/seload}}
+                </div>
+                <div>
+                    <input type="text" value="name" disabled>
+                </div>
+            </div>
+            <hr class="margin">
+            <div class="columns">
+                <div>
+                    {{#seload method=fields.method params=fields.params}}{{/seload}}
+                </div>
+                <div>
+                    <input type="text" value="last name" disabled>
+                </div>
+            </div>
+            <footer>
+                <button onclick="___mc.events.push('settings.integrations.edit.save',
+                  {btn: this, id: '{{id}}' {{#if copy}}, copy: {{copy}}{{/if}} })"
+                        title="{{#i18n}}button.save{{/i18n}}">
+                    {{#i18n}}button.save{{/i18n}}
+                </button>
+            </footer>
+        </div>
+    {{/if}}
+</div>

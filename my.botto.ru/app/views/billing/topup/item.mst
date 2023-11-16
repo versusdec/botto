@@ -1,0 +1,29 @@
+<tr>
+  <td title="ID">{{id}}</td>
+  <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+  <td title="{{#i18n}}table.total{{/i18n}}">{{amount}}</td>
+  <td title="{{#i18n}}status.title{{/i18n}}">
+    {{#if status 'new'}}
+      <a class="mdi mdi-chevron-down-circle-outline">{{#i18n}}status.new{{/i18n}}</a>
+    {{/if}}
+    {{#if status 'pending'}}
+      <a class="mdi mdi-alert-circle-outline">{{#i18n}}status.pending{{/i18n}}</a>
+    {{/if}}
+    {{#if status 'succeeded'}}
+      <a class="mdi mdi-chevron-down-circle-outline">{{#i18n}}status.success{{/i18n}}</a>
+    {{/if}}
+    {{#if status 'canceled'}}
+      <a class="mdi mdi-close-circle-outline">{{#i18n}}status.declined{{/i18n}}</a>
+    {{/if}}
+  </td>
+  <td title="{{#i18n}}table.actions{{/i18n}}">
+    {{#unless status 'succeeded'}}
+      {{#unless status 'canceled'}}
+        <a class="link mdi mdi-check-box-outline" onclick="___mc.events.push('payments.pay', {{id}})"
+           title="{{#i18n}}button.pay{{/i18n}}"></a>
+        <a class="link mdi mdi-close-box-outline" onclick="___mc.events.push('payments.cancel', {{id}})"
+           title="{{#i18n}}button.cancel{{/i18n}}"></a>
+      {{/unless}}
+    {{/unless}}
+  </td>
+</tr>

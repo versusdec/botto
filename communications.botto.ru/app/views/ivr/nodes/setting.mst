@@ -1,0 +1,7 @@
+<div class="{{setting_type}}" id="ivr_node_{{setting_type}}_{{id}}" data-id="{{id}}" data-sortable-item>
+    <div class="name">{{#i18n}}ivr.nodes.{{setting_type}}s.types.{{type}}{{/i18n}}</div>
+    <div>
+        <a class="mdi mdi-hammer-wrench" onclick="___mc.events.push('ivr.node.settings.edit', {id:{{id}},type:'{{setting_type}}'})"></a>
+        <a class="mdi mdi-close" onclick="___mc.events.push('ivr.node.settings.remove', {id:{{id}},type:'{{setting_type}}'})"></a>
+    </div>
+</div>

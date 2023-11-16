@@ -1,0 +1,8 @@
+<tr>
+  <td title="ID" style="width: 99px">{{id}}</td>
+  <td title="{{#i18n}}notification.text{{/i18n}}" style="white-space: nowrap;width: 150px">{{text}}</td>
+  <td title="{{#i18n}}actions.go{{/i18n}}">
+    <a onclick="___mc.events.push('notification.read', {link: '{{link}}', n_id: {{id}} })"
+       class="link mdi mdi-message-arrow-right-outline"></a>
+  </td>
+</tr>

@@ -1,0 +1,10 @@
+<tr>
+    <td title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="link mdi mdi-file-edit-outline"
+           onclick="___mc.events.push(`mailings.bases.edit`,  {btn: this, id: {{id}} } )"></a>
+        <a class="link mdi mdi-trash-can-outline"
+           onclick="___mc.events.push(`mailings.bases.remove`,  {btn: this, id: {{id}} } )"></a>
+    </td>
+</tr>

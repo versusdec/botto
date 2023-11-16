@@ -1,0 +1,8 @@
+{{> layouts/areas/nav}}
+<main>
+    {{> layouts/areas/header}}
+    <article data-content-holder>
+        {{{content}}}
+    </article>
+    {{> layouts/areas/footer}}
+</main>

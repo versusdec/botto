@@ -1,0 +1,209 @@
+@-webkit-keyframes shimmer {
+    0% {
+        background-position: -50px 0;
+    }
+    100% {
+        background-position: calc(100% + 50px) 0;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -50px 0;
+    }
+    100% {
+        background-position: calc(100% + 50px) 0;
+    }
+}
+
+.player .loading {
+    position: absolute;
+    right: 50%;
+    top: 2px;
+    -webkit-transform: translate(60%, 0);
+    -ms-transform: translate(60%, 0);
+    transform: translate(60%, 0);
+    font-size: 11px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.1);
+    /*background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));*/
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), color-stop(var(--color__blue)), to(rgba(255, 255, 255, 0.1)));
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 0.1), var(--color__blue), rgba(255, 255, 255, 0.1));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), var(--color__blue), rgba(255, 255, 255, 0.1));
+    background-size: 50px 100%;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-animation-name: shimmer;
+    animation-name: shimmer;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-color: var(--color__blue_bg);
+}
+
+.player {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    position: relative;
+    max-width: 290px;
+    padding-right: 20px;
+    padding-left: 2px;
+    border-radius: var(--border-radius);
+}
+
+.player button {
+    background: var(--color__border);
+    padding: 0px 4px;
+    font-size: 24px;
+    margin-right: 5px;
+    height: 32px;
+}
+
+.player button.mdi-play {
+    background: var(--color__blue);
+}
+
+.player button.mdi-pause {
+    background: #fff;
+    color: var(--color__blue);
+    -webkit-box-shadow: 0 0 3px var(--color__blue);
+    box-shadow: 0 0 3px var(--color__blue);
+}
+
+.player button.mdi-stop {
+    background: var(--color__light_blue);
+}
+
+.player button.mdi-record {
+    background: var(--color__red);
+}
+
+.player button:hover {
+    opacity: 1;
+}
+
+.player .progress {
+    position: absolute;
+    bottom: 5px;
+    left: 76px;
+    width: 150px;
+    height: 3px;
+    background: var(--color__light_blue);
+    cursor: pointer;
+}
+
+.player .progress .position {
+    position: absolute;
+    display: inline-block;
+    height: 3px;
+    background: var(--color__blue);
+    max-width: 100%;
+}
+
+.player .progress:hover .position {
+    -webkit-box-shadow: 0 0 3px var(--color__blue);
+    box-shadow: 0 0 3px var(--color__blue);
+}
+
+.player.playing .progress .position {
+    -webkit-box-shadow: 0 0 3px var(--color__blue);
+    box-shadow: 0 0 3px var(--color__blue);
+}
+
+.player .timer, .player .record_time {
+    font-size: 10px;
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+}
+
+.player .timeline {
+    cursor: pointer;
+}
+
+.player .timeline:hover .ps, .player .timeline:hover .ps.s {
+    fill: var(--color__blue)
+}
+
+.player .timeline .s {
+    fill: var(--color__blue)
+}
+
+.player .timeline:hover .s {
+    fill: var(--color__light_blue)
+}
+
+.player .timeline rect:hover {
+    opacity: 0.5;
+}
+
+.player .mdi-download, .player .mdi-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.player .mdi-download::before, .player .mdi-close::before {
+    margin-right: 0;
+}
+
+.player.recording button.mdi-record {
+    background: #fff;
+    color: var(--color__red);
+    -webkit-box-shadow: 0 0 3px var(--color__blue);
+    box-shadow: 0 0 3px var(--color__blue);
+}
+
+.player.error {
+    background: linear-gradient(
+            90deg, rgba(0, 0, 0, 0) 20%, var(--color__red));
+}
+
+@media screen and (max-width: 768px) {
+    .player button {
+        font-size: 15px;
+        height: 20px;
+        width: 20px;
+        min-height: auto;
+        border-radius: 3px;
+    }
+
+    .player .timeline {
+        display: none;
+    }
+
+    .player .progress {
+        bottom: -7px;
+        left: 2px;
+        width: 150px;
+        height: 3px;
+        background: var(--color__light_blue);
+        cursor: pointer;
+    }
+
+    .player .timer, .player .record_time {
+        bottom: 2px;
+        right: auto;
+        left: 60px;
+    }
+
+    .player .mdi-download, .player .mdi-close {
+        top: 0;
+        right: auto;
+        left: 125px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .player {
+        /*zoom: 80%;*/
+    }
+}

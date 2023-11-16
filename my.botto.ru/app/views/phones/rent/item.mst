@@ -1,0 +1,13 @@
+<tr>
+    <td style="width: 80px;" class="desktop device"><input type="checkbox" class="default" name="phone" value="{{phone}}" data-price="{{price}}"></td>
+    <td title="{{#i18n}}phones.number{{/i18n}}">{{private_phone|phone}}</td>
+    <td title="{{#i18n}}phones.country{{/i18n}}">{{country}}</td>
+    <td title="{{#i18n}}phones.region{{/i18n}}">{{region}}</td>
+    <td title="{{#i18n}}phones.operator{{/i18n}}">{{operator}}</td>
+    <td title="{{#i18n}}table.type{{/i18n}}">{{type|status}}</td>
+    <td title="{{#i18n}}phones.fee{{/i18n}}">{{price}} {{#i18n}}phones.price{{/i18n}}</td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        <a class="link mdi mdi-cart-plus" title="{{#i18n}}phones.rent{{/i18n}}"
+           onclick="___mc.events.push('phones.rent', {{phone}})"></a>
+    </td>
+</tr>

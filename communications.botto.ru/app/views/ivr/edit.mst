@@ -1,0 +1,38 @@
+<div id="common" class="block">
+    <header>
+        <h2>{{#i18n}}edit.common{{/i18n}}</h2>
+        <div>
+            <button type="button" onclick="___mc.events.push('ivr.save', this)">{{#i18n}}button.save{{/i18n}}</button>
+        </div>
+    </header>
+    <label>{{#i18n}}table.name{{/i18n}}</label>
+    <input type="text" id="ivr_name" name="name" onchange="___mc.events.push('ivr.name.change', this.value)" value="{{name}}">
+</div>
+
+<div class="columns" id="ivr_wrapper">
+    <div class="block" id="ivr_scheme">
+        <header>
+            <h2>{{#i18n}}ivr.scheme{{/i18n}}</h2>
+            <div>
+                <a class="mdi mdi-magnify-minus-outline" onclick="___mc.events.push('ivr.nodes.zoom.out')" style="font-size: 24px; gap: 30px;"></a>
+                <a class="mdi mdi-magnify-plus-outline" onclick="___mc.events.push('ivr.nodes.zoom.in')" style="font-size: 24px; gap: 30px;"></a>
+            </div>
+            <div class="buttons-wrapper">
+                <a class="btn" onclick="$('.nodes .node').removeClass('collapsed')">{{#i18n}}ivr.nodes.expand{{/i18n}}</a>
+                <a class="btn" onclick="$('.nodes .node').addClass('collapsed')">{{#i18n}}ivr.nodes.collapse{{/i18n}}</a>
+            </div>
+        </header>
+
+
+        <ul class="nodes" data-last_id="{{last_id}}">
+            {{#if nodes}}
+                {{#each nodes}}
+                    {{> ivr/nodes/node}}
+                {{/each}}
+            {{/if}}
+            <li><a class="btn mdi mdi-plus-circle-outline" onclick="___mc.events.push('ivr.node.add', this)">{{#i18n}}ivr.nodes.add{{/i18n}}</a></li>
+        </ul>
+        <div class="overlay hide"></div>
+    </div>
+    <div class="block hide" id="node_edit" handler="controllers/ivr/nodes/handler" data-mode="{{mode}}"></div>
+</div>

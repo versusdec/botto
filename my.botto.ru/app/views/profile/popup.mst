@@ -1,0 +1,42 @@
+<div class="" id="profile_popup" data-gender="{{user.gender}}" data-topup="{{topup}}" handler="controllers/profile/popup">
+    <header><h2>{{#i18n}}profile.update{{/i18n}}</h2></header>
+    <div class="">
+        {{#if topup}}
+            <h4>{{#i18n}}profile.topup{{/i18n}}</h4>
+        {{/if}}
+        <label>{{#i18n}}user.last_name{{/i18n}}</label>
+        <input type="text" name="surname" value="{{user.surname}}">
+        <label>{{#i18n}}user.name{{/i18n}}</label>
+        <input type="text" name="name" value="{{user.name}}">
+        <label>{{#i18n}}user.second_name{{/i18n}}</label>
+        <input type="text" name="second_name" value="{{user.second_name}}">
+        <label>{{#i18n}}user.gender.title{{/i18n}}</label>
+        {{#select options=genders value=user.gender onchange='profile.gender_change'}}{{/select}}
+        <label>{{#i18n}}user.email{{/i18n}}</label>
+        <input type="email" name="email" value="{{user.email}}"
+               class="">
+        <label> {{#i18n}}user.phone{{/i18n}}</label>
+        <input type="tel" onkeyup="___mc.events.push('phone.change', this)"
+               class="{{#if user.phone}}{{#unless user.settings.phone_verified}}_danger{{/unless}}{{/if}}" name="phone"
+               value="{{user.phone|phone}}">
+
+        <div class="phone-verify {{#if user.settings.phone_verified}}hide{{/if}}{{#unless user.phone}}hide{{/unless}} hide">
+            <p>
+                {{#i18n}}user.verify_phone{{/i18n}}
+            </p>
+            <button type="button" class="btn phone-ver" id="v_phone"
+                    onclick="___mc.events.push('verify','phone')">{{#i18n}}button.confirm{{/i18n}}</button>
+        </div>
+        <div class="hide">
+            <p>
+                {{#i18n}}profile.verify.phone{{/i18n}}
+            </p>
+            <input type="text" name="code">
+            <br>
+            <button type="button" onclick="___mc.events.push('verify.phone')" class="btn">{{#i18n}}button.confirm{{/i18n}}</button>
+        </div>
+    </div>
+    <footer>
+        <button type="button" onclick="___mc.events.push('user.update.profile', this)">{{#i18n}}button.save{{/i18n}}</button>
+    </footer>
+</div>

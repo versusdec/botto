@@ -1,0 +1,59 @@
+<div class="block">
+    <header>
+        <h2>
+            {{#i18n}}mailings.analytics.calls.title{{/i18n}}
+        </h2>
+        <ul class="tabs">
+            <li class="{{#if direction 'outbound'}}active{{/if}}" id="outbound">
+                <a
+                  onclick="___mc.events.push('calls.direction.change', 'outbound')">{{#i18n}}mailings.analytics.calls.outbound{{/i18n}}</a>
+            </li>
+            <li class="{{#if direction 'inbound'}}active{{/if}}" id="inbound">
+                <a
+                   onclick="___mc.events.push('calls.direction.change', 'inbound')">{{#i18n}}mailings.analytics.calls.inbound{{/i18n}}</a>
+            </li>
+        </ul>
+
+        {{#select value=flag onchange='calls.flag.change'}}
+            [{"option": "{{#i18n}}filter.title{{/i18n}}", "value": "all"},
+            {"option": "{{#i18n}}dashboard.stats.leads{{/i18n}}", "value": "lead"} ,
+            {"option": "{{#i18n}}ivr.nodes.actions.types.blacklist{{/i18n}}", "value": "blacklisted"},
+            {"option": "{{#i18n}}mailings.analytics.calls.amd{{/i18n}}", "value": "amd"},
+            {"option": "{{#i18n}}status.success{{/i18n}}", "value": "success"},
+            {"option": "{{#i18n}}status.failed{{/i18n}}", "value": "failed"}]
+        {{/select}}
+    </header>
+    {{#pagination}}{{/pagination}}
+    <div class="table" handler="controllers/mailings/analytics/calls/handler" data-id="{{mailing_id}}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{#i18n}}table.date{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.phone{{/i18n}}</th>
+                <!--          <th>Лид/ЧС</th>-->
+                <th>{{#i18n}}mailings.analytics.calls.duration{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.lead{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.bl{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.amd{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.cost{{/i18n}}</th>
+                <th>{{#i18n}}table.status{{/i18n}}</th>
+<!--                <th>Запись звонка</th>-->
+<!--                <th>Действие</th>-->
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="9">
+                        <div class="loader"><span></span><span></span><span></span><span></span></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#pagination}}{{/pagination}}
+</div>
+
+
+
+

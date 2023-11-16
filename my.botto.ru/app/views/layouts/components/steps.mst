@@ -1,0 +1,11 @@
+<header>
+  <h2>{{title}}</h2>
+  <span>Шаг {{steps.current}} из {{steps.total}}</span>
+</header>
+{{{content}}}
+<div class="flex between">
+  <button onclick="___mc.events.push('steps.prev')"
+    {{#if steps.current 1}}style="opacity: 0;visibility: hidden" {{/if}}>Назад
+  </button>
+  <button onclick="___mc.events.push('steps.{{button.type}}')">{{button.title}}</button>
+</div>

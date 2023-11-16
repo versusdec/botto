@@ -1,0 +1,27 @@
+<tr data-id="{{#if tempID}}{{tempID}}{{/if}}{{#if id}}{{id}}{{/if}}">
+  <td title="ID">{{id}}</td>
+  <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+  <td title="{{#i18n}}projects.fields.var{{/i18n}}">{{variable}}</td>
+  <td title="{{#i18n}}table.type{{/i18n}}">
+    {{#i18n}}projects.fields.options.{{type}}{{/i18n}}
+    <!-- {{#if type 'select'}}
+      <ul style="font-size: 10px;">
+        {{#each options}}
+          <li>{{name}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}-->
+  </td>
+  <td title="{{#i18n}}table.actions{{/i18n}}">
+    {{#unless readonly}}
+      <a class="mdi mdi-file-edit-outline"
+         onclick="___mc.events.push('projects.fields.edit',
+           {btn: this{{#if id}}, id: {{id}}{{/if}}{{#if tempID}}, tempID: '{{tempID}}' {{/if}} }
+           )"
+         title="{{#i18n}}button.change{{/i18n}}"></a>
+      <a class="mdi mdi-close" title="{{#i18n}}button.delete{{/i18n}}"
+         onclick="___mc.events.push('projects.fields.remove',
+           { btn: this{{#if id}}, id: {{id}}{{/if}}{{#if tempID}}, tempID: '{{tempID}}'{{/if}} })"></a>
+    {{/unless}}
+  </td>
+</tr>

@@ -1,0 +1,446 @@
+{
+    "forgot": {
+        "title": "Forgot your password",
+        "text": "To recover your password, enter your email address."
+    },
+    "auth": {
+        "title": "Authorization",
+        "error": "Authorization error",
+        "email": "Enter e-mail",
+        "registration": "Registration",
+        "problems": "Login problems",
+        "no_account": "No account",
+        "have_account": "Already have account",
+        "login": "Login",
+        "login_with": "Login using",
+        "login_via": "Login via",
+        "register_with": "Register with",
+        "register_via": "Register via",
+        "password": "Password",
+        "email_using": "Account with this email is already exist",
+        "phone": "Enter phone number",
+        "policy": "By clicking the button, you accept <a href=\"https://botto.ru/policy/\" target=\"_blank\" class=\"hover\" >the Regulation</a> and <a href=\"https://botto.ru/persagreement/\" target=\"_blank\" class=\"hover\">Consent to personal data processing</a> and <a href=\"https://botto.ru/agreement/\" target=\"_blank\" class=\"hover\">the rules</a> for work with the service \n",
+        "logout": "Logout",
+        "new_password": "Enter new password",
+        "change_password": "Change password",
+        "repeat_password": "Repeat password",
+        "diff_password": "The passwords don't match",
+        "promo": "Promo code"
+    },
+    "button": {
+        "restore": "Restore",
+        "login": "Login",
+        "register": "Register",
+        "confirm": "Confirm",
+        "connect": "Connect",
+        "connected": "Connected",
+        "disconnect": "Disconnect",
+        "save": "Save",
+        "change": "Change",
+        "check_all": "Check all",
+        "apply": "Apply",
+        "pay": "Pay",
+        "cancel": "Cancel",
+        "pick": "Choose",
+        "create": "Create",
+        "update": "Update",
+        "answer": "Answer",
+        "close": "Close",
+        "unzip": "Unzip",
+        "call": "Call",
+        "next": "Next",
+        "delete": "Delete",
+        "add": "Add",
+        "go": "Open",
+        "additional": "Additionally",
+        "reset": "Reset"
+    },
+    "support": {
+        "title": "Support",
+        "tabs": {
+            "tech": "Technical",
+            "finance": "Financial",
+            "archive": "Archived"
+        },
+        "tickets": "Appeals",
+        "status": {
+            "new": "Pending",
+            "open": "Open",
+            "closed": "Closed",
+            "archived": "Archived",
+            "answered": "New answer"
+        },
+        "type": {
+            "tech": "Technical questions",
+            "finance": "Financial questions"
+        },
+        "ticket": {
+            "title": "Contact technical support",
+            "messages": "Messages",
+            "appeal": "Appeal",
+            "create": "Create a ticket",
+            "select_theme": "Select theme",
+            "enter_theme": "Subject of your ticket",
+            "message": "Message",
+            "attachments": "Attachments",
+            "your_answer": "Your answer",
+            "average": {
+                "answer": "Average response time",
+                "hour": "Last hour:",
+                "yours": "To your tickets",
+                "faster": "How to get an answer faster",
+                "access": "Provide access data to the server and website.",
+                "describe": "Describe the sequence of actions leading to the problem.",
+                "screenshot": "Attach screenshot"
+            }
+        },
+        "actions": {
+            "archive": "Archive ticket?",
+            "close": "Close ticket?",
+            "open": "Open ticket?",
+            "archived": "Ticket archived",
+            "closed": "Ticket closed",
+            "opened": "Ticket opened",
+            "download": "Download",
+            "delete": "Delete"
+        }
+    },
+    "footer": {
+        "copyrights": "All rights reserved."
+    },
+    "system": {
+        "notifications": "Notifications",
+        "error": "Error has occurred",
+        "errors": {
+            "phone": "Phone number is invalid"
+        },
+        "confirm": "Confirm action",
+        "success": "Success",
+        "soon": "Soon",
+        "e404": {
+            "title": "Error",
+            "subtitle": "Error 404",
+            "not_found": "Page not found",
+            "oops": "Looks like something went wrong!",
+            "description": "Page you looking for not exist. <br> It may be outdated or deleted or an incorrect address was entered in the address bar."
+        },
+        "required": "This field is required"
+    },
+    "profile": {
+        "profile_settings": "Profile settings",
+        "title": "My profile",
+        "common": "Common",
+        "update": "Fill your profile",
+        "topup": "To top up your account, please fill in all the fields ",
+        "notifications": {
+            "title": "Notifications",
+            "event": "Event",
+            "connect": "Add notifications",
+            "events": {
+                "project_created": "Project created",
+                "project_edited": "Project changes",
+                "mailing_created": "Mailing created",
+                "mailing_accepted": "Mailing accepted",
+                "mailing_declined": "Mailing declined",
+                "mailing_start": "Mailing start",
+                "mailing_pause": "Mailing pause",
+                "mailing_archived": "Mailing archived",
+                "base_created": "Base created",
+                "base_edited": "Base changes",
+                "base_export": "Base exports",
+                "transactions": "Transactions",
+                "ticket_answer": "Ticket answered"
+            }
+        },
+        "password": "Password",
+        "old_password": "Old password",
+        "verify": {
+            "email": "Email has been sent",
+            "email_verified": "Почта подтверждена",
+            "phone": "Enter code from sms",
+            "phone_verified": "Your phone is verified successfully"
+        },
+        "avatar_confirm": "Remove avatar?",
+        "updated": "Profile updated"
+    },
+    "user": {
+        "last_name": "Last name",
+        "name": "Name",
+        "second_name": "Second name",
+        "gender": {
+            "title": "Gender",
+            "male": "Male",
+            "female": "Female"
+        },
+        "email": "E-mail",
+        "verify_email": "Confirm your email address to get access to all platform features",
+        "phone": "Phone number",
+        "verify_phone": "Confirm your phone number to get access to all platform features"
+    },
+    "tariff": {
+        "title": "Tariff",
+        "income": "Income",
+        "outcome": "Outcome",
+        "rent": "Rent per day",
+        "sms": "Sms cost",
+        "stt": "Speech recognition",
+        "tts": "Speech synthesis"
+    },
+    "billing": {
+        "title": "Finance",
+        "promo": "Promo code",
+        "payments": {
+            "title": "Payments",
+            "order": "Order payment"
+        },
+        "transactions": {
+            "title": "Transactions"
+        },
+        "topup": {
+            "title": "Top up",
+            "topup": "Top up",
+            "amount": "Enter amount"
+        }
+    },
+    "table": {
+        "date": "Date",
+        "total": "Total",
+        "comment": "Comment",
+        "actions": "Action",
+        "empty": "list is empty",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "status": "Status"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "support_all": "All tickets"
+    },
+    "projects": {
+        "title": "Projects",
+        "tabs": {
+            "my": "My projects",
+            "shared": "Shared projects",
+            "archived": "Archived projects"
+        },
+        "confirm_archive": "Archive project?",
+        "archived": "Project archived",
+        "updated": "Project updated",
+        "created": "Project created",
+        "error_on_create": "En error has occurred",
+        "edit": {
+            "create": "Create new project",
+            "edit": "Edit project",
+            "tabs": {
+                "about": {
+                    "title": "About"
+                },
+                "apps": {
+                    "title": "Applications",
+                    "description": "Choose applications you going to use in your project."
+                },
+                "fields": {
+                    "title": "Fields"
+                },
+                "tags": {
+                    "title": "Tags"
+                },
+                "users": {
+                    "title": "Users",
+                    "description": "Users grants settings",
+                    "invite": "Invite",
+                    "confirm": "Remove user?"
+                }
+            },
+            "settings": "Settings"
+        },
+        "apps": {
+            "available": "Available",
+            "communications": {
+                "title": "Communications",
+                "description": "An application that allows you to organize a chain of communications. Contains: voice robot, tracking system and funnel creator."
+            },
+            "leads": {
+                "description": "An application that allows you to organize the receipt and qualification of leads. Contains: lead manager, smart pixel, lead exchange."
+            },
+            "broker": {
+                "description": "An application that allows you to organize mass processing of leads by telemarketing departments. Contains: telephony, sales scripts and qualification forms."
+            }
+        },
+        "grants": {
+            "bases": "Bases",
+            "blacklists": "Blacklists",
+            "materials": "Materials",
+            "mailings": "Mailings",
+            "section": {
+                "title": "Section",
+                "access": "Access to section",
+                "create": "Create",
+                "edit": "Edit",
+                "archive": "Archive",
+                "control": "Control"
+            }
+        },
+        "fields": {
+            "title": "Поля",
+            "var": "variable",
+            "delete": "Delete field?",
+            "options": {
+                "title": "Options",
+                "option": "Option",
+                "empty": "Add options",
+                "string": "String",
+                "int": "Integer",
+                "select": "Select",
+                "phone": "Phone number",
+                "email": "E-mail",
+                "time": "Time",
+                "date": "Date",
+                "datetime": "Date and time",
+                "checkbox": "Чекбокс"
+            }
+        },
+        "tags": {
+            "title": "Теги",
+            "confirm": "Удалить тег?"
+        }
+    },
+    "partners": {
+        "title": "Partners"
+    },
+    "phones": {
+        "title": "Telephony",
+        "sub": "Phone numbers",
+        "my": "My phones",
+        "rent": "Rent number",
+        "phones": "Phone numbers",
+        "number": "Phone number",
+        "start": "Rent start",
+        "calls": "Calls amount",
+        "fee": "Fee",
+        "price": "₽ per day",
+        "confirm_rent": "Rent?",
+        "release": "Release",
+        "button": "Rent",
+        "not_selected": "Select numbers",
+        "country": "Country",
+        "region": "Region",
+        "operator": "Operator"
+    },
+    "currency": "₽",
+    "total": "Total",
+    "notify": {
+        "email_sent": "An email has been sent"
+    },
+    "filter": {
+        "title": "Filters",
+        "period_start": "Period from",
+        "period_end": "Period to",
+        "found": "Found",
+        "total": "Total",
+        "pagination": {
+            "page": "Page",
+            "limit": "Show by:"
+        }
+    },
+    "status": {
+        "title": "Status",
+        "new": "New",
+        "pending": "Pending",
+        "success": "Success",
+        "declined": "Declined",
+        "all": "All",
+        "active": "Active",
+        "archived": "Archived",
+        "landline": "LandLine",
+        "cellphone": "Cellphone"
+    },
+    "calendar": {
+        "weekdays": {
+            "sun": "Sun",
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat"
+        },
+        "weekdays_full": {
+            "sun": "Sunday",
+            "mon": "Monday",
+            "tue": "Tuesday",
+            "wed": "Wednesday",
+            "thu": "Thursday",
+            "fri": "Friday",
+            "sat": "Saturday"
+        },
+        "months": {
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "November",
+            "december": "December"
+        },
+        "time": {
+            "hours": "Hours",
+            "minutes": "Minutes",
+            "seconds": "Seconds"
+        },
+        "period": {
+            "label": "Period"
+        },
+        "controls": {
+            "today": "Today",
+            "yesterday": "YDA",
+            "sevendays": "7 days",
+            "currentmonth": "This month",
+            "currentyear": "This year"
+        }
+    },
+    "numdecl": {
+        "minutes": {
+            "n1": "minute",
+            "n2": "minutes",
+            "n5": "minutes"
+        }
+    },
+    "dropzone": {
+        "button": "Choose file",
+        "text": "or drag and drop file here"
+    },
+    "wallet": {
+        "button": "Top up",
+        "balance": "Your balance"
+    },
+    "manager": {
+        "title": "Your manager",
+        "phone": "phone number"
+    },
+    "actions": {
+        "edit": "Edit",
+        "archive": "Archive",
+        "go": "Open",
+        "close": "Close",
+        "open": "Open"
+    },
+    "notification": {
+        "title": "Notification",
+        "text": "Text",
+        "read": "Read",
+        "not_read": "Not read"
+    },
+    "news": {
+        "title": "News",
+        "error": "An error occurred while loading news. Try to&nbsp;<a class=\"link hover\" onclick=\"location.reload()\">reload page</a>"
+    },
+    "handle": "Move",
+    "required": "This field is required"
+}

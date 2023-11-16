@@ -1,0 +1,7 @@
+<div class="dropzone" id="{{id}}">
+    <input type="file" accept="*/*" {{multiple}} onchange="___mc.events.push('sys:file.upload', {files: this.files, dropzone: '{{id}}' })">
+    <span> <button class="secondary">{{#i18n}}dropzone.button{{/i18n}}</button> &nbsp; <span>{{#i18n}}dropzone.text{{/i18n}} {{#if accept}}({{accept}}){{/if}}</span> </span>
+    <div class="loader hide">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>

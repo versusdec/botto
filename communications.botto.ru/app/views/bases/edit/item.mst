@@ -1,0 +1,11 @@
+<tr>
+  <td title="{{#i18n}}contacts.number{{/i18n}}">{{phone}}</td>
+  <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+  <td title="{{#i18n}}contacts.operator{{/i18n}}">{{operator}}</td>
+  <td title="{{#i18n}}contacts.region{{/i18n}}">{{region}}</td>
+  <td title="{{#i18n}}contacts.country{{/i18n}}">{{country}}</td>
+  <td title="{{#i18n}}table.actions{{/i18n}}">
+    <a onclick="___mc.events.push('bases.contact.exclude', {value: {{phone}}, btn: this })"
+    class="mdi mdi-trash-can-outline" title="{{#i18n}}button.delete{{/i18n}}"></a>
+  </td>
+</tr>

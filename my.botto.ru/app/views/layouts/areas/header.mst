@@ -1,0 +1,35 @@
+<header class="mobile" handler="modules/header">
+    <span class="mdi mdi-dots-horizontal"></span>
+    <img src="/img/logo.svg" class="logo">
+    {{#lang}}{{/lang}}
+</header>
+<header handler="modules/header">
+    <div>
+        <span class="mdi mdi-menu"></span>
+
+        <a href="/notifications" class="notifications" target="_self"><b>{{#i18n}}system.notifications{{/i18n}}: </b><span class="text"></span></a>
+    </div>
+    <div>
+        <!--    <button class="small" handler="modules/payments" data-type="button">{{#i18n}}billing.payments.order{{/i18n}}</button>-->
+        <span class="balance"> 0.00 {{#i18n}}currency{{/i18n}}</span>
+        {{#lang}}{{/lang}}
+        <a href="/notifications" class="mdi mdi-bell-outline bell">
+            <i class="mdi "></i>
+        </a>
+
+        <img class="avatar" src="/img/ava.png" alt="">
+        <div class="user-menu block">
+            <div class="user-info">
+                <img src="/img/ava.png" class="avatar" alt="">
+                <div>
+                    <div class="email"></div>
+                    <div class="name"></div>
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="/profile" class="mdi mdi-wrench">{{#i18n}}profile.profile_settings{{/i18n}}</a>
+                <a onclick="___mc.auth.logout()" class="mdi mdi-login-variant">{{#i18n}}auth.logout{{/i18n}}</a>
+            </div>
+        </div>
+    </div>
+</header>

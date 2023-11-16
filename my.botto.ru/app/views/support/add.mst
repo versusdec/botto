@@ -1,0 +1,53 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/support"></a>{{#i18n}}support.ticket.create{{/i18n}}</h1>
+<hr>
+
+<div class="columns">
+    <div class="block">
+        <header>
+            <h2>
+                {{#i18n}}support.ticket.title{{/i18n}}
+            </h2>
+        </header>
+        <label>{{#i18n}}support.ticket.select_theme{{/i18n}}</label>
+        {{#select options=options onchange=onchange}}{{/select}}
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name">
+        <label>{{#i18n}}support.ticket.message{{/i18n}}</label>
+        <textarea name="text"></textarea>
+        {{#dropzone onupload='ticket.upload'}}{{/dropzone}}
+        <footer>
+            <button type="button" onclick="___mc.events.push('ticket.add', this)">{{#i18n}}button.create{{/i18n}}</button>
+        </footer>
+    </div>
+    <aside>
+        <div class="block">
+            <header>
+                <h2>{{#i18n}}support.ticket.average.answer{{/i18n}}</h2>
+            </header>
+            <table>
+                <tr>
+                    <td>{{#i18n}}support.ticket.average.hour{{/i18n}}</td>
+                    <th>{{stats.common}} {{#numdecl stats.common}}["{{#i18n}}numdecl.minutes.n1{{/i18n}}", "{{#i18n}}numdecl.minutes.n2{{/i18n}}", "{{#i18n}}numdecl.minutes.n5{{/i18n}}"]{{/numdecl}}</th>
+                </tr>
+                <tr>
+                    <td>{{#i18n}}support.ticket.average.yours{{/i18n}}</td>
+                    <th>{{stats.my_tickets}} {{#numdecl stats.my_tickets}}["{{#i18n}}numdecl.minutes.n1{{/i18n}}", "{{#i18n}}numdecl.minutes.n2{{/i18n}}",
+                        "{{#i18n}}numdecl.minutes.n5{{/i18n}}"]{{/numdecl}}</th>
+                </tr>
+            </table>
+        </div>
+        <div class="block">
+            <header>
+                <h2>{{#i18n}}support.ticket.average.faster{{/i18n}}</h2>
+            </header>
+            <ul>
+                <li>{{#i18n}}support.ticket.average.access{{/i18n}}</li>
+                <li>{{#i18n}}support.ticket.average.describe{{/i18n}}</li>
+                <li>{{#i18n}}support.ticket.average.screenshot{{/i18n}}</li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+
+

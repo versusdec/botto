@@ -1,0 +1,95 @@
+<h1>{{#i18n}}tracker.title{{/i18n}}</h1>
+<hr>
+<div class="columns stats">
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}tracker.stats.links{{/i18n}}</h2> <!--<span class="up"></span>--> </header>
+            <div class="val" data-links>{{stats.links}}</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>CTR</h2> <!--<span class="down"></span>--> </header>
+            <div class="val" data-ctr> {{stats.ctr}}</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}tracker.stats.clicks{{/i18n}}</h2> <!--<span class="up"></span>--> </header>
+            <div class="val" data-followings> {{stats.followings}}</div>
+        </div>
+    </div>
+    <!--<div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}tracker.stats.mobile{{/i18n}}</h2> &lt;!&ndash;<span class="up"></span>&ndash;&gt; </header>
+            <div class="val"> 0</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="block ">
+            <header><h2>{{#i18n}}tracker.stats.desktop{{/i18n}}</h2></header>
+            <div class="val"> 0</div>
+        </div>
+    </div>-->
+</div>
+
+<div class="block filters">
+    <header>
+        <h2>{{#i18n}}filter.title{{/i18n}}</h2>
+    </header>
+    <div class="row" style="justify-content: flex-end; align-items: flex-end">
+        <div class="columns">
+            <div class="col-1-3">
+                {{#datepicker type='date' name='period_start' label='filter.period_start' onchange='tracker.filter.range.change' value=period_start}}{{/datepicker}}
+            </div>
+            <div class="col-1-3">
+                {{#datepicker type='date' name='period_end' label='filter.period_end' onchange='tracker.filter.range.change' value=period_end}}{{/datepicker}}
+            </div>
+            <div class="col-1-3">
+                <label for="">{{#i18n}}tracker.select{{/i18n}}</label>
+                {{#select options=options option=option value=value onchange='tracker.filter.link.change'}}{{/select}}
+            </div>
+        </div>
+        <div>
+            <button onclick="___mc.events.push('tracker.filter.reset')" class="secondary">{{#i18n}}button.reset{{/i18n}}</button>
+            <button onclick="___mc.events.push('tracker.filter.apply')">{{#i18n}}button.apply{{/i18n}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="block" handler="controllers/tracker/handler">
+    <header>
+        <h2>{{#i18n}}tracker.title{{/i18n}}</h2>
+    </header>
+
+    {{#pagination}}{{/pagination}}
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{#i18n}}table.date{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.calls.phone{{/i18n}}</th>
+                <th>IP</th>
+                <th>{{#i18n}}tracker.platform{{/i18n}}</th>
+                <th>{{#i18n}}tracker.location{{/i18n}}</th>
+                <th>{{#i18n}}table.actions{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#pagination}}{{/pagination}}
+</div>
+

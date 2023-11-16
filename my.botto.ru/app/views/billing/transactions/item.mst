@@ -1,0 +1,6 @@
+<tr>
+  <td title="ID" style="width: 99px">{{id}}</td>
+  <td title="{{#i18n}}table.date{{/i18n}}" style="white-space: nowrap;width: 150px">{{timestamp}}</td>
+  <td title="{{#i18n}}table.total{{/i18n}}">{{amount}}</td>
+  <td title="{{#i18n}}table.comment{{/i18n}}">{{#if comment}}{{comment}}{{/if}}</td>
+</tr>

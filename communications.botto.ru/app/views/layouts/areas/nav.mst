@@ -1,0 +1,100 @@
+<nav handler="controllers/nav">
+    <div class="mobile">
+        <div class="mdi mdi-close"></div>
+        <a href="{{"my"|global}}/billing" class="mdi mdi-credit-card-multiple"></a>
+    </div>
+    <img src="/img/logo.svg" class="logo">
+    <div class="mobile">
+        <hr>
+    </div>
+    <ul>
+        <li>
+            <a href="{{"my"|global}}" target="_self">
+                <span class="mdi mdi-layers"></span>{{#i18n}}dashboard.title{{/i18n}}
+            </a>
+        </li>
+        <li>
+            <a href="/{{"project_id"|global}}/" class="active">
+                <span class="mdi mdi-timeline"></span>{{#i18n}}dashboard.statistics{{/i18n}}
+            </a>
+        </li>
+        <li class="">
+            <a href="/{{"project_id"|global}}/mailings/">
+                <span class="mdi mdi-email-multiple"></span>{{#i18n}}mailings.title{{/i18n}}
+            </a>
+        </li>
+        <li class="hide">
+            <a href="/{{"project_id"|global}}/incoming/">
+                <span class="mdi mdi-phone-incoming"></span>{{#i18n}}incoming.title{{/i18n}}
+            </a>
+        </li>
+        <li class="">
+            <a href="/{{"project_id"|global}}/materials/">
+                <span class="mdi mdi-image-multiple-outline"></span>{{#i18n}}materials.title{{/i18n}}
+            </a>
+        </li>
+
+        <li class="">
+            <a href="/{{"project_id"|global}}/ivr/">
+                <span class="mdi mdi-file-tree-outline"></span>{{#i18n}}ivr.title{{/i18n}}
+            </a>
+        </li>
+
+        <li class="">
+            <a href="/{{"project_id"|global}}/database/bases/">
+                <span class="mdi mdi-server-network"></span>{{#i18n}}bases.title{{/i18n}}
+            </a>
+        </li>
+        <li class="">
+            <a href="/{{"project_id"|global}}/database/blacklists/">
+                <span class="mdi mdi-file-remove-outline"></span>{{#i18n}}blacklists.title{{/i18n}}
+            </a>
+        </li>
+        <li class="">
+            <a href="/{{"project_id"|global}}/detailing/">
+                <span class="mdi mdi-phone-in-talk-outline"></span>{{#i18n}}detailing.title{{/i18n}}
+            </a>
+        </li>
+        <li class="">
+            <a href="/{{"project_id"|global}}/tracker/">
+                <span class="mdi mdi-cellphone-link"></span>{{#i18n}}tracker.title{{/i18n}}
+            </a>
+        </li>
+        <li class="">
+            <a href="/{{"project_id"|global}}/settings/">
+                <span class="mdi mdi-cog-transfer"></span>{{#i18n}}settings.title{{/i18n}}
+            </a>
+        </li>
+
+        <!--
+
+    <li class="">
+      <a href="/{{"project_id"|global}}/contacts/">
+        <span class="mdi mdi-email-check"></span>Контакты
+      </a>
+    </li>
+
+
+-->
+
+    </ul>
+
+    <ul>
+        <li>
+            <a href="{{"my"|global}}/billing" target="_blank">
+                <span class="mdi mdi-credit-card-multiple"></span>{{#i18n}}billing.title{{/i18n}}
+            </a>
+        </li>
+        <li>
+            <a href="{{"my"|global}}/support" target="_blank">
+                <span class="mdi mdi-timeline-help"></span>{{#i18n}}support.title{{/i18n}}
+            </a>
+        </li>
+        <!--<li>
+            <a href="https://partners.botto.ru" target="_blank">
+                <span class="mdi mdi-briefcase-check"></span>
+                {{#i18n}}partners.title{{/i18n}}
+            </a>
+        </li>-->
+    </ul>
+</nav>

@@ -1,0 +1,111 @@
+.autocomplete {
+    position: relative;
+}
+
+.autocomplete input {
+    width: 100%;
+}
+
+.autocomplete input:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.autocomplete.open input {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.autocomplete .options {
+    width: auto;
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    border: 1px solid var(--color__border_d);
+    border-top: none;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0 10px;
+    margin: 0 0 10px 0;
+}
+
+.autocomplete.open .options {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background: white;
+}
+
+.autocomplete .options .selected, .autocomplete .options .selected:before {
+    color: var(--color__light_blue);
+}
+
+.autocomplete .options li {
+    position: relative;
+    width: auto;
+    padding: 5px 15px;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px dashed var(--color__border);
+    list-style: none;
+    cursor: pointer;
+    line-height: 32px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.autocomplete .options li.empty {
+    cursor: default;
+    text-align: center;
+    color: var(--color__light_blue);
+}
+
+.autocomplete .options li.empty:before {
+    display: none;
+}
+
+.autocomplete .options li.empty:hover {
+    color: black;
+}
+
+.autocomplete .options li:first-child {
+    border-top: 1px dashed var(--color__border);
+}
+
+.autocomplete .options li:last-child {
+    border-bottom: none;
+}
+
+.autocomplete .options li:before {
+    position: absolute;
+    content: '•';
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--color__blue);
+    left: 0;
+    line-height: inherit;
+}
+
+.autocomplete .options li:not(.selected):not(.empty):hover {
+    color: var(--color__blue);
+}
+
+.autocomplete input + a.mdi-close {
+    position: absolute;
+    top: 37px;
+    right: 0;
+    display: none;
+}
+
+.autocomplete input[data-value] + a.mdi-close {
+    display: block;
+}

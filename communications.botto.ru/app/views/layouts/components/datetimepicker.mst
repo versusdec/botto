@@ -1,0 +1,27 @@
+<div class="datetimepicker" id="{{id}}">
+    <label>{{label}}</label>
+    <span class="mdi {{#if type 'date'}}mdi-calendar{{/if}}{{#if type 'period'}}mdi-calendar{{/if}}{{#if type 'time'}}mdi-clock{{/if}}{{#if type 'datetime'}}mdi-calendar-clock{{/if}}">
+        <input type="text" {{#if name}}name="{{name}}"{{/if}} value="{{value}}" {{#if disabled}}disabled{{/if}}>
+        {{#unless disabled}}<span class="mdi mdi-close clear"></span>{{/unless}}
+        <div class="hide">
+            <div class="datetimepicker-inner block">
+                {{#if type 'date'}}
+                    {{#dateplugin type=type value=value onchange=onselect}}{{/dateplugin}}
+                {{/if}}
+                {{#if type 'period'}}
+                    {{#dateplugin type=type value=value onchange=onselect}}{{/dateplugin}}
+                {{/if}}
+                {{#if type 'time'}}
+                    {{#timeplugin type=type value=value onchange=onselect}}{{/timeplugin}}
+                {{/if}}
+                {{#if type 'datetime'}}
+                    {{#dateplugin type=type value=value onchange=onselect}}{{/dateplugin}}
+                    {{#timeplugin type=type value=value onchange=onselect}}{{/timeplugin}}
+                {{/if}}
+                <div class="datetimepicker-selector">
+                    <button>{{#i18n}}button.pick{{/i18n}}</button>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>

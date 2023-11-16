@@ -1,0 +1,15 @@
+<tr>
+  <td title="ID">{{id}}</td>
+  <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+  <td title="{{#i18n}}materials.type.audio{{/i18n}}">
+    {{#player file=file}}{{/player}}
+  </td>
+  <td title="{{#i18n}}mailings.materials.start{{/i18n}}">
+    <input type="number" placeholder="{{#i18n}}mailings.materials.sec{{/i18n}}"
+    value="{{start}}" style="width: 75px" data-id="{{id}}" onchange="___mc.events.push('incoming.audio.start.change', this)">
+  </td>
+  <td title="{{#i18n}}table.actions{{/i18n}}">
+    <a class="link mdi mdi-trash-can-outline"
+       onclick="___mc.events.push('incoming.materials.remove',  {btn: this, id: {{id}} } )"></a>
+  </td>
+</tr>

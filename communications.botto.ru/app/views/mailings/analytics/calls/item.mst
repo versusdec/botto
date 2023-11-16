@@ -1,0 +1,40 @@
+<tr>
+    <td title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{created}}</td>
+    <td title="{{#i18n}}mailings.analytics.calls.phone{{/i18n}}">
+        <!--<a class="link" href="/{{'project_id'|global}}/contacts/{{phone}}" title="Открыть контакт">-->
+        {{phone|phone}}
+        <!--</a>-->
+    </td>
+    <td title="{{#i18n}}mailings.analytics.calls.duration{{/i18n}}">
+        {{billsec}} {{#i18n}}mailings.analytics.calls.time_measure{{/i18n}}
+    </td>
+    <td title="{{#i18n}}mailings.analytics.calls.lead{{/i18n}}">
+        <input type="checkbox" class="default" {{#if lead}}checked{{/if}} disabled style="opacity: 1">
+    </td>
+    <td title="{{#i18n}}mailings.analytics.calls.bl{{/i18n}}">
+        <input type="checkbox" class="default" {{#if blacklisted}}checked{{/if}} disabled style="opacity: 1">
+    </td>
+    <td title="{{#i18n}}mailings.analytics.calls.amd{{/i18n}}">
+        <input type="checkbox" class="default" {{#if amd}}checked{{/if}} disabled style="opacity: 1">
+    </td>
+
+    <!--            <td title="С менеджером">00:01:12</td>-->
+    <td title="{{#i18n}}mailings.analytics.calls.cost{{/i18n}}">
+        {{amount}} {{#i18n}}mailings.analytics.calls.currency{{/i18n}}
+    </td>
+    <td title="{{#i18n}}table.status{{/i18n}}">
+        {{status|status}}
+    </td>
+
+    <!--<td title="{{#i18n}}mailings.analytics.calls.record{{/i18n}}">
+        {{#if record}}
+        {{#player file=file}}{{/player}}
+    {{/if}}
+    </td>-->
+    <!--<td>
+        <a class="link mdi mdi-clipboard-account-outline"
+           href="/{{"project_id"|global}}/contacts/{{phone}}"
+           title="Открыть контакт"></a>
+    </td>-->
+</tr>

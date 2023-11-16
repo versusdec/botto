@@ -1,0 +1,44 @@
+<header>
+    <h2>{{#i18n}}edit.common{{/i18n}}</h2>
+</header>
+<label>{{#i18n}}table.name{{/i18n}}*</label>
+<input type="text" name="name" value="{{mailing.name}}"
+       onchange="___mc.events.push('mailings.name.change', this.value)">
+
+<div class="table phones {{#if id 'new'}}hide{{/if}}">
+    <table>
+        <thead>
+        <tr>
+            <th>{{#i18n}}mailings.common.phone{{/i18n}}</th>
+            <th>{{#i18n}}phones.country{{/i18n}}</th>
+            <th>{{#i18n}}phones.region{{/i18n}}</th>
+            <th>{{#i18n}}phones.operator{{/i18n}}</th>
+            <th>{{#i18n}}table.type{{/i18n}}</th>
+            <th>{{#i18n}}table.actions{{/i18n}}</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {{#each mailing.phones}}
+            {{> mailings/edit/phones/item}}
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<label>{{#i18n}}mailings.common.phone{{/i18n}}*</label>
+<div class="columns" id="phones">
+    {{#seload classlist='col-1-1' onchange=onselect method=method params=params pattern=pattern selected=selected multiple=1 required=1}}{{/seload}}
+    <button onclick="___mc.events.push('mailings.phones.rent')" class="secondary">{{#i18n}}phones.button{{/i18n}}</button>
+<!--    <button onclick="___mc.events.push('mailings.phones.add.selected', this)">{{#i18n}}button.add{{/i18n}}</button>-->
+</div>
+
+<!--<label style="display:flex;align-items: center;gap:10px">
+    <input type="checkbox" id="records" class="default"
+           name="records" onchange="___mc.events.push('mailings.records.change', this.checked)">
+    {{#i18n}}mailings.common.records{{/i18n}}
+</label>-->
+
+<footer>
+{{> mailings/edit/footer}}
+</footer>

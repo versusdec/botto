@@ -1,0 +1,53 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline"
+       href="/{{"project_id"|global}}/pixel/"></a>{{#i18n}}pixel.title{{/i18n}}</h1>
+<hr>
+<div class="block">
+    <header>
+        <h2>
+            {{#if id}}{{#i18n}}pixel.edit.title{{/i18n}}{{/if}}
+            {{#unless id}}{{#i18n}}pixel.edit.new{{/i18n}}{{/unless}}
+        </h2>
+        <ul class="tabs">
+            <li class="active"><a href="#tab=common">{{#i18n}}edit.common{{/i18n}}</a></li>
+            <li class=""><a href="#tab=settings">{{#i18n}}edit.settings{{/i18n}}</a></li>
+        </ul>
+    </header>
+
+    <div id="common">
+        <label>{{#i18n}}table.name{{/i18n}}</label>
+        <input type="text" name="name" value="{{name}}">
+        <label>{{#i18n}}pixel.domain{{/i18n}}</label>
+        <input type="text" name="domain" value="{{name}}">
+        <label>{{#i18n}}pixel.info{{/i18n}}</label>
+        <textarea name="info">{{info}}</textarea>
+        <div style="display:flex;align-items: center;gap:10px; margin-top: 20px">
+            <label style="display:flex;align-items: center;gap:10px;margin-top: 0;">
+                <input type="checkbox" id="disclaimer" class="default" {{#if disclaimer}}checked{{/if}}
+                       name="records" onchange="___mc.events.push('pixel.disclaimer.change', this.checked)">
+                {{#i18n}}pixel.disclaimer.checkbox{{/i18n}}
+            </label>
+            <span><a class="link hover" onclick="___mc.events.push('pixel.disclaimer.example')">{{#i18n}}pixel.disclaimer.example{{/i18n}}</a></span>
+
+        </div>
+    </div>
+    <div id="settings" class="hide">
+        <div class="columns">
+            <div>
+                <label>{{#i18n}}pixel.edit.timer{{/i18n}}</label>
+                <input type="number" name="timer" value="{{timer}}">
+                <label>{{#i18n}}pixel.edit.visitors{{/i18n}}</label>
+                <input type="number" name="visitors" value="{{visitors}}">
+
+            </div>
+            <aside>
+                bla bla bla
+            </aside>
+        </div>
+    </div>
+    <footer>
+        <button onclick="___mc.events.push('pixel.save')">
+            {{#if id}}{{#i18n}}button.save{{/i18n}}{{/if}}
+            {{#unless id}}{{#i18n}}button.create{{/i18n}}{{/unless}}
+        </button>
+    </footer>
+</div>

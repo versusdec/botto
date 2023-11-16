@@ -1,0 +1,79 @@
+<div>
+    <header>
+        <h2>{{#i18n}}tracker.details.title{{/i18n}}</h2>
+    </header>
+    <div id="map" style="width: 100%;height: 400px;">
+        <div id="balloon" style="background-color: #fff;padding: 5px;border-radius: 7px">{{ip}}</div>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}table.date {{/i18n}}</th>
+                <th>{{#i18n}}tracker.location{{/i18n}}</th>
+                <th>{{#i18n}}tracker.language{{/i18n}}</th>
+                <th>{{#i18n}}tracker.timezone{{/i18n}}</th>
+                <th>{{#i18n}}tracker.referrer{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td title="{{#i18n}}table.date{{/i18n}}">{{timestamp}}</td>
+                <td title="{{#i18n}}tracker.location{{/i18n}}">{{location.city_name}}, {{location.country_name}}</td>
+                <td title="{{#i18n}}tracker.language{{/i18n}}">{{iso_code}}</td>
+                <td title="{{#i18n}}tracker.timezone{{/i18n}}">{{time_zone}}</td>
+                <td title="{{#i18n}}tracker.referrer{{/i18n}}">{{referrer}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}tracker.hard.title{{/i18n}}</th>
+                <th>{{#i18n}}tracker.platform{{/i18n}}</th>
+                <th>{{#i18n}}tracker.vendor{{/i18n}}</th>
+                <th>{{#i18n}}tracker.os{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td title="{{#i18n}}tracker.hard.title{{/i18n}}">{{#i18n}}tracker.hard.{{hardware_type}}{{/i18n}}</td>
+                <td title="{{#i18n}}tracker.platform{{/i18n}}">{{platform}}</td>
+                <td title="{{#i18n}}tracker.vendor{{/i18n}}">{{vendor}}</td>
+                <td title="{{#i18n}}tracker.os{{/i18n}}">{{operating_system}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}tracker.soft.title{{/i18n}}</th>
+                <th>{{#i18n}}tracker.useragent{{/i18n}}</th>
+                <th>{{#i18n}}tracker.orientation.title {{/i18n}}</th>
+                <th>{{#i18n}}tracker.width {{/i18n}}</th>
+                <th>{{#i18n}}tracker.height {{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td title="{{#i18n}}tracker.soft.title{{/i18n}}">{{#i18n}}tracker.soft.{{software_type}}{{/i18n}}</td>
+                <td title="{{#i18n}}tracker.useragent{{/i18n}}">{{useragent}}</td>
+                <td title="{{#i18n}}tracker.orientation.title{{/i18n}}">{{#i18n}}tracker.orientation.{{screen_orientation}}{{/i18n}}</td>
+                <td title="{{#i18n}}tracker.width{{/i18n}}">{{screen_height}}px</td>
+                <td title="{{#i18n}}tracker.height{{/i18n}}">{{screen_width}}px</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <button type="button" onclick="$(this).closest('.popup-wrapper').remove()">
+            {{#i18n}}button.close{{/i18n}}
+        </button>
+    </footer>
+</div>

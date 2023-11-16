@@ -1,0 +1,20 @@
+<div class="" style="overflow: auto">
+    <table>
+        <tbody>
+        <tr>
+            {{#each length}}
+            <td data-col="{{i}}" style="text-align: left">
+                {{#select options=options value='not_selected' onchange='bases.field.select'}}{{/select}}
+            </td>
+            {{/each}}
+        </tr>
+        {{#each items}}
+        <tr>
+            {{#each .}}
+            <td style="text-align: left">{{.}}</td>
+            {{/each}}
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

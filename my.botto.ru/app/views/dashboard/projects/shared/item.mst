@@ -1,0 +1,16 @@
+<tr>
+    <td style="width: 80px;" title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}"><b>{{name}}</b></td>
+    <td title="{{#i18n}}projects.apps.available{{/i18n}}">
+        {{#each applications}}
+            {{> projects/application}}
+        {{/each}}
+    </td>
+    <td>
+        <div>
+            <a class="link mdi mdi-file-edit-outline" onclick="___mc.router.go('/projects/edit/{{id}}')"
+               title="{{#i18n}}actions.edit{{/i18n}}"></a>
+        </div>
+    </td>
+</tr>

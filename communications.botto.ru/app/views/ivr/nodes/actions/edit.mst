@@ -1,0 +1,158 @@
+<div id="node_actions" handler="controllers/ivr/nodes/actions">
+    <header>
+        <h2>{{#i18n}}ivr.nodes.settings{{/i18n}}</h2>
+    </header>
+    <div data-id="{{id}}" data-node_id="{{node_id}}">
+        <label>{{#i18n}}ivr.nodes.actions.type{{/i18n}}</label>
+        {{#select value=type options=types onchange="ivr.node.settings.type.change"}}{{/select}}
+
+        <div class="lead-settings {{#unless type 'lead'}}hide{{/unless}}"></div>
+
+        <div class="blacklist-settings {{#unless type 'blacklist'}}hide{{/unless}}">
+            <br>
+            <div class="columns" style="align-items: center;">
+                {{#seload classlist='col-1-1 blacklists_select' option=settings.blacklist_option value=settings.id method=request.blacklist_method params=request.blacklist_params selected=settings.blacklist_selected required=1}}{{/seload}}
+                <a onclick="___mc.events.push('ivr.create.popup', 'blacklists')"
+                   class="mdi mdi-plus-circle-outline" title="{{#i18n}}button.create{{/i18n}}"></a>
+            </div>
+        </div>
+
+        <div class="tag-settings {{#unless type 'tag'}}hide{{/unless}}">
+            <div class="columns" style="align-items: center;">
+                {{#autocomplete classlist='col-1-1' onsuggest='projects.tags.suggest' min=0 }}{{/autocomplete}}
+                <div>
+                    <label></label>
+                    <a title="{{#i18n}}button.add{{/i18n}}"
+                       onclick="___mc.events.push('ivr.node.settings.tags.add', this)"
+                       class="mdi mdi-plus-circle-outline"></a>
+                </div>
+            </div>
+            <br>
+            <div id="tags" class="row" style="gap: 10px;">
+                {{#if type 'tag'}}
+                    {{#if items}}
+                        {{#each items}}
+                            {{> ivr/nodes/actions/tag}}
+                        {{/each}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="message-settings {{#unless type 'message'}}hide{{/unless}}">
+            <div class="table {{#unless type 'message'}}hide{{/unless}} {{#unless items}}hide{{/unless}}" id="message">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>{{#i18n}}table.name{{/i18n}}</th>
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#if type 'message'}}
+                        {{#if items}}
+                            {{#each items}}
+                                {{> ivr/nodes/actions/item}}
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="columns" style="align-items: center;">
+                {{#seload classlist='col-1-1 message_select' onchange=select.message value=settings.id method=request.message_method params=request.message_params selected=settings.message_selected multiple=1 required=1}}{{/seload}}
+                <a onclick="___mc.events.push('ivr.create.popup', 'message')"
+                   class="mdi mdi-plus-circle-outline" title="{{#i18n}}button.create{{/i18n}}"></a>
+            </div>
+            <label>{{#i18n}}ivr.nodes.actions.send_via{{/i18n}}</label>
+            {{#select value=settings.send_via classlist="send_via_select"}}
+                [{"option":"SMS", "value":"sms"}]
+            {{/select}}
+        </div>
+
+        <div class="manager-settings {{#unless type 'manager'}}hide{{/unless}}">
+            <label>{{#i18n}}ivr.nodes.actions.types.add_manager{{/i18n}}</label>
+            <div class="table {{#unless type 'manager'}}hide{{/unless}} {{#unless items}}hide{{/unless}}" id="manager">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>{{#i18n}}contacts.number{{/i18n}}</th>
+                        <th>{{#i18n}}ivr.nodes.actions.types.timeout{{/i18n}}</th>
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#if type 'manager'}}
+                        {{#if items}}
+                            {{#each items}}
+                                {{> ivr/nodes/actions/phone}}
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="columns" style="align-items: center;">
+                <input type="tel" name="phone" autocomplete="off">
+                <a onclick="___mc.events.push('ivr.node.settings.actions.manager.add', {btn: this, type: 'manager'})"
+                   class="mdi mdi-plus-circle-outline"></a>
+            </div>
+        </div>
+
+        <div class="playback-settings {{#unless type 'playback'}}hide{{/unless}}">
+            <div class="table {{#unless type 'playback'}}hide{{/unless}} {{#unless items}}hide{{/unless}}"
+                 id="playback">
+                <table>
+                    <thead>
+                    <tr>
+                        <th style="vertical-align: bottom">{{#i18n}}table.name{{/i18n}}</th>
+                        <th style="vertical-align: bottom" title="{{#i18n}}mailings.materials.start{{/i18n}}">
+                            <div style="">
+                                {{#i18n}}mailings.materials.start{{/i18n}}
+                            </div>
+                        </th>
+                        <th style="vertical-align: bottom">{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#if type 'playback'}}
+                        {{#if items}}
+                            {{#each items}}
+                                {{> ivr/nodes/actions/playback}}
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="columns" style="align-items: center;">
+                {{#seload classlist='col-1-1 playback_select' onchange=select.playback multiple=1 value=settings.id method=request.playback_method params=request.playback_params selected=settings.playback_selected}}{{/seload}}
+                <a onclick="___mc.events.push('ivr.create.popup', 'playback')"
+                   class="mdi mdi-plus-circle-outline" title="{{#i18n}}button.create{{/i18n}}"></a>
+            </div>
+        </div>
+
+        <div class="webhook-settings {{#unless type 'webhook'}}hide{{/unless}}">
+            <br>
+            <div class="columns" style="align-items: center;">
+                {{#seload classlist='col-1-1 webhook_select' value=settings.webhook_value option=settings.webhook_option value=settings.id method=request.webhook_method params=request.webhook_params selected=settings.webhook_selected required=1}}{{/seload}}
+                <a onclick="___mc.events.push('ivr.create.popup', 'webhook')"
+                   class="mdi mdi-plus-circle-outline" title="{{#i18n}}button.create{{/i18n}}"></a>
+            </div>
+        </div>
+
+        <br>
+        <div class="buttons-wrapper" style="gap:15px">
+            <a onclick="___mc.events.push('ivr.node.settings.close')" class="btn secondary">{{#i18n}}
+                button.cancel{{/i18n}}</a>
+            <button
+              onclick="___mc.events.push('ivr.node.settings.save', {id:{{id}}, node_id:{{node_id}}, type:'action'})">
+                {{#i18n}}button.save{{/i18n}}</button>
+        </div>
+
+    </div>
+</div>

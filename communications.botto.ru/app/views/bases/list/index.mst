@@ -1,0 +1,37 @@
+<div class="block" handler="controllers/bases/list/handler" data-tab="{{tab}}" data-type="{{type}}">
+    <header>
+        <h2>{{#i18n}}{{type}}.subtitle{{/i18n}}</h2>
+        <div>
+            <a href="/{{"project_id"|global}}/database/{{type}}/edit/new/" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+        </div>
+    </header>
+    {{#pagination}}{{/pagination}}
+    <div class="table" id="base-list">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{#i18n}}table.date{{/i18n}}</th>
+                <th>{{#i18n}}table.name{{/i18n}}</th>
+                <th>{{#i18n}}table.status{{/i18n}}</th>
+                <th>{{#i18n}}bases.amount{{/i18n}}</th>
+                <th>{{#i18n}}table.actions{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="6">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#pagination}}{{/pagination}}
+</div>
+

@@ -1,0 +1,38 @@
+<header>
+    <h2>{{#i18n}}mailings.settings.title{{/i18n}}</h2>
+</header>
+
+<label>{{#i18n}}mailings.settings.max_spent{{/i18n}}</label>
+<input type="number" name="max_spent" value="{{mailing.max_spent}}" placeholder="0"
+       onchange="___mc.events.push('mailings.max_spent.change', this.value)">
+
+<label>{{#i18n}}mailings.settings.max_leads{{/i18n}}</label>
+<input type="number" name="max_leads" value="{{mailing.max_leads}}" placeholder="0"
+       onchange="___mc.events.push('mailings.max_leads.change', this.value)">
+
+<label>{{#i18n}}mailings.settings.response_timeout{{/i18n}}</label>
+<input type="number" name="response_timeout" value="{{mailing.response_timeout}}" placeholder="27"
+       onchange="___mc.events.push('mailings.response_timeout.change', this.value)">
+
+<label>{{#i18n}}mailings.settings.action_timeout{{/i18n}}</label>
+<input type="number" name="action_timeout" value="{{mailing.action_timeout}}" placeholder="7"
+       onchange="___mc.events.push('mailings.action_timeout.change', this.value)">
+
+<label style="display:flex;align-items: center;gap:10px">
+    <input type="checkbox" id="records" class="default" {{#if mailing.records}}checked{{/if}}
+           name="records" onchange="___mc.events.push('mailings.records.change', this.checked)">
+    {{#i18n}}mailings.settings.records{{/i18n}}
+</label>
+
+<label style="display:flex;align-items: center;gap:10px">
+    <input type="checkbox" id="amd" class="default" {{#if mailing.amd}}checked{{/if}}
+           name="amd" onchange="___mc.events.push('mailings.amd.change', this.checked)">
+    {{#i18n}}mailings.settings.amd{{/i18n}}
+</label>
+
+<label>{{#i18n}}mailings.settings.speed{{/i18n}}</label>
+{{#range text="mailings.settings.calls_per_hour" min=0 max=36000 value=3600 step=100 name="speed" onchange=speed_change}}{{/range}}
+
+<footer>
+    {{> mailings/edit/footer}}
+</footer>

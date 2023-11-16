@@ -1,0 +1,214 @@
+<div class="block filters hide">
+    <header>
+        <h2>{{#i18n}}filter.title{{/i18n}}</h2>
+    </header>
+    <div class="columns">
+        <div class="col-1-3">
+            {{#datetimepicker type='datetime' name='period_start' label='filter.period_start' onchange='analytics.info.filter.range.change' value=period_start}}{{/datetimepicker}}
+        </div>
+        <div class="col-1-3">
+            {{#datetimepicker type='datetime' name='period_end' label='filter.period_end' onchange='analytics.info.filter.range.change' value=period_end}}{{/datetimepicker}}
+        </div>
+    </div>
+    <footer>
+        <button onclick="___mc.events.push('analytics.info.filter.apply')">{{#i18n}}button.apply{{/i18n}}</button>
+    </footer>
+</div>
+<div class="block">
+    <header>
+        <h2>
+            {{#i18n}}mailings.analytics.info.subtitle{{/i18n}}
+        </h2>
+        <div class="row" style="margin-left: auto;width:auto; justify-content: flex-end">
+            <span>{{#i18n}}actions.download{{/i18n}}:</span>
+            <button class="secondary" onclick="___mc.events.push('mailings.analytics.export', {type: 'leads', id: {{mailing.id}}, btn: this })">
+                {{#i18n}}mailings.analytics.export.leads{{/i18n}}
+            </button>
+            <button class="secondary" onclick="___mc.events.push('mailings.analytics.export', {type: 'undelivered', id: {{mailing.id}}, btn:this })">
+                {{#i18n}}mailings.analytics.export.dropped{{/i18n}}
+            </button>
+            <button class="secondary" onclick="___mc.events.push('mailings.analytics.export', {type: 'uncalled', id: {{mailing.id}}, btn:this })">
+                {{#i18n}}mailings.analytics.export.not_called{{/i18n}}
+            </button>
+            <button class="" onclick="___mc.events.push('mailings.analytics.export', {type: 'report', id: {{mailing.id}}, btn:this })">
+                {{#i18n}}mailings.analytics.export.report{{/i18n}}
+            </button>
+        </div>
+    </header>
+
+    <br>
+    <div class="columns">
+        <div class="chart-wrap col-1-2">
+            <canvas id="chart"></canvas>
+            {{!--            <div id="chart"></div>--}}
+        </div>
+        <div class="col-1-2 ">
+            <div class="table">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.calls.total{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.calls.total{{/i18n}}">
+                            <b> {{stats.calls}}/{{stats.total}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.calls.leads{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.calls.leads{{/i18n}}">
+                            <b> {{stats.leads}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.calls.blacklisted{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.calls.blacklisted{{/i18n}}">
+                            <b> {{stats.blacklisted}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.info.amd{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.info.amd{{/i18n}}">
+                            <b> {{stats.amd}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.calls.answered{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.calls.answered{{/i18n}}">
+                            <b> {{stats.answered}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.calls.not_answered{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.calls.not_answered{{/i18n}}">
+                            <b> {{stats.not_answered}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.info.recalled{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.info.recalled{{/i18n}}">
+                            <b>{{stats.recalled}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.info.ppl{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.info.ppl{{/i18n}}">
+                            <b>{{mailing.stats.ppl}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.analytics.info.spent{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.analytics.info.spent{{/i18n}}">
+                            <b>{{mailing.stats.spent}}</b>
+                        </td>
+                        <!--                        <td class="hide"></td>-->
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block">
+    <header>
+        <h2>
+            {{#i18n}}mailings.analytics.info.summary{{/i18n}}
+        </h2>
+    </header>
+    <!--<div class="columns">
+        <div class="col-1-2">
+            <div class="table even">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}table.status{{/i18n}}:</td>
+                        <td title="{{#i18n}}table.status{{/i18n}}">
+                            <b class="text-left">
+                                {{mailing.status|status}}
+                            </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="desktop device">{{#i18n}}mailings.settings.records{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.settings.records{{/i18n}}">
+                            <b class="text-left">
+                                {{#if mailing.records}}
+        {{#i18n}}mailings.analytics.info.records.enabled{{/i18n}}
+    {{/if}}
+        {{#unless mailing.records}}
+            {{#i18n}}mailings.analytics.info.records.disabled{{/i18n}}
+        {{/unless}}
+                            </b>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-1-2">
+            <div class="table">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="device desktop">{{#i18n}}mailings.settings.speed{{/i18n}}:</td>
+                        <td title="{{#i18n}}mailings.settings.speed{{/i18n}}"><b>{{mailing.speed}} {{#i18n}}mailings.settings.calls_per_hour{{/i18n}}</b></td>
+                    </tr>
+                    <tr>
+                        <td class="device desktop">{{#i18n}}phones.numbers{{/i18n}}:</td>
+                        <td title="{{#i18n}}phones.numbers{{/i18n}}">{{#each mailing.phones}}
+                            <div><b>{{.|phone}}</b></div> {{/each}}</td>
+                    </tr>
+                    <tr>
+                        <td class="device desktop">{{#i18n}}table.date{{/i18n}}:</td>
+                        <td title="{{#i18n}}table.date{{/i18n}}"><b>{{mailing.created|datetime}}</b></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>-->
+    <div class="table">
+        <table>
+            <tbody>
+            <tr>
+                <td class="desktop device">{{#i18n}}table.status{{/i18n}}:</td>
+                <td title="{{#i18n}}table.status{{/i18n}}">
+                    <b class="text-left">
+                        {{mailing.status|status}}
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td class="desktop device">{{#i18n}}mailings.analytics.info.state{{/i18n}}:</td>
+                <td title="{{#i18n}}mailings.analytics.info.state{{/i18n}}">
+                    <b class="text-left">
+                        {{mailing.state|status}}
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td class="device desktop">{{#i18n}}mailings.settings.speed{{/i18n}}:</td>
+                <td title="{{#i18n}}mailings.settings.speed{{/i18n}}"><b>{{mailing.speed}} {{#i18n}}mailings.settings.calls_per_hour{{/i18n}}</b></td>
+            </tr>
+            <tr>
+                <td class="device desktop">{{#i18n}}phones.numbers{{/i18n}}:</td>
+                <td title="{{#i18n}}phones.numbers{{/i18n}}">{{#each mailing.phones}}
+                    <div><b>{{.|phone}}</b></div>
+                {{/each}}</td>
+            </tr>
+            <tr>
+                <td class="device desktop">{{#i18n}}table.date{{/i18n}}:</td>
+                <td title="{{#i18n}}table.date{{/i18n}}"><b>{{mailing.created|datetime}}</b></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

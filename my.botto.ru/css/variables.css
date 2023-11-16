@@ -1,0 +1,31 @@
+:root {
+    --color__blue_bg: #15203D;
+    --color__light_blue: #A09DC0;
+    --color__bg: rgba(242, 243, 248, 0.5);
+    --color__border: #eef1ff;
+    --color__border_d: #d8dcf0;
+    --color__sh: #E2E4F0;
+    --color__active: #6c7580;
+    --color__table: #FBFBFF;
+    --color__table2: #F5F7FF;
+    --color__green3: #6FCF97;
+    --color__green2: #27AE60;
+    --color__yellow: #FFBB00;
+    --color__red: #FA006C;
+    --color__danger: #FA006C;
+    --color__blue: #26aceb;
+    --color__primary: #26aceb;
+
+    --shadow: 0px 0px 3px var(--color__sh);
+
+    --width__sidebar: 180px;
+    --width__sidebar_minimized: 64px;
+
+    --height__header: 42px;
+    --height__footer: 42px;
+
+    --border-radius: 7px;
+
+    --filter__icon_hover: brightness(0) saturate(100%) invert(17%) sepia(100%) saturate(7301%) hue-rotate(328deg) brightness(97%) contrast(102%);
+    --filter__blue: brightness(0) saturate(100%) invert(63%) sepia(27%) saturate(5696%) hue-rotate(167deg) brightness(99%) contrast(87%);
+}

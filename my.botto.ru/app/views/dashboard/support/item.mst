@@ -1,0 +1,30 @@
+<tr>
+    <td title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{#if updated}}{{updated|datetime}}{{/if}}{{#unless updated}}{{created|datetime}}{{/unless}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}"><b>{{name}}</b></td>
+    <td title="{{#i18n}}table.status{{/i18n}}">
+        {{#if answered}}
+            <a href="/support/ticket/{{id}}" title="{{#i18n}}actions.go{{/i18n}}" class="link mdi mdi-comment-alert-outline "><span>{{#i18n}}support.status.answered{{/i18n}}</span></a>
+        {{/if}}
+        {{#unless answered}}
+            <a href="/support/ticket/{{id}}" title="{{#i18n}}actions.go{{/i18n}}" class="link mdi mdi-comment-processing-outline"><span>{{#i18n}}support.status.new{{/i18n}}</span></a>
+        {{/unless}}
+    </td>
+    <td title="{{#i18n}}table.actions{{/i18n}}">
+        {{#unless status 'closed'}}
+            <a href="/support/ticket/{{id}}" title="{{#i18n}}actions.go{{/i18n}}" class="link mdi mdi-forum-outline"></a>
+            {{#unless status 'archived'}}
+                <a onclick="___mc.events.push('dashboard.ticket.archive', {{id}})" title="{{#i18n}}actions.archive{{/i18n}}"
+                   class="link mdi mdi-archive-arrow-down-outline"></a>
+            {{/unless}}
+
+            <a onclick="___mc.events.push('dashboard.ticket.close', {{id}})" title="{{#i18n}}actions.close{{/i18n}}"
+               class="link mdi mdi-close"></a>
+        {{/unless}}
+        {{#if status 'closed'}}
+            <a onclick="___mc.events.push('dashboard.ticket.reopen', {{id}})" title="{{#i18n}}actions.open{{/i18n}}"
+               class="link mdi mdi-email-open-multiple-outline">
+            </a>
+        {{/if}}
+    </td>
+</tr>

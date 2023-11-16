@@ -1,0 +1,6 @@
+<div id="{{id}}" class="tooltip">
+    <i class="mdi mdi-help-circle-outline"></i>
+    <div class="content">
+        {{{content}}}
+    </div>
+</div>

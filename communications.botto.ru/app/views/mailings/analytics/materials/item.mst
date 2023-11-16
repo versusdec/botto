@@ -1,0 +1,5 @@
+<tr>
+    <td>{{name}}</td>
+    <td>{{#player file=file}}{{/player}}</td>
+    <td>{{conversion}}</td>
+</tr>

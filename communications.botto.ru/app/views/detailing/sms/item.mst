@@ -1,0 +1,11 @@
+<tr>
+    <td title="ID">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{created}}</td>
+    <td title="{{#i18n}}table.type{{/i18n}}">{{#i18n}}detailing.calls.filters.{{type}}{{/i18n}}</td>
+    <td title="{{#i18n}}materials.type.text{{/i18n}}">{{text}}</td>
+    <td title="{{#i18n}}table.phone{{/i18n}}">{{phone|phone}}</td>
+    <td title="{{#i18n}}mailings.analytics.calls.cost{{/i18n}}">
+        {{amount}} {{#i18n}}currency{{/i18n}}
+    </td>
+</tr>
+

@@ -1,0 +1,48 @@
+<tr>
+    <td title="ID" style="width: 100px;">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}">
+        <div title="{{name}}" style="max-width: 150px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+            {{name}}
+        </div>
+    </td>
+    {{#if file}}
+        <td title="{{#i18n}}mailings.materials.audio{{/i18n}}">
+            {{#if file}}
+            {{#player file=file}}{{/player}}
+            {{/if}}
+        </td>
+    {{/if}}
+    {{#if type 'short_message_template'}}
+        <td title="{{#i18n}}notification.text{{/i18n}}">
+            <div class="message_text hid" title="{{data.text}}">
+                {{data.text}}
+            </div>
+        </td>
+    {{/if}}
+    {{#unless url}}
+        <td title="{{#i18n}}table.status{{/i18n}}">{{status|status}}</td>
+    {{/unless}}
+    <td>
+        {{#if type 'short_message_template'}}
+            <a href="/{{"project_id"|global}}/materials/clone/{{route}}/{{id}}/" title="{{#i18n}}actions.copy{{/i18n}}"
+               class="link mdi mdi-checkbox-multiple-blank-outline">
+            </a>
+        {{/if}}
+
+        {{#unless status 'archived'}}
+            <a class="link mdi mdi-file-edit-outline" href="/{{"project_id"|global}}/materials/edit/{{route}}/{{id}}/"
+               title="{{#i18n}}actions.edit{{/i18n}}"></a>
+
+            <a class="link mdi mdi-archive-arrow-down-outline"
+               onclick="___mc.events.push('materials.archive', {btn: this, id: {{id}} })"
+               title="{{#i18n}}actions.archive{{/i18n}}"></a>
+            {{#if status 'archived'}}
+                <!--<a class="link mdi mdi-archive-arrow-up-outline"
+               onclick="___mc.events.push('materials.unzip', {btn: this, id: {{id}} })"
+               title="{{#i18n}}actions.archive{{/i18n}}"></a>-->
+            {{/if}}
+        {{/unless}}
+    </td>
+</tr>
+

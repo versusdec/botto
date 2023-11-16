@@ -1,0 +1,46 @@
+<div class="fieldset" {{#if tempID}}data-tempID="{{tempID}}"{{/if}}>
+    <header>
+        <h2>{{#i18n}}projects.fields.title{{/i18n}}</h2>
+    </header>
+
+    <label>{{#i18n}}table.name{{/i18n}}</label>
+    <input type="text" name="name" required value="{{name}}" class="col-1-1">
+
+    <label>{{#i18n}}projects.fields.var{{/i18n}}</label>
+    <input type="text" name="var" required value="{{variable}}" class="col-1-1">
+
+    <label>{{#i18n}}table.type{{/i18n}}</label>
+    <div style="display:flex;align-items: center">
+        {{#select classlist='col-1-1' value=type options=select_options onchange=onchange}}{{/select}}
+        <a class="{{#unless type 'select'}}hide{{/unless}} btn option-add secondary" title="{{#i18n}}button.add{{/i18n}}"
+           onclick="___mc.events.push('fields.options.add')"
+           style="margin-left: 20px;">{{#i18n}}button.add{{/i18n}}</a>
+    </div>
+    <div id="options" class="{{#unless type 'select'}}hide{{/unless}}">
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}projects.fields.var{{/i18n}}</th>
+                    <th>{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody handler="modules/sortable" data-sortable-container>
+                {{#if options}}
+                    {{#each options}}
+                        {{> projects/edit/fields/option}}
+                    {{/each}}
+                {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="___mc.events.push('projects.fields.save', {btn: this{{#if id}}, id: {{id}}{{/if}}{{#if tempID}}, tempID: '{{tempID}}'{{/if}} })"
+                title="{{#i18n}}button.save{{/i18n}}">{{#i18n}}button.save{{/i18n}}</button>
+    </footer>
+</div>

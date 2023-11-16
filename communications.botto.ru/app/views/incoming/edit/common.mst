@@ -1,0 +1,17 @@
+<header>
+    <h2>{{#i18n}}edit.common{{/i18n}}</h2>
+</header>
+<label>{{#i18n}}table.name{{/i18n}}*</label>
+<input type="text" name="name" value="{{incoming.name}}"
+       onchange="___mc.events.push('incoming.name.change', this.value)">
+
+<label>{{#i18n}}mailings.common.phone{{/i18n}}*</label>
+<div class="columns" id="phones">
+    {{#seload classlist='col-1-1' option=any.option value=any.value onchange=onselect method=method params=params pattern=pattern selected=selected}}{{/seload}}
+    <button onclick="___mc.events.push('incoming.phones.rent')" class="secondary">{{#i18n}}phones.button{{/i18n}}</button>
+</div>
+
+
+<footer>
+{{> incoming/edit/footer}}
+</footer>

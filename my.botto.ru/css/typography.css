@@ -1,0 +1,259 @@
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+a[disabled] {
+    pointer-events: none;
+    color: var(--color__light_blue) !important;
+}
+
+p {
+    margin: 5px 0 15px 0;
+}
+
+a.mdi {
+    color: var(--color__blue);
+    font-size: 16px;
+}
+
+a.mdi::before {
+    margin-right: 10px;
+}
+
+a.back {
+    font-size: 26px;
+    color: var(--color__light_blue);
+    margin-right: 22px;
+}
+
+
+a.link {
+    color: var(--color__blue);
+}
+
+a.link:hover {
+    color: var(--color__red);
+}
+
+.hover:hover {
+    color: var(--color__red);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 15px 0;
+}
+
+br {
+    margin: 5px 0 15px 0;
+    display: block;
+    content: "";
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    border: none;
+    border-top: 1px solid var(--color__border);
+    margin-top: -1px;
+}
+
+.table {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 100%;
+}
+
+table th, table td {
+    text-align: left;
+    white-space: pre-line;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+table tbody tr {
+    background: var(--color__table2);
+}
+
+table tr > td:first-child, table tr > th:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    padding-left: 30px;
+}
+
+table tr > td:last-child, table tr > th:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    padding-right: 30px;
+    text-align: right;
+}
+
+table tbody tr:nth-child(2n) {
+    background: var(--color__table);
+}
+
+.expandable {
+    cursor: pointer;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+
+.expandable:hover {
+    background: var(--color__table);
+}
+
+table .expandable.expanded td {
+    border-top: 1px solid var(--color__border_d);
+}
+
+table .expandable.expanded td:first-child {
+    border-left: 1px solid var(--color__border_d);
+    border-bottom-left-radius: 0;
+}
+
+table .expandable.expanded td:last-child {
+    border-right: 1px solid var(--color__border_d);
+    border-bottom-right-radius: 0;
+}
+
+.expandable + .to-expand td {
+    padding: 0;
+    border: none;
+    background-color: #fff;
+}
+
+.expandable + .to-expand td > div {
+    max-height: 0;
+    overflow: hidden;
+    /*transition: all 0.3s;*/
+}
+
+.expandable.expanded .mdi-chevron-right::before {
+    content: "\F0140";
+}
+
+.expandable.expanded + .to-expand td {
+    max-height: initial;
+}
+
+.expandable.expanded + .to-expand td > div {
+    max-height: 1000px;
+    padding: 30px;
+}
+
+.expandable.expanded + .to-expand td {
+    position: relative;
+    top: -10px;
+    border: 1px solid var(--color__border_d);
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-top: none;
+}
+
+/*table tbody tr:last-child:first-child {
+    background: transparent;
+}*/
+tr[onclick]:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.table.align-center th:not(:first-child), .table.align-center td:not(:first-child) {
+    text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .table table thead {
+        display: none;
+    }
+
+    .table table tr {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+        flex-flow: column;
+        margin-bottom: 20px;
+    }
+
+    .table table tr > td {
+        padding-left: 50%;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .table table tr td::before {
+        content: attr(title);
+        position: absolute;
+        top: 15px;
+        left: 0;
+        max-width: 45%;
+        padding: 5px;
+        white-space: pre-line;
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    .table table tr td.actions {
+        margin-top: 15px;
+        padding-top: 20px;
+        border-top: 1px solid var(--color__border);
+    }
+
+    .table table tr td.actions a {
+        font-size: 20px;
+    }
+
+    .expandable {
+        position: relative;
+    }
+
+    .expandable > td:first-child {
+        display: none;
+    }
+
+    .expandable td.mobile {
+        position: absolute;
+        width: auto;
+        bottom: 10px;
+        left: 10px;
+        padding-left: 0;
+    }
+    table tr:not(.to-expand) td:last-child {
+        margin-top: 25px;
+        border-top: 1px solid var(--color__border);
+    }
+    table .expandable.expanded td, table .expandable.expanded td:last-child, .expandable.expanded + .to-expand td{
+        border: none;
+    }
+    td.action{
+        padding-left: 20px;
+    }
+
+    table tr > td:first-child, table tr > th:first-child {
+        padding-left: 50%;
+    }
+}

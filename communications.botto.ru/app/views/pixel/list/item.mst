@@ -1,0 +1,28 @@
+<tr>
+    <td title="{{#i18n}}table.name{{/i18n}}">{{name}}</td>
+    <td title="{{#i18n}}table.status{{/i18n}}">
+        {{status|status}}
+    </td>
+    <td title="{{#i18n}}pixel.visitors{{/i18n}}">
+        {{visitors}}
+    </td>
+    <td title="{{#i18n}}pixel.def{{/i18n}}">
+        {{def}}
+    </td>
+    <td title="{{#i18n}}pixel.conversion{{/i18n}}">
+        {{conversion}}
+    </td>
+    <td title="{{#i18n}}pixel.cost{{/i18n}}">
+        {{cost}} {{#i18n}}currency{{/i18n}}
+    </td>
+    <td>
+         <a class="link mdi mdi-file-download-outline" onclick="___mc.events.push('pixel.report.download', { id: {{id}} })"
+               title="{{#i18n}}pixel.report{{/i18n}}"></a>
+        <a class="link mdi mdi-open-in-new" href="/{{"project_id"|global}}/pixel/details/{{id}}/"
+           title="{{#i18n}}pixel.details{{/i18n}}"></a>
+        <a class="link mdi mdi-file-edit-outline" href="/{{"project_id"|global}}/pixel/edit/{{id}}/"
+           title="{{#i18n}}actions.edit{{/i18n}}"></a>
+
+    </td>
+</tr>
+

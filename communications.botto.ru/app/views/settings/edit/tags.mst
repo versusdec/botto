@@ -1,0 +1,6 @@
+<div class="tag">
+  <div class="remove" onclick="___mc.events.push('settings.tags.remove', {btn: this, id: {{id}} })">
+    <a class="mdi mdi-close hover"></a>
+  </div>
+  {{tag}}
+</div>

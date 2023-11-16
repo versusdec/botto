@@ -1,0 +1,214 @@
+<h1>{{#i18n}}dashboard.title{{/i18n}}</h1>
+<hr>
+<div class="columns reverse dashboard">
+    <aside>
+        <div class="block wallet">
+            <header>
+                <h2>{{#i18n}}wallet.balance{{/i18n}}</h2>
+                <!--        <sub><a href="/payments" class="link">Смотреть историю выплат</a></sub>-->
+            </header>
+            <div class="balance">
+                {{user.balance}} {{#i18n}}currency{{/i18n}}
+            </div>
+            <hr class="">
+            {{#if tariff}}
+                <div class="row" style="align-items: center">
+                    <span>{{#i18n}}tariff.title{{/i18n}}: {{tariff.name}}</span>
+                    {{#tooltip}}
+                        <div class="columns">
+                            <div class="">
+                                {{#i18n}}tariff.income{{/i18n}}:
+                            </div>
+                            <div style="text-align: end">{{tariff.prices.income_calls}} {{#i18n}}currency{{/i18n}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="">
+                                {{#i18n}}tariff.outcome{{/i18n}}:
+                            </div>
+                            <div style="text-align: end">{{tariff.prices.outcome_calls}} {{#i18n}}currency{{/i18n}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="">
+                                {{#i18n}}tariff.rent{{/i18n}}:
+                            </div>
+                            <div style="text-align: end">{{tariff.prices.phone_rent}} {{#i18n}}currency{{/i18n}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="">
+                                {{#i18n}}tariff.sms{{/i18n}}:
+                            </div>
+                            <div style="text-align: end">{{tariff.prices.sms}} {{#i18n}}currency{{/i18n}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="">
+                                {{#i18n}}tariff.stt{{/i18n}}:
+                            </div>
+                            <div style="text-align: end">{{tariff.prices.stt}} {{#i18n}}currency{{/i18n}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="">
+                                {{#i18n}}tariff.tts{{/i18n}}:
+                            </div>
+                            <div style="text-align: end">{{tariff.prices.tts}} {{#i18n}}currency{{/i18n}}</div>
+                        </div>
+                    {{/tooltip}}
+                </div>
+            {{/if}}
+            <br>
+            <a href="/billing/topup" class="btn">{{#i18n}}wallet.button{{/i18n}}</a>
+        </div>
+        {{#if user.manager}}
+            <div class="block manager">
+                <header>
+                    <h2>{{#i18n}}manager.title{{/i18n}}</h2>
+                </header>
+                {{#if user.manager.avatar}}
+                    <div class="image square">
+                        <img src="{{'config.api'|global}}{{user.manager.avatar}}" alt="">
+                    </div>
+                {{/if}}
+                <div class="name">
+                    {{user.manager.name}} {{user.manager.surname}}
+                </div>
+                <div class="flex">
+                    <div class="">
+                        <div class="">
+                            <b>e-mail:</b>
+                        </div>
+                        {{#if user.manager.telegram}}
+                            <div>
+                                <b>telegram:</b>
+                            </div>
+                        {{/if}}
+                        {{#if user.manager.phone}}
+                            <div>
+                                <b>{{#i18n}}manager.phone{{/i18n}}:</b>
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div class="">
+                        <div><a class="link" href="mailto:{{user.manager.email}}">{{user.manager.email}}</a></div>
+                        {{#if user.manager.telegram}}
+                            <div>{{telegram}}</div>
+                        {{/if}}
+                        {{#if user.manager.phone}}
+                            <div><a class="link" href="tel:{{user.manager.phone}}">{{user.manager.phone|phone}}</a></div>
+                        {{/if}}
+
+                    </div>
+                </div>
+                {{#if user.manager.phone}}
+                    <a href="tel:{{user.manager.phone}}" target="_self" class="btn">{{#i18n}}button.call{{/i18n}}</a>
+                {{/if}}
+            </div>
+        {{/if}}
+        <div class="block dash-news" handler="controllers/dashboard/news/handler">
+            <header>
+                <h2>Новости</h2>
+            </header>
+            <div class="list">
+                <div class="loader">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div style="overflow: auto">
+        <div class="block" handler="controllers/dashboard/projects/my/handler">
+            <header>
+                <h2> {{#i18n}}projects.tabs.my{{/i18n}} </h2>
+            </header>
+            <div class="table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th style="width: 80px;">ID</th>
+                        <th>{{#i18n}}table.date{{/i18n}}</th>
+                        <th>{{#i18n}}table.name{{/i18n}}</th>
+                        <th>{{#i18n}}projects.apps.available{{/i18n}}</th>
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <div class="loader"><span></span><span></span><span></span><span></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="buttons-wrapper">
+                <a href="/projects/list" class="btn secondary">
+                    {{#i18n}}projects.tabs.my{{/i18n}}
+                </a>
+                <a href="/projects/edit/new" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+            </footer>
+        </div>
+
+        <div class="block hide" handler="controllers/dashboard/projects/shared/handler">
+            <header>
+                <h2> {{#i18n}}projects.tabs.shared{{/i18n}} </h2>
+            </header>
+            <div class="table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th style="width: 80px;">ID</th>
+                        <th>{{#i18n}}table.date{{/i18n}}</th>
+                        <th>{{#i18n}}table.name{{/i18n}}</th>
+                        <th>{{#i18n}}projects.apps.available{{/i18n}}</th>
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <div class="loader"><span></span><span></span><span></span><span></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="buttons-wrapper">
+                <a href="/projects/list/shared" class="btn">
+                    {{#i18n}}projects.tabs.shared{{/i18n}}
+                </a>
+            </footer>
+        </div>
+
+        <div class="block" handler="controllers/dashboard/support/handler">
+            <header>
+                <h2> {{#i18n}}support.tickets{{/i18n}} </h2>
+            </header>
+            <div class="table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th style="width: 80px;">ID</th>
+                        <th>{{#i18n}}table.date{{/i18n}}</th>
+                        <th>{{#i18n}}table.name{{/i18n}}</th>
+                        <th>{{#i18n}}table.status{{/i18n}}</th>
+                        <th>{{#i18n}}table.actions{{/i18n}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <div class="loader"><span></span><span></span><span></span><span></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="buttons-wrapper">
+                <a href="/support" class="btn secondary">
+                    {{#i18n}}dashboard.support_all{{/i18n}}
+                </a>
+                <a href="/support/add/" class="btn">
+                    {{#i18n}}button.create{{/i18n}}
+                </a>
+            </footer>
+        </div>
+    </div>
+</div>

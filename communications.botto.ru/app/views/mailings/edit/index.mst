@@ -1,0 +1,21 @@
+<div class="block" id="common" handler="controllers/mailings/edit/common" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="ivr" handler="controllers/mailings/edit/ivr" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="materials" handler="controllers/mailings/edit/materials" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="bases" handler="controllers/mailings/edit/bases" data-id="{{id}}" >
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="blacklists" handler="controllers/mailings/edit/bases" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="schedule" handler="controllers/mailings/edit/schedule" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="block hide" id="settings" handler="controllers/mailings/edit/settings" data-id="{{id}}">
+  <div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>

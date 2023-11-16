@@ -1,0 +1,106 @@
+<div class="project_settings">
+    <header><h2>{{#i18n}}projects.edit.settings{{/i18n}}</h2>
+        <ul class="tabs">
+            <li class="active">
+                <a onclick="___mc.events.push('projects.settings.tab', {tab: 'fields', btn: this})">{{#i18n}}projects.edit.tabs.fields.title{{/i18n}}</a>
+            </li>
+            <li>
+                <a onclick="___mc.events.push('projects.settings.tab', {tab: 'tags', btn: this})">{{#i18n}}projects.edit.tabs.tags.title{{/i18n}}</a>
+            </li>
+            <li class="{{#if shared}}hide{{/if}}">
+                <a onclick="___mc.events.push('projects.settings.tab', {tab: 'users', btn: this})">{{#i18n}}projects.edit.tabs.users.title{{/i18n}}</a>
+            </li>
+        </ul>
+    </header>
+    <div class="block  tab" id="fields" handler="controllers/projects/edit/fields/handler">
+        <header>
+            <h2>{{#i18n}}projects.edit.tabs.fields.title{{/i18n}}</h2>
+            <button type="button" class="" onclick="___mc.events.push('projects.fields.add')">
+                {{#i18n}}button.add{{/i18n}}
+            </button>
+        </header>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th style="max-width: 80px">ID</th>
+                    <th>{{#i18n}}table.name{{/i18n}}</th>
+                    <th>{{#i18n}}projects.fields.var{{/i18n}}</th>
+                    <th>{{#i18n}}table.type{{/i18n}}</th>
+                    <th style="width: 100px;">{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="5">
+                        <div class="loader">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="block hide tab" id="tags" handler="controllers/projects/edit/tags/handler" data-id="{{id}}">
+        <header>
+            <h2>{{#i18n}}projects.edit.tabs.tags.title{{/i18n}}</h2>
+        </header>
+        <div class="flex">
+            <input type="text" style="width: 100%;" name="tag">
+            <button type="button" class="secondary" style="margin-left: 20px;" onclick="___mc.events.push('projects.tags.add')">{{#i18n}}
+                button.add{{/i18n}}</button>
+        </div>
+        <br>
+        <div class="row list tags">
+            <div style="margin: 10px auto;" class="loader"><span></span><span></span><span></span><span></span></div>
+
+        </div>
+    </div>
+
+    {{#unless shared}}
+        <div class="block hide tab" id="users" handler="controllers/projects/edit/users/handler" data-id="{{id}}">
+            <header>
+                <h2>{{#i18n}}projects.edit.tabs.users.title{{/i18n}}</h2>
+            </header>
+
+            <label>E-mail</label>
+            <div id="invite">
+                <input type="email">
+                <button disabled class="secondary"
+                        onclick="___mc.events.push('projects.users.add', {email: $(this).parent().find('input').val()})">
+                    {{#i18n}}projects.edit.tabs.users.invite{{/i18n}}
+                </button>
+            </div>
+
+            <table>
+                <thead>
+                <tr>
+                    <th style="width: 100px;">ID</th>
+                    <th style="width: 150px;">E-mail</th>
+                    <th style="width: 100px;">{{#i18n}}table.actions{{/i18n}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="3">
+                        <div class="loader"><span></span><span></span><span></span><span></span></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    {{/unless}}
+
+    <footer class="buttons-wrapper">
+        <a onclick="$(this).closest('.popup-wrapper').remove()" class="btn secondary">{{#i18n}}button.cancel{{/i18n}}</a>
+
+        <button type="button" onclick="___mc.events.push('projects.settings.save', this)">{{#i18n}}button.save{{/i18n}}</button>
+    </footer>
+
+
+</div>

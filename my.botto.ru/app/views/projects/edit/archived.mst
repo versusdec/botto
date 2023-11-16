@@ -1,0 +1,175 @@
+<h1><a class="back mdi mdi-arrow-left-circle-outline" href="/projects/list/archived"></a>{{title}}</h1>
+<ul class="tabs">
+  <li class="active">
+    <a href="#tab=about">
+      {{#i18n}}projects.edit.tabs.about.title{{/i18n}}
+    </a>
+  </li>
+  <li>
+    <a href="#tab=applications">
+      {{#i18n}}projects.edit.tabs.apps.title{{/i18n}}
+    </a>
+  </li>
+  <li>
+    <a href="#tab=fields">
+      {{#i18n}}projects.edit.tabs.fields.title{{/i18n}}
+    </a>
+  </li>
+  <li>
+    <a href="#tab=tags">
+      {{#i18n}}projects.edit.tabs.tags.title{{/i18n}}
+    </a>
+  </li>
+  <li>
+    <a href="#tab=users">
+      {{#i18n}}projects.edit.tabs.users.title{{/i18n}}
+    </a>
+  </li>
+</ul>
+<hr>
+<div class="block" id="about" data-project_id="{{id}}">
+  <header>
+    <h2>{{#i18n}}projects.edit.tabs.about.title{{/i18n}}</h2>
+  </header>
+  <label>{{#i18n}}table.name{{/i18n}}</label>
+  <input type="text" name="name" value="{{project.name}}" disabled>
+
+  <label>{{#i18n}}table.description{{/i18n}}</label>
+  <textarea name="description" disabled>{{project.description}}</textarea>
+
+  <footer>
+    <a class="btn" href="/projects/list/archived">
+      {{#i18n}}button.close{{/i18n}}
+    </a>
+  </footer>
+</div>
+
+<div class="block hide" id="applications">
+  <header>
+    <h2>{{#i18n}}projects.edit.tabs.apps.title{{/i18n}}</h2>
+  </header>
+  <p>{{#i18n}}projects.edit.tabs.apps.description{{/i18n}}</p>
+
+  <div class="row">
+    {{#each apps}}
+      <div class="platform">
+        <img src="/img/logo-sm-dark.svg" alt="" class="">
+        <h4>{{name}}</h4>
+        <p>{{description}}</p>
+        {{#if available}}
+          {{#if connected}}
+            <button data-application="{{name}}" data-status="{{connected}}" disabled>{{#i18n}}button.connected{{/i18n}}</button>
+          {{/if}}
+          {{#unless connected}}
+            <button data-application="{{name}}" data-status="connect" disabled>{{#i18n}}button.connect{{/i18n}}</button>
+          {{/unless}}
+        {{/if}}
+
+        {{#unless available}}
+          <button data-application="{{name}}" disabled>{{#i18n}}system.soon{{/i18n}}</button>
+        {{/unless}}
+      </div>
+    {{/each}}
+  </div>
+
+  <footer>
+    <a class="btn" href="/projects/list/archived">
+      {{#i18n}}button.close{{/i18n}}
+    </a>
+  </footer>
+
+</div>
+
+<div class="block hide" id="fields" handler="controllers/projects/edit/fields/handler" data-id="{{project.id}}">
+  <header>
+    <h2>{{#i18n}}projects.edit.tabs.fields.title{{/i18n}}</h2>
+  </header>
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th style="max-width: 80px">ID</th>
+        <th>{{#i18n}}table.name{{/i18n}}</th>
+        <th>{{#i18n}}table.type{{/i18n}}</th>
+        <th style="width: 100px;">{{#i18n}}table.actions{{/i18n}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="4">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>
+    <a class="btn" href="/projects/list/archived">
+      {{#i18n}}button.close{{/i18n}}
+    </a>
+  </footer>
+
+</div>
+
+<div class="block hide" id="tags" handler="controllers/projects/edit/tags/handler" data-id="{{project.id}}">
+  <header>
+    <h2>{{#i18n}}projects.edit.tabs.tags.title{{/i18n}}</h2>
+  </header>
+  <div class="flex">
+    <input type="text" style="width: 100%;" name="tag">
+  </div>
+  <br>
+  <div class="row list">
+  </div>
+  <footer>
+    <a class="btn" href="/projects/list/archived">
+      {{#i18n}}button.close{{/i18n}}
+    </a>
+  </footer>
+
+</div>
+
+<div class="block hide" id="users" handler="controllers/projects/edit/users/handler" data-id="{{id}}">
+  <header>
+    <h2>{{#i18n}}projects.edit.tabs.users.title{{/i18n}}</h2>
+  </header>
+
+
+  <label>E-mail</label>
+  <div class="table">
+    <table>
+      <thead>
+      <tr>
+        <th style="width: 100px;">ID</th>
+        <th style="width: 150px;">E-mail</th>
+        <th style="width: 100px;">{{#i18n}}table.actions{{/i18n}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="3">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <a class="btn" href="/projects/list/archived">
+      {{#i18n}}button.close{{/i18n}}
+    </a>
+  </footer>
+
+</div>
+

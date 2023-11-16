@@ -1,0 +1,16 @@
+<td title="{{hour}}:00" data-hour="{{hour}}">
+    <div class="dropdown no-arrow {{#if weekday 'IN' 'fri' 'sat' 'sun'}}top{{/if}} {{#unless hour 'IN' 20 21}}center{{/unless}}" style="width: fit-content;">
+        <div class="title">
+            <input type="checkbox" class="btn " name="hour" {{#if checked}}checked{{/if}}
+                   onchange="___mc.events.push('mailings.schedule.day.change', this)">
+        </div>
+        <!--div class="content" style="min-width: 200px">
+            <label for="" style="margin-top: 0;">Лиды</label>
+            <input type="number" name="leads" value="{{leads}}" onchange="___mc.events.push('mailings.schedule.day.settings.change', this)">
+            <label for="">Затраты</label>
+            <input type="number" name="max_spent" value="{{max_spent}}"  onchange="___mc.events.push('mailings.schedule.day.settings.change', this)">
+            <br>
+            {{#range text="mailings.settings.speed" min=0 max=36000 value=speed step=100 name="speed" onchange='mailings.schedule.day.settings.change'}}{{/range}}
+        </div-->
+    </div>
+</td>

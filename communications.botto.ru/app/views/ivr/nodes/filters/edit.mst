@@ -1,0 +1,29 @@
+<div>
+    <header>
+        <h2>{{#i18n}}ivr.nodes.settings{{/i18n}}</h2>
+    </header>
+    <div data-id="{{id}}" data-node_id="{{node_id}}">
+        <label>{{#i18n}}ivr.nodes.filters.type{{/i18n}}</label>
+        {{#select value=type options=types onchange="ivr.node.settings.type.change"}}{{/select}}
+
+        <div class="dtmf-settings {{#unless type 'dtmf'}}hide{{/unless}}">
+            <label>{{#i18n}}ivr.nodes.filters.dtmf{{/i18n}}</label>
+            <input class="filter" name="digit" type="text" value="{{settings.digit}}">
+        </div>
+
+        <div class="recognize-settings {{#unless type 'recognize'}}hide{{/unless}}">
+            <label>{{#i18n}}ivr.nodes.filters.recognize.include{{/i18n}}</label>
+            <input class="filter" name="include" type="text" value="{{settings.include}}">
+
+            <label>{{#i18n}}ivr.nodes.filters.recognize.exclude{{/i18n}}</label>
+            <input class="filter" name="exclude" type="text" value="{{settings.exclude}}">
+        </div>
+        <br>
+        <div class="buttons-wrapper" style="gap:15px">
+            <a onclick="___mc.events.push('ivr.node.settings.close')" class="btn secondary">{{#i18n}}button.cancel{{/i18n}}</a>
+
+            <button onclick="___mc.events.push('ivr.node.settings.save', {id:{{id}}, node_id:{{node_id}}, type:'filter'})">
+                {{#i18n}}button.save{{/i18n}}</button>
+        </div>
+    </div>
+</div>

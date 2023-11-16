@@ -1,0 +1,6 @@
+<a href="https://{{name}}.{{'config.domain'|global}}/{{../id}}/" target="_blank" class="platform">
+    <img src="/img/logo-sm-dark.svg" alt="" class="">
+    <h4 style="">{{name}}</h4>
+    <button>{{#i18n}}button.go{{/i18n}}</button>
+</a>
+

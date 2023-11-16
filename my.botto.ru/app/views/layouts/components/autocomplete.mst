@@ -1,0 +1,7 @@
+<div class="autocomplete" id="{{id}}">
+    <label>{{#i18n}}{{label}}{{/i18n}}</label>
+    <input type="text" value="{{value}}">
+    <ul class="options">
+        <li class="empty">{{#i18n}}table.empty{{/i18n}}</li>
+    </ul>
+</div>

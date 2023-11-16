@@ -1,0 +1,25 @@
+
+    <td title="ID" style="width: 100px;">{{id}}</td>
+    <td title="{{#i18n}}table.date{{/i18n}}">{{created|datetime}}</td>
+    <td title="{{#i18n}}table.name{{/i18n}}" data-name>{{name}}</td>
+    <td title="{{#i18n}}table.status{{/i18n}}" data-status>{{status|status}}</td>
+    <td title="{{#i18n}}bases.amount{{/i18n}}" data-total>{{size.total}}</td>
+    <td style="white-space: nowrap">
+        <a class="link mdi mdi-download" onclick="___mc.events.push('bases.contacts.export', {type: '{{type}}', id: {{id}}, btn: this })"
+           title="{{#i18n}}actions.download{{/i18n}}"></a>
+
+        <a class="link mdi mdi-file-edit-outline" href="/{{"project_id"|global}}/database/{{type}}/edit/{{id}}/"
+           title="{{#i18n}}actions.edit{{/i18n}}"></a>
+
+        {{#unless status 'archived'}}
+            <a class="link mdi mdi-archive-arrow-down-outline"
+               onclick="___mc.events.push('bases.archive', {id: {{id}}, btn: this })"
+               title="{{#i18n}}actions.archive{{/i18n}}"></a>
+        {{/unless}}
+        {{#if status 'archived'}}
+            <a class="link mdi mdi-archive-arrow-up-outline"
+               onclick="___mc.events.push('bases.unzip', {id: {{id}}, btn: this })"
+               title="{{#i18n}}actions.unzip{{/i18n}}"></a>
+        {{/if}}
+    </td>
+

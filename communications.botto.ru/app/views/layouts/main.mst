@@ -1,0 +1,16 @@
+<div class="loading">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+{{> layouts/areas/nav}}
+<main>
+    {{> layouts/areas/header}}
+    <article data-content-holder>
+        {{{content}}}
+    </article>
+    {{> layouts/areas/footer}}
+</main>

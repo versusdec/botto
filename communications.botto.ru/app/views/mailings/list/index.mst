@@ -1,0 +1,100 @@
+<div class="filters block">
+    <header><h2>{{#i18n}}filter.title{{/i18n}}</h2></header>
+    <div class="columns">
+        <div class="col-1-3">
+            {{#datepicker type='date' name='period_start' label='filter.period_start' onchange='mailings.filter.range.change' date=filter.period_start}}{{/datepicker}}
+        </div>
+        <div class="col-1-3">
+            {{#datepicker type='date' name='period_end' label='filter.period_end' onchange='mailings.filter.range.change' date=filter.period_end}}{{/datepicker}}
+        </div>
+        <div class="col-1-3">
+            <label>{{#i18n}}table.name{{/i18n}}</label>
+            <input type="text" value="{{filter.name}}" onchange="___mc.events.push('mailings.filter.name.change', this.value)">
+        </div>
+    </div>
+    {{#if tab 'active'}}
+        <h3>{{#i18n}}mailings.state{{/i18n}}</h3>
+        <div class="row">
+            <label style="display:flex;align-items: center;gap:10px"><input type="checkbox" name="running" class="default" onchange="___mc.events.push('mailings.filter.state.change')" {{#unless filter.state}}checked{{/unless}} {{#each filter.state}}{{#if . 'running'}}checked{{/if}}{{/each}}>
+                {{#i18n}}status.running{{/i18n}}
+            </label>
+            <label style="display:flex;align-items: center;gap:10px"><input type="checkbox" name="paused" class="default" onchange="___mc.events.push('mailings.filter.state.change')"  {{#unless filter.state}}checked{{/unless}} {{#each filter.state}}{{#if . 'paused'}}checked{{/if}}{{/each}}>
+                {{#i18n}}status.paused{{/i18n}}
+            </label>
+            <label style="display:flex;align-items: center;gap:10px"><input type="checkbox" name="ended" class="default" onchange="___mc.events.push('mailings.filter.state.change')"   {{#unless filter.state}}checked{{/unless}} {{#each filter.state}}{{#if . 'ended'}}checked{{/if}}{{/each}}>
+                {{#i18n}}status.ended{{/i18n}}
+            </label>
+            <label style="display:flex;align-items: center;gap:10px"><input type="checkbox" name="stopped" class="default" onchange="___mc.events.push('mailings.filter.state.change')" {{#unless filter.state}}checked{{/unless}} {{#each filter.state}}{{#if . 'stopped'}}checked{{/if}}{{/each}}>
+                {{#i18n}}status.stopped{{/i18n}}
+            </label>
+        </div>
+    {{/if}}
+    <footer class="buttons-wrapper">
+        <button type="button" class="secondary"
+                onclick="___mc.events.push('mailings.filter.reset')">{{#i18n}}button.reset{{/i18n}}</button>
+        <button type="button" onclick="___mc.events.push('mailings.filter')">{{#i18n}}button.apply{{/i18n}}</button>
+    </footer>
+</div>
+
+<div class="block" handler="controllers/mailings/list/handler" data-tab="{{tab}}" data-type="{{type}}">
+    <header>
+        <h2>{{#i18n}}mailings.title{{/i18n}}</h2>
+        <ul class="tabs hide">
+            <li{{#if type 'voice'}} class="active"{{/if}}>
+                <a href="/{{"project_id"|global}}/mailings/{{tab}}/voice/">{{#i18n}}mailings.voice{{/i18n}}</a>
+            </li>
+            <!--<li{{#if type 'text'}} class="active"{{/if}}>
+              <a href="/{{"project_id"|global}}/mailings/{{tab}}/text/">{{#i18n}}mailings.text{{/i18n}}</a>
+          </li>-->
+        </ul>
+        <a href="/{{"project_id"|global}}/mailings/edit/voice/new/" class="btn">{{#i18n}}button.create{{/i18n}}</a>
+    </header>
+    <div class="hide row" id="checkbox_buttons" style="justify-content: flex-end">
+        <button type="button" onclick="___mc.events.push('mailings.list.stop')">{{#i18n}}actions.stop{{/i18n}}</button>
+        <button type="button" onclick="___mc.events.push('mailings.list.archive')">{{#i18n}}actions.archive{{/i18n}}</button>
+    </div>
+    {{#if tab 'archived'}}
+        {{#pagination}}{{/pagination}}
+    {{/if}}
+    <div class="table" id="mailings-list">
+        <table>
+            <thead>
+            <tr>
+                {{#unless tab 'archived'}}
+                    <th style="width: 80px;"><input type="checkbox" class="default" onclick="___mc.events.push('mailings.list.check.all', this)"></th>
+                {{/unless}}
+                <th style="width: 50px;">ID</th>
+                <th>{{#i18n}}table.date{{/i18n}}</th>
+                <th>{{#i18n}}table.name{{/i18n}}</th>
+                <th style="width: 200px;">{{#i18n}}mailings.progress{{/i18n}}</th>
+                <th style="width: 200px;">{{#i18n}}mailings.speed{{/i18n}}</th>
+                <th>{{#i18n}}table.status{{/i18n}}</th>
+                <th>
+                    {{#i18n}}mailings.results{{/i18n}}
+                    <div style="font-size: 13px;font-weight:normal;">
+                        {{#i18n}}mailings.spent{{/i18n}} /
+                        {{#i18n}}mailings.price{{/i18n}} /
+                        {{#i18n}}mailings.leads{{/i18n}}
+                    </div>
+                </th>
+                <th>{{#i18n}}table.actions{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody style="position: relative;">
+            <tr>
+                <td colspan="{{#if tab 'archived'}}8{{/if}}{{#unless tab 'archived'}}9{{/unless}} ">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{#if tab 'archived'}}
+        {{#pagination}}{{/pagination}}
+    {{/if}}
+</div>

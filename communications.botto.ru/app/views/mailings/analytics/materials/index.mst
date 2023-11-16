@@ -1,0 +1,29 @@
+<div class="block">
+    <header>
+        <h2>
+            {{#i18n}}mailings.analytics.materials.title{{/i18n}}
+        </h2>
+    </header>
+    <div class="table" handler="controllers/mailings/analytics/materials/handler" data-id="{{mailing_id}}">
+        <table>
+            <thead>
+            <tr>
+                <th>{{#i18n}}table.name{{/i18n}}</th>
+                <th>{{#i18n}}mailings.analytics.materials.item{{/i18n}}</th>
+                <th>{{#i18n}}dashboard.funnel.conversion{{/i18n}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="3">
+                    <div class="loader"><span></span><span></span><span></span><span></span></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

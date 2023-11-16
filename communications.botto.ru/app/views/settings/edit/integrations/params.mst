@@ -1,0 +1,12 @@
+<tr class="field-header">
+  <td title="{{#i18n}}table.name{{/i18n}}">
+    <input type="text" value="{{name}}" name="name">
+  </td>
+  <td title="{{#i18n}}projects.fields.var{{/i18n}}">
+    <input type="text" value="{{value}}" name="value">
+  </td>
+  <td title="{{#i18n}}table.actions{{/i18n}}">
+    <a class="mdi mdi-close hover" title="{{#i18n}}button.delete{{/i18n}}"
+       onclick="___mc.events.push('settings.integrations.settings.params.remove', this)"></a>
+  </td>
+</tr>
